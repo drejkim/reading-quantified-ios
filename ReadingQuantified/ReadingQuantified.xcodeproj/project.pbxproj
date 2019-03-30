@@ -105,6 +105,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		06716FD022500C62008D179E /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				069A975F224FEC4500B4E302 /* Books.storyboard */,
+				069A975D224FEC2F00B4E302 /* Dashboard.storyboard */,
+				0681C0F2224FBFD6000EF660 /* LaunchScreen.storyboard */,
+				0681C0EA224FBFD6000EF660 /* Main.storyboard */,
+				069A9761224FEC5200B4E302 /* Settings.storyboard */,
+				069A9759224FDF1D00B4E302 /* Startup.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
 		0681C0DA224FBFD5000EF660 = {
 			isa = PBXGroup;
 			children = (
@@ -178,12 +191,7 @@
 		069A9757224FD6C400B4E302 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				069A975F224FEC4500B4E302 /* Books.storyboard */,
-				069A975D224FEC2F00B4E302 /* Dashboard.storyboard */,
-				0681C0F2224FBFD6000EF660 /* LaunchScreen.storyboard */,
-				0681C0EA224FBFD6000EF660 /* Main.storyboard */,
-				069A9761224FEC5200B4E302 /* Settings.storyboard */,
-				069A9759224FDF1D00B4E302 /* Startup.storyboard */,
+				06716FD022500C62008D179E /* Storyboards */,
 			);
 			path = Views;
 			sourceTree = "<group>";
