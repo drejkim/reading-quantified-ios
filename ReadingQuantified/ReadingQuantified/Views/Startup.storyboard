@@ -19,7 +19,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZqJ-vK-9fk">
-                                <rect key="frame" x="186" y="438" width="42" height="30"/>
+                                <rect key="frame" x="182" y="431" width="50" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="Log In"/>
                                 <connections>
                                     <segue destination="RYd-Yh-E0g" kind="showDetail" id="iBm-nr-9TF"/>
@@ -28,8 +29,8 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="ZqJ-vK-9fk" firstAttribute="centerX" secondItem="0fm-1i-aX4" secondAttribute="centerX" id="2ih-AK-LO2"/>
-                            <constraint firstItem="ZqJ-vK-9fk" firstAttribute="centerY" secondItem="0fm-1i-aX4" secondAttribute="centerY" id="QO3-8U-pX6"/>
+                            <constraint firstItem="ZqJ-vK-9fk" firstAttribute="centerX" secondItem="Le9-9m-u3T" secondAttribute="centerX" id="Qfh-cf-7ns"/>
+                            <constraint firstItem="ZqJ-vK-9fk" firstAttribute="centerY" secondItem="Le9-9m-u3T" secondAttribute="centerY" id="xfD-Fy-EsY"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="0fm-1i-aX4"/>
                     </view>

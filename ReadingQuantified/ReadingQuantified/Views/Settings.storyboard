@@ -17,7 +17,21 @@
                     <view key="view" contentMode="scaleToFill" id="kLL-y4-cTQ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gfe-5I-Giw">
+                                <rect key="frame" x="174.5" y="431" width="65" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="Log Out"/>
+                                <connections>
+                                    <segue destination="0Xq-XF-ykX" kind="showDetail" id="W47-kM-sKd"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Gfe-5I-Giw" firstAttribute="centerY" secondItem="kLL-y4-cTQ" secondAttribute="centerY" id="HTN-NI-Qj6"/>
+                            <constraint firstItem="Gfe-5I-Giw" firstAttribute="centerX" secondItem="kLL-y4-cTQ" secondAttribute="centerX" id="RSj-no-OMK"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="azP-ba-FlH"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Settings" image="baseline_settings_black_24pt" id="423-0G-Di1"/>
@@ -26,6 +40,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dog-8S-YzY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1835" y="859"/>
+        </scene>
+        <!--Startup-->
+        <scene sceneID="g9r-cQ-zlr">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Startup" id="0Xq-XF-ykX" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hRl-cH-jwt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2448" y="858"/>
         </scene>
     </scenes>
     <resources>
