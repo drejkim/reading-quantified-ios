@@ -78,8 +78,10 @@
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZqJ-vK-9fk">
                                         <rect key="frame" x="0.0" y="205" width="342" height="34"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                        <state key="normal" title="Log In"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                        <state key="normal" title="Log In">
+                                            <color key="titleColor" name="color_primary"/>
+                                        </state>
                                         <connections>
                                             <segue destination="RYd-Yh-E0g" kind="showDetail" id="iBm-nr-9TF"/>
                                         </connections>
@@ -111,6 +113,9 @@
     <resources>
         <namedColor name="bg_dark">
             <color red="0.20392156862745098" green="0.22745098039215686" blue="0.25098039215686274" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="color_primary">
+            <color red="0.70196078431372544" green="0.10588235294117647" blue="0.10588235294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="text_body">
             <color red="0.12941176470588237" green="0.14509803921568629" blue="0.16078431372549021" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
