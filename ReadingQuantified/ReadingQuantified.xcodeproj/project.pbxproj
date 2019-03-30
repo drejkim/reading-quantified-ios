@@ -8,13 +8,20 @@
 
 /* Begin PBXBuildFile section */
 		0681C0E7224FBFD6000EF660 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0681C0E6224FBFD6000EF660 /* AppDelegate.swift */; };
-		0681C0E9224FBFD6000EF660 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0681C0E8224FBFD6000EF660 /* ViewController.swift */; };
 		0681C0EC224FBFD6000EF660 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0681C0EA224FBFD6000EF660 /* Main.storyboard */; };
 		0681C0EF224FBFD6000EF660 /* ReadingQuantified.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0681C0ED224FBFD6000EF660 /* ReadingQuantified.xcdatamodeld */; };
 		0681C0F1224FBFD6000EF660 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0681C0F0224FBFD6000EF660 /* Assets.xcassets */; };
 		0681C0F4224FBFD6000EF660 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0681C0F2224FBFD6000EF660 /* LaunchScreen.storyboard */; };
 		0681C0FF224FBFD6000EF660 /* ReadingQuantifiedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0681C0FE224FBFD6000EF660 /* ReadingQuantifiedTests.swift */; };
 		0681C10A224FBFD6000EF660 /* ReadingQuantifiedUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0681C109224FBFD6000EF660 /* ReadingQuantifiedUITests.swift */; };
+		069A975A224FDF1D00B4E302 /* Startup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 069A9759224FDF1D00B4E302 /* Startup.storyboard */; };
+		069A975C224FDFAC00B4E302 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 069A975B224FDFAC00B4E302 /* LoginViewController.swift */; };
+		069A975E224FEC2F00B4E302 /* Dashboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 069A975D224FEC2F00B4E302 /* Dashboard.storyboard */; };
+		069A9760224FEC4500B4E302 /* Books.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 069A975F224FEC4500B4E302 /* Books.storyboard */; };
+		069A9762224FEC5200B4E302 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 069A9761224FEC5200B4E302 /* Settings.storyboard */; };
+		069A9764224FEDF000B4E302 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 069A9763224FEDF000B4E302 /* DashboardViewController.swift */; };
+		069A9766224FEDFB00B4E302 /* BooksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 069A9765224FEDFB00B4E302 /* BooksViewController.swift */; };
+		069A9768224FEE0B00B4E302 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 069A9767224FEE0B00B4E302 /* SettingsViewController.swift */; };
 		A003AF9BA745012378F0A35B /* Pods_ReadingQuantifiedUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42A811FF0C5E0E1BE3D2C4FD /* Pods_ReadingQuantifiedUITests.framework */; };
 		D93CDD88DD5C6868F8FF7B38 /* Pods_ReadingQuantified.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EC864EEEFA131031667D5CB /* Pods_ReadingQuantified.framework */; };
 		E0A8EF70E246FBAC517937FC /* Pods_ReadingQuantifiedTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9B34EF460CDB879D75A65D7 /* Pods_ReadingQuantifiedTests.framework */; };
@@ -41,7 +48,6 @@
 		051AB5DB166E79AA67168396 /* Pods-ReadingQuantifiedTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReadingQuantifiedTests.release.xcconfig"; path = "Target Support Files/Pods-ReadingQuantifiedTests/Pods-ReadingQuantifiedTests.release.xcconfig"; sourceTree = "<group>"; };
 		0681C0E3224FBFD5000EF660 /* ReadingQuantified.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReadingQuantified.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0681C0E6224FBFD6000EF660 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		0681C0E8224FBFD6000EF660 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		0681C0EB224FBFD6000EF660 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0681C0EE224FBFD6000EF660 /* ReadingQuantified.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ReadingQuantified.xcdatamodel; sourceTree = "<group>"; };
 		0681C0F0224FBFD6000EF660 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -53,6 +59,14 @@
 		0681C105224FBFD6000EF660 /* ReadingQuantifiedUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ReadingQuantifiedUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0681C109224FBFD6000EF660 /* ReadingQuantifiedUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingQuantifiedUITests.swift; sourceTree = "<group>"; };
 		0681C10B224FBFD6000EF660 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		069A9759224FDF1D00B4E302 /* Startup.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Startup.storyboard; sourceTree = "<group>"; };
+		069A975B224FDFAC00B4E302 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		069A975D224FEC2F00B4E302 /* Dashboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Dashboard.storyboard; sourceTree = "<group>"; };
+		069A975F224FEC4500B4E302 /* Books.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Books.storyboard; sourceTree = "<group>"; };
+		069A9761224FEC5200B4E302 /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
+		069A9763224FEDF000B4E302 /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
+		069A9765224FEDFB00B4E302 /* BooksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksViewController.swift; sourceTree = "<group>"; };
+		069A9767224FEE0B00B4E302 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		09C79FE59E75A8645FAAE9C6 /* Pods-ReadingQuantifiedUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReadingQuantifiedUITests.debug.xcconfig"; path = "Target Support Files/Pods-ReadingQuantifiedUITests/Pods-ReadingQuantifiedUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		3B68C14E46371754AED0B8CE /* Pods-ReadingQuantified.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReadingQuantified.release.xcconfig"; path = "Target Support Files/Pods-ReadingQuantified/Pods-ReadingQuantified.release.xcconfig"; sourceTree = "<group>"; };
 		3E1C7BDEE1C44D4EBDE17EE8 /* Pods-ReadingQuantified.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReadingQuantified.debug.xcconfig"; path = "Target Support Files/Pods-ReadingQuantified/Pods-ReadingQuantified.debug.xcconfig"; sourceTree = "<group>"; };
@@ -116,13 +130,10 @@
 		0681C0E5224FBFD6000EF660 /* ReadingQuantified */ = {
 			isa = PBXGroup;
 			children = (
-				0681C0E6224FBFD6000EF660 /* AppDelegate.swift */,
-				0681C0E8224FBFD6000EF660 /* ViewController.swift */,
-				0681C0EA224FBFD6000EF660 /* Main.storyboard */,
-				0681C0F0224FBFD6000EF660 /* Assets.xcassets */,
-				0681C0F2224FBFD6000EF660 /* LaunchScreen.storyboard */,
-				0681C0F5224FBFD6000EF660 /* Info.plist */,
-				0681C0ED224FBFD6000EF660 /* ReadingQuantified.xcdatamodeld */,
+				069A9755224FD6B000B4E302 /* AppDelegate */,
+				069A9756224FD6BB00B4E302 /* Controllers */,
+				069A9758224FD6CC00B4E302 /* Resources */,
+				069A9757224FD6C400B4E302 /* Views */,
 			);
 			path = ReadingQuantified;
 			sourceTree = "<group>";
@@ -145,6 +156,48 @@
 			path = ReadingQuantifiedUITests;
 			sourceTree = "<group>";
 		};
+		069A9755224FD6B000B4E302 /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				0681C0E6224FBFD6000EF660 /* AppDelegate.swift */,
+			);
+			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		069A9756224FD6BB00B4E302 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				069A9765224FEDFB00B4E302 /* BooksViewController.swift */,
+				069A9763224FEDF000B4E302 /* DashboardViewController.swift */,
+				069A975B224FDFAC00B4E302 /* LoginViewController.swift */,
+				069A9767224FEE0B00B4E302 /* SettingsViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		069A9757224FD6C400B4E302 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				069A975F224FEC4500B4E302 /* Books.storyboard */,
+				069A975D224FEC2F00B4E302 /* Dashboard.storyboard */,
+				0681C0F2224FBFD6000EF660 /* LaunchScreen.storyboard */,
+				0681C0EA224FBFD6000EF660 /* Main.storyboard */,
+				069A9761224FEC5200B4E302 /* Settings.storyboard */,
+				069A9759224FDF1D00B4E302 /* Startup.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		069A9758224FD6CC00B4E302 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				0681C0F5224FBFD6000EF660 /* Info.plist */,
+				0681C0F0224FBFD6000EF660 /* Assets.xcassets */,
+				0681C0ED224FBFD6000EF660 /* ReadingQuantified.xcdatamodeld */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		0D918DF31E9887CB100FD6AF /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -155,7 +208,6 @@
 				09C79FE59E75A8645FAAE9C6 /* Pods-ReadingQuantifiedUITests.debug.xcconfig */,
 				4434872E33448DE243D45586 /* Pods-ReadingQuantifiedUITests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -277,9 +329,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				069A975A224FDF1D00B4E302 /* Startup.storyboard in Resources */,
+				069A9760224FEC4500B4E302 /* Books.storyboard in Resources */,
+				069A975E224FEC2F00B4E302 /* Dashboard.storyboard in Resources */,
 				0681C0F4224FBFD6000EF660 /* LaunchScreen.storyboard in Resources */,
 				0681C0F1224FBFD6000EF660 /* Assets.xcassets in Resources */,
 				0681C0EC224FBFD6000EF660 /* Main.storyboard in Resources */,
+				069A9762224FEC5200B4E302 /* Settings.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -397,9 +453,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0681C0E9224FBFD6000EF660 /* ViewController.swift in Sources */,
+				069A9766224FEDFB00B4E302 /* BooksViewController.swift in Sources */,
+				069A975C224FDFAC00B4E302 /* LoginViewController.swift in Sources */,
 				0681C0E7224FBFD6000EF660 /* AppDelegate.swift in Sources */,
 				0681C0EF224FBFD6000EF660 /* ReadingQuantified.xcdatamodeld in Sources */,
+				069A9764224FEDF000B4E302 /* DashboardViewController.swift in Sources */,
+				069A9768224FEE0B00B4E302 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -577,7 +636,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2SQCB8N94B;
-				INFOPLIST_FILE = ReadingQuantified/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/ReadingQuantified/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -596,7 +655,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2SQCB8N94B;
-				INFOPLIST_FILE = ReadingQuantified/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/ReadingQuantified/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
