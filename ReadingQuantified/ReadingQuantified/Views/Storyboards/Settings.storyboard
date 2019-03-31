@@ -23,7 +23,7 @@
                                 <rect key="frame" x="174" y="431" width="66" height="34"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                                 <state key="normal" title="Log Out">
-                                    <color key="titleColor" name="color_primary"/>
+                                    <color key="titleColor" name="text_primary"/>
                                 </state>
                                 <connections>
                                     <segue destination="0Xq-XF-ykX" kind="showDetail" id="W47-kM-sKd"/>
@@ -55,7 +55,7 @@
     </scenes>
     <resources>
         <image name="baseline_settings_black_24pt" width="24" height="24"/>
-        <namedColor name="color_primary">
+        <namedColor name="text_primary">
             <color red="0.70196078431372544" green="0.10588235294117647" blue="0.10588235294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>

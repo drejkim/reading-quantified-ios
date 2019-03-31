@@ -28,7 +28,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="tintColor" name="color_primary"/>
+                        <color key="tintColor" name="bg_primary"/>
                     </tabBar>
                     <connections>
                         <segue destination="WKH-v1-8J9" kind="relationship" relationship="viewControllers" id="mN5-nu-dJl"/>
@@ -62,7 +62,7 @@
         </scene>
     </scenes>
     <resources>
-        <namedColor name="color_primary">
+        <namedColor name="bg_primary">
             <color red="0.70196078431372544" green="0.10588235294117647" blue="0.10588235294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
