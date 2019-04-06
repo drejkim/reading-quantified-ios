@@ -19,8 +19,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="BId-x9-8HX">
-                                <rect key="frame" x="36" y="80" width="342" height="239"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="dBV-Ni-7qu">
+                                <rect key="frame" x="36" y="80" width="342" height="29"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reading Quantified" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Ty-p7-uLJ">
                                         <rect key="frame" x="0.0" y="0.0" width="342" height="29"/>
@@ -28,8 +28,13 @@
                                         <color key="textColor" name="text_body"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="BId-x9-8HX">
+                                <rect key="frame" x="36" y="157" width="342" height="227"/>
+                                <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="LNY-uD-DJa">
-                                        <rect key="frame" x="0.0" y="53" width="342" height="52"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="342" height="52"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fh5-EJ-UHt">
                                                 <rect key="frame" x="0.0" y="0.0" width="342" height="17"/>
@@ -53,7 +58,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="UOa-MY-tvw">
-                                        <rect key="frame" x="0.0" y="129" width="342" height="52"/>
+                                        <rect key="frame" x="0.0" y="76" width="342" height="52"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9pr-3v-aHW">
                                                 <rect key="frame" x="0.0" y="0.0" width="342" height="17"/>
@@ -76,14 +81,20 @@
                                             </view>
                                         </subviews>
                                     </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xhD-Tk-LhR">
+                                        <rect key="frame" x="0.0" y="152" width="342" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" name="text_muted"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZqJ-vK-9fk">
-                                        <rect key="frame" x="0.0" y="205" width="342" height="34"/>
+                                        <rect key="frame" x="0.0" y="193" width="342" height="34"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                                         <state key="normal" title="Log In">
                                             <color key="titleColor" name="text_primary"/>
                                         </state>
                                         <connections>
-                                            <segue destination="RYd-Yh-E0g" kind="showDetail" id="iBm-nr-9TF"/>
+                                            <action selector="loginButtonPressed:" destination="TQh-Zh-6rT" eventType="touchUpInside" id="5nX-OG-GPM"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -91,12 +102,24 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="dBV-Ni-7qu" firstAttribute="top" secondItem="0fm-1i-aX4" secondAttribute="top" constant="36" id="4iq-Gf-96y"/>
+                            <constraint firstItem="BId-x9-8HX" firstAttribute="leading" secondItem="0fm-1i-aX4" secondAttribute="leading" constant="36" id="5Sh-qc-2rR"/>
+                            <constraint firstItem="BId-x9-8HX" firstAttribute="top" secondItem="dBV-Ni-7qu" secondAttribute="bottom" constant="48" id="7Yr-li-uNF"/>
+                            <constraint firstItem="0fm-1i-aX4" firstAttribute="trailing" secondItem="dBV-Ni-7qu" secondAttribute="trailing" constant="36" id="Grv-eF-jro"/>
+                            <constraint firstItem="dBV-Ni-7qu" firstAttribute="leading" secondItem="0fm-1i-aX4" secondAttribute="leading" constant="36" id="dsl-BU-PfA"/>
+                            <constraint firstItem="0fm-1i-aX4" firstAttribute="trailing" secondItem="BId-x9-8HX" secondAttribute="trailing" constant="36" id="fGs-R4-Z1x"/>
+                            <constraint firstItem="0fm-1i-aX4" firstAttribute="trailing" secondItem="dBV-Ni-7qu" secondAttribute="trailing" constant="36" id="fvq-QJ-IzN"/>
                             <constraint firstItem="0fm-1i-aX4" firstAttribute="trailing" secondItem="BId-x9-8HX" secondAttribute="trailing" constant="36" id="jkC-Vb-eiu"/>
-                            <constraint firstItem="BId-x9-8HX" firstAttribute="top" secondItem="0fm-1i-aX4" secondAttribute="top" constant="36" id="rzJ-6I-3Kl"/>
-                            <constraint firstItem="BId-x9-8HX" firstAttribute="leading" secondItem="0fm-1i-aX4" secondAttribute="leading" constant="36" id="toS-jT-hFW"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="0fm-1i-aX4"/>
                     </view>
+                    <connections>
+                        <outlet property="loginButton" destination="ZqJ-vK-9fk" id="WlB-P4-En4"/>
+                        <outlet property="loginStatusLabel" destination="xhD-Tk-LhR" id="Flf-im-ZCh"/>
+                        <outlet property="passwordTextField" destination="G1N-hK-hjn" id="Zmn-zw-mz7"/>
+                        <outlet property="usernameTextField" destination="pOA-X4-RHv" id="E8c-5o-eVg"/>
+                        <segue destination="RYd-Yh-E0g" kind="showDetail" identifier="goToMain" id="LUr-9Q-s5I"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KzU-3W-7A7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

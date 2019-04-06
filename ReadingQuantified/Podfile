@@ -6,8 +6,14 @@ target 'ReadingQuantified' do
   use_frameworks!
 
   # Pods for ReadingQuantified
-  pod 'Alamofire', '~> 4.8.2'
-  pod 'SwiftyJSON'
+  pod 'Moya', '~> 12.0.1'
+  pod 'RxCocoa'
+  pod 'RxSwift'
+  pod 'Swinject'
+
+  # Use master branch due to Xcode 10.2 / Swift 5 issues
+  # See https://github.com/Swinject/SwinjectStoryboard/issues/115
+  pod 'SwinjectStoryboard', :git => 'https://github.com/mdyson/SwinjectStoryboard.git', :branch => 'master'
 
   target 'ReadingQuantifiedTests' do
     inherit! :search_paths

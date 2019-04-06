@@ -1,20 +1,57 @@
 PODS:
   - Alamofire (4.8.2)
-  - SwiftyJSON (4.2.0)
+  - Moya (12.0.1):
+    - Moya/Core (= 12.0.1)
+  - Moya/Core (12.0.1):
+    - Alamofire (~> 4.1)
+    - Result (~> 4.0)
+  - Result (4.1.0)
+  - RxAtomic (4.4.2)
+  - RxCocoa (4.4.2):
+    - RxSwift (>= 4.4.2, ~> 4.4)
+  - RxSwift (4.4.2):
+    - RxAtomic (>= 4.4.2, ~> 4.4)
+  - Swinject (2.6.0)
+  - SwinjectStoryboard (2.1.0):
+    - Swinject (~> 2.5)
 
 DEPENDENCIES:
-  - Alamofire (~> 4.8.2)
-  - SwiftyJSON
+  - Moya (~> 12.0.1)
+  - RxCocoa
+  - RxSwift
+  - Swinject
+  - SwinjectStoryboard (from `https://github.com/mdyson/SwinjectStoryboard.git`, branch `master`)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
-    - SwiftyJSON
+    - Moya
+    - Result
+    - RxAtomic
+    - RxCocoa
+    - RxSwift
+    - Swinject
+
+EXTERNAL SOURCES:
+  SwinjectStoryboard:
+    :branch: master
+    :git: https://github.com/mdyson/SwinjectStoryboard.git
+
+CHECKOUT OPTIONS:
+  SwinjectStoryboard:
+    :commit: 6063c620b35ec189840318e0be03727372e934d9
+    :git: https://github.com/mdyson/SwinjectStoryboard.git
 
 SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
-  SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
+  Moya: cf730b3cd9e005401ef37a85143aa141a12fd38f
+  Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
+  RxAtomic: d00e97c10db88c6f08540e0bf2752fc5a2404167
+  RxCocoa: 477990dc3b4c3ff55fb0ac77e1cc06244e0aaec8
+  RxSwift: 74c29b693c8e42b0f64400e8b06564575742d649
+  Swinject: 48a96cda93633cf2860697b4ce76ab5db9ebaca2
+  SwinjectStoryboard: 688f096033103e66ffcf6ca678211acd7d7be505
 
-PODFILE CHECKSUM: 3b706c32b2862c2c59b60cd7f750fed651aa7559
+PODFILE CHECKSUM: 902e70df58857b8e87cd336d54c0eb65a4349b67
 
 COCOAPODS: 1.6.1
