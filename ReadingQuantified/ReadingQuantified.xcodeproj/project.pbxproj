@@ -29,6 +29,9 @@
 		069A9768224FEE0B00B4E302 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 069A9767224FEE0B00B4E302 /* SettingsViewController.swift */; };
 		06AC991522590AAE009A7E9F /* AuthPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06AC991422590AAE009A7E9F /* AuthPlugin.swift */; };
 		06FB5298225998890035BCD0 /* SessionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06FB5297225998890035BCD0 /* SessionService.swift */; };
+		06FB529A2259A90D0035BCD0 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06FB52992259A90D0035BCD0 /* Book.swift */; };
+		06FB529E2259AB080035BCD0 /* BooksService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06FB529D2259AB080035BCD0 /* BooksService.swift */; };
+		06FB52A02259B1C90035BCD0 /* BooksViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06FB529F2259B1C90035BCD0 /* BooksViewModel.swift */; };
 		A003AF9BA745012378F0A35B /* Pods_ReadingQuantifiedUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42A811FF0C5E0E1BE3D2C4FD /* Pods_ReadingQuantifiedUITests.framework */; };
 		D93CDD88DD5C6868F8FF7B38 /* Pods_ReadingQuantified.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EC864EEEFA131031667D5CB /* Pods_ReadingQuantified.framework */; };
 		E0A8EF70E246FBAC517937FC /* Pods_ReadingQuantifiedTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9B34EF460CDB879D75A65D7 /* Pods_ReadingQuantifiedTests.framework */; };
@@ -81,6 +84,9 @@
 		069A9767224FEE0B00B4E302 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		06AC991422590AAE009A7E9F /* AuthPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthPlugin.swift; sourceTree = "<group>"; };
 		06FB5297225998890035BCD0 /* SessionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionService.swift; sourceTree = "<group>"; };
+		06FB52992259A90D0035BCD0 /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
+		06FB529D2259AB080035BCD0 /* BooksService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksService.swift; sourceTree = "<group>"; };
+		06FB529F2259B1C90035BCD0 /* BooksViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksViewModel.swift; sourceTree = "<group>"; };
 		09C79FE59E75A8645FAAE9C6 /* Pods-ReadingQuantifiedUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReadingQuantifiedUITests.debug.xcconfig"; path = "Target Support Files/Pods-ReadingQuantifiedUITests/Pods-ReadingQuantifiedUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		3B68C14E46371754AED0B8CE /* Pods-ReadingQuantified.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReadingQuantified.release.xcconfig"; path = "Target Support Files/Pods-ReadingQuantified/Pods-ReadingQuantified.release.xcconfig"; sourceTree = "<group>"; };
 		3E1C7BDEE1C44D4EBDE17EE8 /* Pods-ReadingQuantified.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReadingQuantified.debug.xcconfig"; path = "Target Support Files/Pods-ReadingQuantified/Pods-ReadingQuantified.debug.xcconfig"; sourceTree = "<group>"; };
@@ -123,8 +129,9 @@
 			isa = PBXGroup;
 			children = (
 				06AC991422590AAE009A7E9F /* AuthPlugin.swift */,
-				061904D22254229200684100 /* TokenService.swift */,
+				06FB529D2259AB080035BCD0 /* BooksService.swift */,
 				06FB5297225998890035BCD0 /* SessionService.swift */,
+				061904D22254229200684100 /* TokenService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -132,6 +139,7 @@
 		061904D6225428B700684100 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				06FB52992259A90D0035BCD0 /* Book.swift */,
 				061904D7225428C400684100 /* Token.swift */,
 			);
 			path = Models;
@@ -140,6 +148,7 @@
 		064F348D22506FC600E55415 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				06FB529F2259B1C90035BCD0 /* BooksViewModel.swift */,
 				064F3494225079BC00E55415 /* LoginViewModel.swift */,
 			);
 			path = ViewModels;
@@ -520,12 +529,15 @@
 			files = (
 				061904D32254229200684100 /* TokenService.swift in Sources */,
 				069A9766224FEDFB00B4E302 /* BooksViewController.swift in Sources */,
+				06FB529A2259A90D0035BCD0 /* Book.swift in Sources */,
 				068D18FE2251062800C5F9EC /* SwinjectStoryboardSetup.swift in Sources */,
 				069A975C224FDFAC00B4E302 /* LoginViewController.swift in Sources */,
 				0681C0E7224FBFD6000EF660 /* AppDelegate.swift in Sources */,
 				061904D5225423BC00684100 /* Constants.swift in Sources */,
 				0681C0EF224FBFD6000EF660 /* ReadingQuantified.xcdatamodeld in Sources */,
 				06FB5298225998890035BCD0 /* SessionService.swift in Sources */,
+				06FB52A02259B1C90035BCD0 /* BooksViewModel.swift in Sources */,
+				06FB529E2259AB080035BCD0 /* BooksService.swift in Sources */,
 				061904D8225428C400684100 /* Token.swift in Sources */,
 				06AC991522590AAE009A7E9F /* AuthPlugin.swift in Sources */,
 				069A9764224FEDF000B4E302 /* DashboardViewController.swift in Sources */,

@@ -19,11 +19,19 @@ extension SwinjectStoryboard {
         
         // MARK: - View Controller Injections
         
+        defaultContainer.storyboardInitCompleted(BooksViewController.self) { resolver, controller in
+            controller.viewModel = resolver.resolve(BooksViewModel.self)
+        }
+        
         defaultContainer.storyboardInitCompleted(LoginViewController.self) { resolver, controller in
             controller.viewModel = resolver.resolve(LoginViewModel.self)
         }
         
         // MARK: - View Model Injections
+        
+        defaultContainer.register(BooksViewModel.self) { resolver in
+            BooksViewModel(session: resolver.resolve(SessionService.self)!)
+        }
         
         defaultContainer.register(LoginViewModel.self) { resolver in
             LoginViewModel(session: resolver.resolve(SessionService.self)!)

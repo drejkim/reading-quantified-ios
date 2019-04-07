@@ -10,11 +10,17 @@ import UIKit
 
 class BooksViewController: UIViewController {
     
+    // MARK: - Dependencies
+    
+    var viewModel: BooksViewModel!
+    
+    // MARK: - Life Cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        viewModel.loadBooks()
     }
-    
     
 }
 
