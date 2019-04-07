@@ -36,6 +36,17 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupUI()
+        bindUI()
+    }
+
+    // MARK: - Private Functions
+    
+    private func setupUI() {
+        loginButton.layer.cornerRadius = 8
+    }
+    
+    private func bindUI() {
         viewModel.status.asObservable()
             .subscribe(onNext: { [weak self] loginStatus in
                 guard let strongSelf = self else { return }
@@ -49,6 +60,6 @@ class LoginViewController: UIViewController {
             })
             .disposed(by: bag)
     }
-
+    
 }
 

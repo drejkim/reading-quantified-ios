@@ -31,7 +31,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="BId-x9-8HX">
-                                <rect key="frame" x="36" y="157" width="342" height="227"/>
+                                <rect key="frame" x="36" y="157" width="342" height="241"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="LNY-uD-DJa">
                                         <rect key="frame" x="0.0" y="0.0" width="342" height="52"/>
@@ -88,10 +88,14 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZqJ-vK-9fk">
-                                        <rect key="frame" x="0.0" y="193" width="342" height="34"/>
+                                        <rect key="frame" x="0.0" y="193" width="342" height="48"/>
+                                        <color key="backgroundColor" name="bg_primary"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="48" id="5X0-BA-vVi"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                                         <state key="normal" title="Log In">
-                                            <color key="titleColor" name="text_primary"/>
+                                            <color key="titleColor" name="text_white"/>
                                         </state>
                                         <connections>
                                             <action selector="loginButtonPressed:" destination="TQh-Zh-6rT" eventType="touchUpInside" id="5nX-OG-GPM"/>
@@ -137,14 +141,17 @@
         <namedColor name="bg_dark">
             <color red="0.20399999618530273" green="0.22699999809265137" blue="0.25099998712539673" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <namedColor name="bg_primary">
+            <color red="0.70196078431372544" green="0.10588235294117647" blue="0.10588235294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="text_body">
             <color red="0.1289999932050705" green="0.14499999582767487" blue="0.16099999845027924" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="text_muted">
             <color red="0.42399999499320984" green="0.45899999141693115" blue="0.49000000953674316" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <namedColor name="text_primary">
-            <color red="0.70196078431372544" green="0.10588235294117647" blue="0.10588235294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="text_white">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>
