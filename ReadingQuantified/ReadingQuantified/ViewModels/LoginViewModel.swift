@@ -18,6 +18,12 @@ class LoginViewModel {
     
     let status = BehaviorRelay<LoginStatus>(value: .notProcessed)
     
+    private let session: SessionService
+    
+    init(session: SessionService) {
+        self.session = session
+    }
+    
     // MARK: - Functions
     
     func validateCredentials(inputUsername: String?, inputPassword: String?) {
@@ -32,11 +38,8 @@ class LoginViewModel {
             switch result {
             case let .success(response):
                 do {
-                    let token = try response.map(Token.self)
+                    self.session.token = try response.map(Token.self)
                     self.status.accept(.valid)
-                    
-                    print("Access token: \(token.access)")
-                    print("Refresh token: \(token.refresh)")
                 } catch let error {
                     self.status.accept(.invalid)
                     print(error)
