@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 class BooksViewController: UIViewController {
     
@@ -14,13 +16,32 @@ class BooksViewController: UIViewController {
     
     var viewModel: BooksViewModel!
     
+    // MARK: - Private Properties
+    
+    private let bag = DisposeBag()
+    
+    // MARK: - IB Outlets & Actions
+    
+    @IBOutlet weak var tableView: UITableView!
+    
     // MARK: - Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        viewModel.loadBooks()
+        bindTableView()
     }
     
+    // MARK: - Private Functions
+    
+    private func bindTableView() {
+        viewModel.loadBooks()
+        
+        viewModel.books.asObservable()
+            .bind(to: tableView.rx.items(cellIdentifier: "BookCell", cellType: BookCell.self)) { row, book, cell in
+                cell.configureCell(book: book)
+            }
+            .disposed(by: bag)
+    }
 }
 

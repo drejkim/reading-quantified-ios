@@ -7,7 +7,6 @@
 //
 
 struct Constants {
-    // Use local instance of Reading Quantified Server
     static let baseURL = "https://reading-quantified-server.herokuapp.com"
     
     // Segue Identifiers

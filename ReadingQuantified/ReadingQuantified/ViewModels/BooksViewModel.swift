@@ -7,6 +7,8 @@
 //
 
 import Moya
+import RxSwift
+import RxCocoa
 
 class BooksViewModel {
     
@@ -15,6 +17,10 @@ class BooksViewModel {
     init(session: SessionService) {
         self.session = session
     }
+    
+    // MARK: - Properties
+    
+    var books = BehaviorRelay<[Book]>(value: [])
     
     // MARK: - Functions
     
@@ -26,10 +32,8 @@ class BooksViewModel {
             switch result {
             case let .success(response):
                 do {
-                    let books = try response.map([Book].self)
-                    
-                    // TODO: Populate a table view with books
-                    print(books)
+                    let results = try response.map([Book].self)
+                    self.books.accept(results)
                 } catch let error {
                     print(error)
                 }
