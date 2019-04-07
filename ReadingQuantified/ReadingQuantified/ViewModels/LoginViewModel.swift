@@ -12,17 +12,19 @@ import RxCocoa
 
 class LoginViewModel {
     
-    enum LoginStatus {
-        case notProcessed, processing, valid, invalid
-    }
-    
-    let status = BehaviorRelay<LoginStatus>(value: .notProcessed)
-    
     private let session: SessionService
     
     init(session: SessionService) {
         self.session = session
     }
+    
+    // MARK: - Properties
+    
+    enum LoginStatus {
+        case notProcessed, processing, valid, invalid
+    }
+    
+    let status = BehaviorRelay<LoginStatus>(value: .notProcessed)
     
     // MARK: - Functions
     
