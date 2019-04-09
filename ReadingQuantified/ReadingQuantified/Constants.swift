@@ -8,6 +8,7 @@
 
 struct Constants {
     static let baseURL = "https://reading-quantified-server.herokuapp.com"
+//    static let baseURL = "http://localhost:8000"
     
     // Segue Identifiers
     struct SegueIdentifiers {

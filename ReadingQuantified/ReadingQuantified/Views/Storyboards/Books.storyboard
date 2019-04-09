@@ -19,8 +19,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P0z-nH-oAW">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                <color key="backgroundColor" name="bg_light"/>
+                            </view>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D7t-qO-4TJ">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <color key="barTintColor" name="bg_light"/>
+                                <items>
+                                    <navigationItem title="Finished Books" id="itl-ub-NSP"/>
+                                </items>
+                            </navigationBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="941-nO-rdF">
-                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BookCell" rowHeight="70" id="0aP-ra-irN" customClass="BookCell" customModule="ReadingQuantified" customModuleProvider="target">
@@ -65,14 +76,23 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="3U8-Z4-PL6" firstAttribute="bottom" secondItem="941-nO-rdF" secondAttribute="bottom" id="POi-xU-btP"/>
-                            <constraint firstItem="3U8-Z4-PL6" firstAttribute="trailing" secondItem="941-nO-rdF" secondAttribute="trailing" id="QgX-nw-2Ea"/>
-                            <constraint firstItem="941-nO-rdF" firstAttribute="top" secondItem="3U8-Z4-PL6" secondAttribute="top" id="Ydj-PB-bTh"/>
-                            <constraint firstItem="941-nO-rdF" firstAttribute="leading" secondItem="3U8-Z4-PL6" secondAttribute="leading" id="kQx-UY-Mgd"/>
+                            <constraint firstItem="941-nO-rdF" firstAttribute="top" secondItem="D7t-qO-4TJ" secondAttribute="bottom" id="3Pb-yZ-Qia"/>
+                            <constraint firstItem="941-nO-rdF" firstAttribute="leading" secondItem="3U8-Z4-PL6" secondAttribute="leading" id="5y7-GV-s47"/>
+                            <constraint firstItem="941-nO-rdF" firstAttribute="bottom" secondItem="3U8-Z4-PL6" secondAttribute="bottom" id="6pd-jT-B1y"/>
+                            <constraint firstItem="D7t-qO-4TJ" firstAttribute="top" secondItem="P0z-nH-oAW" secondAttribute="bottom" id="Bw0-eF-zS3"/>
+                            <constraint firstItem="941-nO-rdF" firstAttribute="trailing" secondItem="3U8-Z4-PL6" secondAttribute="trailing" id="CdH-rq-FhG"/>
+                            <constraint firstItem="D7t-qO-4TJ" firstAttribute="top" secondItem="3U8-Z4-PL6" secondAttribute="top" id="EE5-Nh-HIu"/>
+                            <constraint firstItem="D7t-qO-4TJ" firstAttribute="trailing" secondItem="3U8-Z4-PL6" secondAttribute="trailing" id="Nbp-t0-ZJE"/>
+                            <constraint firstAttribute="trailing" secondItem="P0z-nH-oAW" secondAttribute="trailing" id="Qkx-0J-bAo"/>
+                            <constraint firstItem="P0z-nH-oAW" firstAttribute="top" secondItem="y3q-T7-bgm" secondAttribute="top" id="qSG-PE-UC5"/>
+                            <constraint firstItem="P0z-nH-oAW" firstAttribute="leading" secondItem="y3q-T7-bgm" secondAttribute="leading" id="t9t-lP-eqo"/>
+                            <constraint firstItem="D7t-qO-4TJ" firstAttribute="leading" secondItem="3U8-Z4-PL6" secondAttribute="leading" id="zcu-tx-5Bv"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="3U8-Z4-PL6"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Books" image="baseline_book_black_24pt" id="eTJ-pv-OD8"/>
+                    <tabBarItem key="tabBarItem" title="Books" image="baseline_book_black_24pt" id="eTJ-pv-OD8">
+                        <color key="badgeColor" name="bg_light"/>
+                    </tabBarItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="tableView" destination="941-nO-rdF" id="wVV-Mr-Hpa"/>
@@ -80,11 +100,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RYU-I4-Ucu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1835" y="136"/>
+            <point key="canvasLocation" x="1834.7826086956522" y="135.9375"/>
         </scene>
     </scenes>
     <resources>
         <image name="baseline_book_black_24pt" width="24" height="24"/>
+        <namedColor name="bg_light">
+            <color red="0.97254901960784312" green="0.97647058823529409" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="text_body">
             <color red="0.1289999932050705" green="0.14499999582767487" blue="0.16099999845027924" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
