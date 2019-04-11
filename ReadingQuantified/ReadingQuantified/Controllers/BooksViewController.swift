@@ -22,6 +22,7 @@ class BooksViewController: UIViewController {
     
     // MARK: - IB Outlets & Actions
     
+    @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
     
     // MARK: - Life Cycle
@@ -29,10 +30,31 @@ class BooksViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        bindSearchBar()
         bindTableView()
     }
     
     // MARK: - Private Functions
+    
+    private func bindSearchBar() {
+        searchBar.rx.textDidBeginEditing
+            .subscribe(onNext: { [weak self] event in
+                guard let strongSelf = self else { return }
+                
+                strongSelf.searchBar.setShowsCancelButton(true, animated: true)
+            })
+            .disposed(by: bag)
+        
+        searchBar.rx.cancelButtonClicked
+            .subscribe(onNext: { [weak self] event in
+                guard let strongSelf = self else { return }
+                
+                strongSelf.searchBar.setShowsCancelButton(false, animated: true)
+                strongSelf.searchBar.text = ""
+                strongSelf.searchBar.endEditing(true)
+            })
+            .disposed(by: bag)
+    }
     
     private func bindTableView() {
         viewModel.loadBooks()

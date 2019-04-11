@@ -19,19 +19,45 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P0z-nH-oAW">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
-                                <color key="backgroundColor" name="bg_light"/>
-                            </view>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D7t-qO-4TJ">
-                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                                <color key="barTintColor" name="bg_light"/>
-                                <items>
-                                    <navigationItem title="Finished Books" id="itl-ub-NSP"/>
-                                </items>
-                            </navigationBar>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="tMc-lb-8bv">
+                                <rect key="frame" x="0.0" y="44" width="414" height="92"/>
+                                <subviews>
+                                    <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Search" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ySS-IE-WZq">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                                        <color key="tintColor" name="text_primary"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <scopeButtonTitles>
+                                            <string>Title</string>
+                                            <string>Title</string>
+                                        </scopeButtonTitles>
+                                    </searchBar>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gFp-uh-wlw">
+                                        <rect key="frame" x="0.0" y="56" width="414" height="36"/>
+                                        <subviews>
+                                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="pgr-7N-KWz">
+                                                <rect key="frame" x="8" y="0.0" width="398" height="37"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="36" id="6kJ-5J-qxR"/>
+                                                </constraints>
+                                                <segments>
+                                                    <segment title="Title"/>
+                                                    <segment title="Date Started"/>
+                                                    <segment title="Date Finished"/>
+                                                </segments>
+                                                <color key="tintColor" name="bg_primary"/>
+                                            </segmentedControl>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="pgr-7N-KWz" firstAttribute="centerY" secondItem="gFp-uh-wlw" secondAttribute="centerY" id="SH0-J3-XCb"/>
+                                            <constraint firstAttribute="trailing" secondItem="pgr-7N-KWz" secondAttribute="trailing" constant="8" id="TrR-DT-FoU"/>
+                                            <constraint firstAttribute="height" constant="36" id="UN5-xe-gGC"/>
+                                            <constraint firstItem="pgr-7N-KWz" firstAttribute="leading" secondItem="gFp-uh-wlw" secondAttribute="leading" constant="8" id="xpu-fE-EaZ"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                            </stackView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="941-nO-rdF">
-                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <rect key="frame" x="0.0" y="144" width="414" height="669"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BookCell" rowHeight="70" id="0aP-ra-irN" customClass="BookCell" customModule="ReadingQuantified" customModuleProvider="target">
@@ -76,17 +102,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="941-nO-rdF" firstAttribute="top" secondItem="D7t-qO-4TJ" secondAttribute="bottom" id="3Pb-yZ-Qia"/>
-                            <constraint firstItem="941-nO-rdF" firstAttribute="leading" secondItem="3U8-Z4-PL6" secondAttribute="leading" id="5y7-GV-s47"/>
-                            <constraint firstItem="941-nO-rdF" firstAttribute="bottom" secondItem="3U8-Z4-PL6" secondAttribute="bottom" id="6pd-jT-B1y"/>
-                            <constraint firstItem="D7t-qO-4TJ" firstAttribute="top" secondItem="P0z-nH-oAW" secondAttribute="bottom" id="Bw0-eF-zS3"/>
-                            <constraint firstItem="941-nO-rdF" firstAttribute="trailing" secondItem="3U8-Z4-PL6" secondAttribute="trailing" id="CdH-rq-FhG"/>
-                            <constraint firstItem="D7t-qO-4TJ" firstAttribute="top" secondItem="3U8-Z4-PL6" secondAttribute="top" id="EE5-Nh-HIu"/>
-                            <constraint firstItem="D7t-qO-4TJ" firstAttribute="trailing" secondItem="3U8-Z4-PL6" secondAttribute="trailing" id="Nbp-t0-ZJE"/>
-                            <constraint firstAttribute="trailing" secondItem="P0z-nH-oAW" secondAttribute="trailing" id="Qkx-0J-bAo"/>
-                            <constraint firstItem="P0z-nH-oAW" firstAttribute="top" secondItem="y3q-T7-bgm" secondAttribute="top" id="qSG-PE-UC5"/>
-                            <constraint firstItem="P0z-nH-oAW" firstAttribute="leading" secondItem="y3q-T7-bgm" secondAttribute="leading" id="t9t-lP-eqo"/>
-                            <constraint firstItem="D7t-qO-4TJ" firstAttribute="leading" secondItem="3U8-Z4-PL6" secondAttribute="leading" id="zcu-tx-5Bv"/>
+                            <constraint firstItem="941-nO-rdF" firstAttribute="top" secondItem="tMc-lb-8bv" secondAttribute="bottom" constant="8" id="1Dj-8M-sgo"/>
+                            <constraint firstItem="3U8-Z4-PL6" firstAttribute="trailing" secondItem="tMc-lb-8bv" secondAttribute="trailing" id="G6D-2W-p3M"/>
+                            <constraint firstItem="tMc-lb-8bv" firstAttribute="top" secondItem="3U8-Z4-PL6" secondAttribute="top" id="MiC-2S-KGa"/>
+                            <constraint firstItem="tMc-lb-8bv" firstAttribute="leading" secondItem="3U8-Z4-PL6" secondAttribute="leading" id="NGB-9b-2Kf"/>
+                            <constraint firstItem="941-nO-rdF" firstAttribute="leading" secondItem="3U8-Z4-PL6" secondAttribute="leading" id="QRl-hY-upp"/>
+                            <constraint firstItem="941-nO-rdF" firstAttribute="bottom" secondItem="3U8-Z4-PL6" secondAttribute="bottom" id="YLf-xg-4DS"/>
+                            <constraint firstItem="941-nO-rdF" firstAttribute="trailing" secondItem="3U8-Z4-PL6" secondAttribute="trailing" id="iCt-f5-YfL"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="3U8-Z4-PL6"/>
                     </view>
@@ -95,6 +117,7 @@
                     </tabBarItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="searchBar" destination="ySS-IE-WZq" id="K7A-ks-9wm"/>
                         <outlet property="tableView" destination="941-nO-rdF" id="wVV-Mr-Hpa"/>
                     </connections>
                 </viewController>
@@ -108,11 +131,17 @@
         <namedColor name="bg_light">
             <color red="0.97254901960784312" green="0.97647058823529409" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <namedColor name="bg_primary">
+            <color red="0.70196078431372544" green="0.10588235294117647" blue="0.10588235294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="text_body">
             <color red="0.1289999932050705" green="0.14499999582767487" blue="0.16099999845027924" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="text_muted">
             <color red="0.42399999499320984" green="0.45899999141693115" blue="0.49000000953674316" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="text_primary">
+            <color red="0.70196078431372544" green="0.10588235294117647" blue="0.10588235294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>
