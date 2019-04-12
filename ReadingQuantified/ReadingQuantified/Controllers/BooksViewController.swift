@@ -23,6 +23,7 @@ class BooksViewController: UIViewController {
     // MARK: - IB Outlets & Actions
     
     @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var tableView: UITableView!
     
     // MARK: - Life Cycle
@@ -30,7 +31,10 @@ class BooksViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        viewModel.loadBooks()
+        
         bindSearchBar()
+        bindSegmentedControl()
         bindTableView()
     }
     
@@ -56,9 +60,17 @@ class BooksViewController: UIViewController {
             .disposed(by: bag)
     }
     
+    private func bindSegmentedControl() {
+        segmentedControl.rx.selectedSegmentIndex
+            .subscribe(onNext: { [weak self] index in
+                guard let strongSelf = self else { return }
+                
+                strongSelf.viewModel.sortBooks(by: index)
+            })
+            .disposed(by: bag)
+    }
+    
     private func bindTableView() {
-        viewModel.loadBooks()
-        
         viewModel.books.asObservable()
             .bind(to: tableView.rx.items(cellIdentifier: "BookCell", cellType: BookCell.self)) { row, book, cell in
                 cell.configureCell(book: book)

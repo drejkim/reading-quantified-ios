@@ -118,6 +118,7 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="searchBar" destination="ySS-IE-WZq" id="K7A-ks-9wm"/>
+                        <outlet property="segmentedControl" destination="pgr-7N-KWz" id="IUR-oh-IF9"/>
                         <outlet property="tableView" destination="941-nO-rdF" id="wVV-Mr-Hpa"/>
                     </connections>
                 </viewController>
