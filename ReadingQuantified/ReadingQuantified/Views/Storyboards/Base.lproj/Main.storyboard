@@ -29,6 +29,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="tintColor" name="bg_primary"/>
+                        <color key="barTintColor" name="bg_light"/>
                     </tabBar>
                     <connections>
                         <segue destination="WKH-v1-8J9" kind="relationship" relationship="viewControllers" id="mN5-nu-dJl"/>
@@ -62,6 +63,9 @@
         </scene>
     </scenes>
     <resources>
+        <namedColor name="bg_light">
+            <color red="0.97254901960784312" green="0.97647058823529409" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="bg_primary">
             <color red="0.70196078431372544" green="0.10588235294117647" blue="0.10588235294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

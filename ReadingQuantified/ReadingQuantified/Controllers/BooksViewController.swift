@@ -22,6 +22,8 @@ class BooksViewController: UIViewController {
     
     // MARK: - IB Outlets & Actions
     
+    @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var tableView: UITableView!
     
     // MARK: - Life Cycle
@@ -29,14 +31,58 @@ class BooksViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        viewModel.loadBooks()
+        
+        bindSearchBar()
+        bindSegmentedControl()
         bindTableView()
     }
     
     // MARK: - Private Functions
     
-    private func bindTableView() {
-        viewModel.loadBooks()
+    private func bindSearchBar() {
+        searchBar.rx.textDidBeginEditing
+            .subscribe(onNext: { [weak self] event in
+                guard let strongSelf = self else { return }
+                
+                strongSelf.searchBar.setShowsCancelButton(true, animated: true)
+            })
+            .disposed(by: bag)
         
+        searchBar.rx.cancelButtonClicked
+            .subscribe(onNext: { [weak self] event in
+                guard let strongSelf = self else { return }
+                
+                strongSelf.searchBar.setShowsCancelButton(false, animated: true)
+                strongSelf.searchBar.text = ""
+                strongSelf.searchBar.endEditing(true)
+            })
+            .disposed(by: bag)
+        
+        searchBar.rx.text
+            .orEmpty
+            .subscribe(onNext: { [weak self] query in
+                guard let strongSelf = self else { return }
+                
+                strongSelf.viewModel.filterBooks(by: query)
+                
+                // Update sorting based on the active segmented control
+                strongSelf.viewModel.sortBooks(by: strongSelf.segmentedControl.selectedSegmentIndex)
+            })
+            .disposed(by: bag)
+    }
+    
+    private func bindSegmentedControl() {
+        segmentedControl.rx.selectedSegmentIndex
+            .subscribe(onNext: { [weak self] index in
+                guard let strongSelf = self else { return }
+                
+                strongSelf.viewModel.sortBooks(by: index)
+            })
+            .disposed(by: bag)
+    }
+    
+    private func bindTableView() {
         viewModel.books.asObservable()
             .bind(to: tableView.rx.items(cellIdentifier: "BookCell", cellType: BookCell.self)) { row, book, cell in
                 cell.configureCell(book: book)

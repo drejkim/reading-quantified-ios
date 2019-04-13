@@ -22,6 +22,15 @@ class BooksViewModel {
     
     var books = BehaviorRelay<[Book]>(value: [])
     
+    // MARK: - Private Properties
+    
+    private let bag = DisposeBag()
+    private var bookResults: [Book] = []
+    
+    private enum Segment: Int {
+        case Title, DateStarted, DateFinished
+    }
+    
     // MARK: - Functions
     
     func loadBooks() {
@@ -32,8 +41,8 @@ class BooksViewModel {
             switch result {
             case let .success(response):
                 do {
-                    let results = try response.map([Book].self)
-                    self.books.accept(results)
+                    self.bookResults = try response.map([Book].self)
+                    self.books.accept(self.bookResults)
                 } catch let error {
                     print(error)
                 }
@@ -41,6 +50,41 @@ class BooksViewModel {
             case let .failure(error):
                 print(error)
             }
+        }
+    }
+    
+    func filterBooks(by query: String) {
+        // Show the entire list of available books if there is no search term
+        if(query.isEmpty) {
+            books.accept(self.bookResults)
+        }
+        // Filtering should be done on the original list of book results
+        else {
+            books.accept(self.bookResults.filter({ (item) -> Bool in
+                return item.title.lowercased().contains(query.lowercased())
+            }))
+        }
+    }
+    
+    func sortBooks(by segmentedControlIndex: Int) {
+        guard let selectedSegment = Segment(rawValue: segmentedControlIndex) else { return }
+        
+        switch selectedSegment {
+        case .Title:
+            // Sort alphabetically
+            books.accept(books.value.sorted(by: { (item1, item2) -> Bool in
+                item1.title < item2.title
+            }))
+        case .DateStarted:
+            // Sort date in descending order
+            books.accept(books.value.sorted(by: { (item1, item2) -> Bool in
+                item1.date_started > item2.date_started
+            }))
+        case .DateFinished:
+            // Sort date in descending order
+            books.accept(books.value.sorted(by: { (item1, item2) -> Bool in
+                item1.date_finished > item2.date_finished
+            }))
         }
     }
     
