@@ -58,6 +58,15 @@ class BooksViewController: UIViewController {
                 strongSelf.searchBar.endEditing(true)
             })
             .disposed(by: bag)
+        
+        searchBar.rx.text
+            .orEmpty
+            .subscribe(onNext: { [weak self] query in
+                guard let strongSelf = self else { return }
+                
+                strongSelf.viewModel.filterBooks(by: query)
+            })
+            .disposed(by: bag)
     }
     
     private func bindSegmentedControl() {
