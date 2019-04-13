@@ -65,6 +65,9 @@ class BooksViewController: UIViewController {
                 guard let strongSelf = self else { return }
                 
                 strongSelf.viewModel.filterBooks(by: query)
+                
+                // Update sorting based on the active segmented control
+                strongSelf.viewModel.sortBooks(by: strongSelf.segmentedControl.selectedSegmentIndex)
             })
             .disposed(by: bag)
     }
