@@ -24,6 +24,7 @@ class BooksViewController: UIViewController {
     
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
+    @IBOutlet weak var numberOfBooksLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
     // MARK: - Life Cycle
@@ -35,6 +36,7 @@ class BooksViewController: UIViewController {
         
         bindSearchBar()
         bindSegmentedControl()
+        bindNumberOfBooksLabel()
         bindTableView()
     }
     
@@ -78,6 +80,16 @@ class BooksViewController: UIViewController {
                 guard let strongSelf = self else { return }
                 
                 strongSelf.viewModel.sortBooks(by: index)
+            })
+            .disposed(by: bag)
+    }
+    
+    private func bindNumberOfBooksLabel() {
+        viewModel.books.asObservable()
+            .subscribe(onNext: { [weak self] items in
+                guard let strongSelf = self else { return }
+                
+                strongSelf.numberOfBooksLabel.text = items.count == 1 ? "\(items.count) Book" : "\(items.count) Books"
             })
             .disposed(by: bag)
     }

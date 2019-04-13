@@ -56,8 +56,14 @@
                                     </view>
                                 </subviews>
                             </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Number of Books" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8EK-p8-IIp">
+                                <rect key="frame" x="8" y="144" width="414" height="17"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                                <color key="textColor" name="text_body"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="941-nO-rdF">
-                                <rect key="frame" x="0.0" y="144" width="414" height="669"/>
+                                <rect key="frame" x="0.0" y="169" width="414" height="644"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BookCell" rowHeight="70" id="0aP-ra-irN" customClass="BookCell" customModule="ReadingQuantified" customModuleProvider="target">
@@ -102,13 +108,16 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="941-nO-rdF" firstAttribute="top" secondItem="tMc-lb-8bv" secondAttribute="bottom" constant="8" id="1Dj-8M-sgo"/>
+                            <constraint firstItem="941-nO-rdF" firstAttribute="top" secondItem="8EK-p8-IIp" secondAttribute="bottom" constant="8" id="1Dj-8M-sgo"/>
                             <constraint firstItem="3U8-Z4-PL6" firstAttribute="trailing" secondItem="tMc-lb-8bv" secondAttribute="trailing" id="G6D-2W-p3M"/>
                             <constraint firstItem="tMc-lb-8bv" firstAttribute="top" secondItem="3U8-Z4-PL6" secondAttribute="top" id="MiC-2S-KGa"/>
                             <constraint firstItem="tMc-lb-8bv" firstAttribute="leading" secondItem="3U8-Z4-PL6" secondAttribute="leading" id="NGB-9b-2Kf"/>
                             <constraint firstItem="941-nO-rdF" firstAttribute="leading" secondItem="3U8-Z4-PL6" secondAttribute="leading" id="QRl-hY-upp"/>
+                            <constraint firstItem="8EK-p8-IIp" firstAttribute="leading" secondItem="3U8-Z4-PL6" secondAttribute="leading" constant="8" id="UEn-dx-3tr"/>
                             <constraint firstItem="941-nO-rdF" firstAttribute="bottom" secondItem="3U8-Z4-PL6" secondAttribute="bottom" id="YLf-xg-4DS"/>
+                            <constraint firstItem="8EK-p8-IIp" firstAttribute="top" secondItem="tMc-lb-8bv" secondAttribute="bottom" constant="8" id="ZrK-LP-VIK"/>
                             <constraint firstItem="941-nO-rdF" firstAttribute="trailing" secondItem="3U8-Z4-PL6" secondAttribute="trailing" id="iCt-f5-YfL"/>
+                            <constraint firstItem="8EK-p8-IIp" firstAttribute="trailing" secondItem="3U8-Z4-PL6" secondAttribute="trailing" constant="8" id="q2d-Oh-PIS"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="3U8-Z4-PL6"/>
                     </view>
@@ -117,6 +126,7 @@
                     </tabBarItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="numberOfBooksLabel" destination="8EK-p8-IIp" id="sse-uI-Kum"/>
                         <outlet property="searchBar" destination="ySS-IE-WZq" id="K7A-ks-9wm"/>
                         <outlet property="segmentedControl" destination="pgr-7N-KWz" id="IUR-oh-IF9"/>
                         <outlet property="tableView" destination="941-nO-rdF" id="wVV-Mr-Hpa"/>
