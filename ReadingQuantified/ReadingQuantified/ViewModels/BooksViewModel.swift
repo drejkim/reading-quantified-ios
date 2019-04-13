@@ -61,7 +61,11 @@ class BooksViewModel {
         // Filtering should be done on the original list of book results
         else {
             books.accept(self.bookResults.filter({ (item) -> Bool in
-                return item.title.lowercased().contains(query.lowercased())
+                return item.title.lowercased().contains(query.lowercased()) ||
+                    
+                       // TODO: Enhance date search
+                       item.date_started.contains(query) ||
+                       item.date_finished.contains(query)
             }))
         }
     }
