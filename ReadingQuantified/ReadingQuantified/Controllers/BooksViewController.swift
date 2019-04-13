@@ -32,12 +32,32 @@ class BooksViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Keyboard notifications
+        NotificationCenter.default.addObserver(self, selector: #selector(BooksViewController.keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(BooksViewController.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        
         viewModel.loadBooks()
         
         bindSearchBar()
         bindSegmentedControl()
         bindNumberOfBooksLabel()
         bindTableView()
+    }
+    
+    // MARK: - Keyboard Functions
+    
+    @objc func keyboardWillShow(notification: Notification) {
+        guard let keyboardValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else { return }
+        guard let tabBarHeight = self.tabBarController?.tabBar.frame.height else { return }
+        
+        let keyboardHeight = keyboardValue.cgRectValue.height
+        
+        updateTableViewInsets(for: keyboardHeight - tabBarHeight)
+        
+    }
+    
+    @objc func keyboardWillHide(notification: Notification) {
+        updateTableViewInsets(for: 0.0)
     }
     
     // MARK: - Private Functions
@@ -101,5 +121,9 @@ class BooksViewController: UIViewController {
             }
             .disposed(by: bag)
     }
+    
+    private func updateTableViewInsets(for bottomValue: CGFloat) {
+        tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: bottomValue, right: 0)
+        tableView.scrollIndicatorInsets = UIEdgeInsets(top: 0, left: 0, bottom: bottomValue, right: 0)
+    }
 }
-
