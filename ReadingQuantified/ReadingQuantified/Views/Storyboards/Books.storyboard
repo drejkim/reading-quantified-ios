@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="kuP-kA-lr1">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="hE1-Yu-vnw">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -11,7 +11,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Books-->
+        <!--Books View Controller-->
         <scene sceneID="PSF-GM-H0p">
             <objects>
                 <viewController id="kuP-kA-lr1" customClass="BooksViewController" customModule="ReadingQuantified" customModuleProvider="target" sceneMemberID="viewController">
@@ -19,51 +19,36 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="tMc-lb-8bv">
-                                <rect key="frame" x="0.0" y="44" width="414" height="92"/>
-                                <subviews>
-                                    <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Search" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ySS-IE-WZq">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
-                                        <color key="tintColor" name="text_primary"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                        <scopeButtonTitles>
-                                            <string>Title</string>
-                                            <string>Title</string>
-                                        </scopeButtonTitles>
-                                    </searchBar>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gFp-uh-wlw">
-                                        <rect key="frame" x="0.0" y="56" width="414" height="36"/>
-                                        <subviews>
-                                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="pgr-7N-KWz">
-                                                <rect key="frame" x="8" y="0.0" width="398" height="37"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="36" id="6kJ-5J-qxR"/>
-                                                </constraints>
-                                                <segments>
-                                                    <segment title="Title"/>
-                                                    <segment title="Date Started"/>
-                                                    <segment title="Date Finished"/>
-                                                </segments>
-                                                <color key="tintColor" name="bg_primary"/>
-                                            </segmentedControl>
-                                        </subviews>
-                                        <constraints>
-                                            <constraint firstItem="pgr-7N-KWz" firstAttribute="centerY" secondItem="gFp-uh-wlw" secondAttribute="centerY" id="SH0-J3-XCb"/>
-                                            <constraint firstAttribute="trailing" secondItem="pgr-7N-KWz" secondAttribute="trailing" constant="8" id="TrR-DT-FoU"/>
-                                            <constraint firstAttribute="height" constant="36" id="UN5-xe-gGC"/>
-                                            <constraint firstItem="pgr-7N-KWz" firstAttribute="leading" secondItem="gFp-uh-wlw" secondAttribute="leading" constant="8" id="xpu-fE-EaZ"/>
-                                        </constraints>
-                                    </view>
-                                </subviews>
-                            </stackView>
+                            <searchBar contentMode="redraw" fixedFrame="YES" searchBarStyle="minimal" placeholder="Search" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ySS-IE-WZq">
+                                <rect key="frame" x="0.0" y="420" width="414" height="56"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" name="text_primary"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <scopeButtonTitles>
+                                    <string>Title</string>
+                                    <string>Title</string>
+                                </scopeButtonTitles>
+                            </searchBar>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="pgr-7N-KWz">
+                                <rect key="frame" x="16" y="96" width="382" height="37"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="36" id="6kJ-5J-qxR"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="Title"/>
+                                    <segment title="Date Started"/>
+                                    <segment title="Date Finished"/>
+                                </segments>
+                                <color key="tintColor" name="bg_primary"/>
+                            </segmentedControl>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Number of Books" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8EK-p8-IIp">
-                                <rect key="frame" x="8" y="144" width="398" height="17"/>
+                                <rect key="frame" x="12" y="140" width="390" height="17"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                 <color key="textColor" name="text_body"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="941-nO-rdF">
-                                <rect key="frame" x="0.0" y="169" width="414" height="644"/>
+                                <rect key="frame" x="0.0" y="165" width="414" height="648"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BookCell" rowHeight="70" id="0aP-ra-irN" customClass="BookCell" customModule="ReadingQuantified" customModuleProvider="target">
@@ -108,22 +93,20 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="941-nO-rdF" firstAttribute="top" secondItem="8EK-p8-IIp" secondAttribute="bottom" constant="8" id="1Dj-8M-sgo"/>
-                            <constraint firstItem="3U8-Z4-PL6" firstAttribute="trailing" secondItem="tMc-lb-8bv" secondAttribute="trailing" id="G6D-2W-p3M"/>
-                            <constraint firstItem="tMc-lb-8bv" firstAttribute="top" secondItem="3U8-Z4-PL6" secondAttribute="top" id="MiC-2S-KGa"/>
-                            <constraint firstItem="tMc-lb-8bv" firstAttribute="leading" secondItem="3U8-Z4-PL6" secondAttribute="leading" id="NGB-9b-2Kf"/>
-                            <constraint firstItem="941-nO-rdF" firstAttribute="leading" secondItem="3U8-Z4-PL6" secondAttribute="leading" id="QRl-hY-upp"/>
-                            <constraint firstItem="8EK-p8-IIp" firstAttribute="leading" secondItem="3U8-Z4-PL6" secondAttribute="leading" constant="8" id="UEn-dx-3tr"/>
-                            <constraint firstItem="941-nO-rdF" firstAttribute="bottom" secondItem="3U8-Z4-PL6" secondAttribute="bottom" id="YLf-xg-4DS"/>
-                            <constraint firstItem="8EK-p8-IIp" firstAttribute="top" secondItem="tMc-lb-8bv" secondAttribute="bottom" constant="8" id="ZrK-LP-VIK"/>
-                            <constraint firstItem="941-nO-rdF" firstAttribute="trailing" secondItem="3U8-Z4-PL6" secondAttribute="trailing" id="iCt-f5-YfL"/>
-                            <constraint firstItem="8EK-p8-IIp" firstAttribute="trailing" secondItem="3U8-Z4-PL6" secondAttribute="trailing" constant="-8" id="q2d-Oh-PIS"/>
+                            <constraint firstItem="8EK-p8-IIp" firstAttribute="leading" secondItem="3U8-Z4-PL6" secondAttribute="leading" constant="12" id="0vS-cr-Dxb"/>
+                            <constraint firstItem="pgr-7N-KWz" firstAttribute="leading" secondItem="3U8-Z4-PL6" secondAttribute="leading" constant="16" id="JIZ-zO-hEZ"/>
+                            <constraint firstItem="pgr-7N-KWz" firstAttribute="top" secondItem="3U8-Z4-PL6" secondAttribute="top" constant="8" id="O8e-87-083"/>
+                            <constraint firstItem="8EK-p8-IIp" firstAttribute="top" secondItem="pgr-7N-KWz" secondAttribute="bottom" constant="8" id="R6v-IZ-uFW"/>
+                            <constraint firstItem="3U8-Z4-PL6" firstAttribute="trailing" secondItem="8EK-p8-IIp" secondAttribute="trailing" constant="12" id="Tb3-Vb-Ge5"/>
+                            <constraint firstItem="3U8-Z4-PL6" firstAttribute="trailing" secondItem="pgr-7N-KWz" secondAttribute="trailing" constant="16" id="VtX-Gt-UvX"/>
+                            <constraint firstItem="941-nO-rdF" firstAttribute="bottom" secondItem="3U8-Z4-PL6" secondAttribute="bottom" id="YX0-y5-xqJ"/>
+                            <constraint firstItem="941-nO-rdF" firstAttribute="top" secondItem="8EK-p8-IIp" secondAttribute="bottom" constant="8" id="xgD-eL-gtb"/>
+                            <constraint firstItem="941-nO-rdF" firstAttribute="trailing" secondItem="3U8-Z4-PL6" secondAttribute="trailing" id="y2X-Fi-WIO"/>
+                            <constraint firstItem="941-nO-rdF" firstAttribute="leading" secondItem="3U8-Z4-PL6" secondAttribute="leading" id="yL0-Ar-g62"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="3U8-Z4-PL6"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Books" image="baseline_book_black_24pt" id="eTJ-pv-OD8">
-                        <color key="badgeColor" name="bg_light"/>
-                    </tabBarItem>
+                    <navigationItem key="navigationItem" id="LDC-bi-VKH"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="numberOfBooksLabel" destination="8EK-p8-IIp" id="sse-uI-Kum"/>
@@ -135,7 +118,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RYU-I4-Ucu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1834.7826086956522" y="135.9375"/>
+            <point key="canvasLocation" x="2744.9275362318845" y="135.9375"/>
         </scene>
         <!--Book Detail View Controller-->
         <scene sceneID="1C6-Zq-tLy">
@@ -145,25 +128,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U0d-kF-d6n">
-                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                                <color key="barTintColor" name="bg_white"/>
-                                <textAttributes key="titleTextAttributes">
-                                    <color key="textColor" name="text_body"/>
-                                </textAttributes>
-                                <items>
-                                    <navigationItem title="Book Information" id="mTc-Jw-X7D">
-                                        <barButtonItem key="leftBarButtonItem" title="Item" image="baseline_close_black_24pt" id="YnH-qw-pB0">
-                                            <color key="tintColor" name="bg_primary"/>
-                                            <connections>
-                                                <action selector="closeButtonTapped:" destination="wjG-pq-vwi" id="5nC-4l-sLO"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="YBz-Ya-Ai0">
-                                <rect key="frame" x="12" y="112" width="390" height="139.5"/>
+                                <rect key="frame" x="12" y="96" width="390" height="139.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="2vI-MW-0Ei">
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="38.5"/>
@@ -219,13 +185,10 @@
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" name="bg_white"/>
                         <constraints>
-                            <constraint firstItem="U0d-kF-d6n" firstAttribute="trailing" secondItem="hXq-tS-uKf" secondAttribute="trailing" id="B1h-Te-RPk"/>
                             <constraint firstItem="YBz-Ya-Ai0" firstAttribute="leading" secondItem="hXq-tS-uKf" secondAttribute="leading" constant="12" id="Cpg-ND-GcN"/>
-                            <constraint firstItem="U0d-kF-d6n" firstAttribute="top" secondItem="hXq-tS-uKf" secondAttribute="top" id="FMO-Q1-fop"/>
-                            <constraint firstItem="U0d-kF-d6n" firstAttribute="leading" secondItem="hXq-tS-uKf" secondAttribute="leading" id="mXX-Zp-rko"/>
-                            <constraint firstItem="YBz-Ya-Ai0" firstAttribute="top" secondItem="U0d-kF-d6n" secondAttribute="bottom" constant="24" id="ofq-Lo-Zv1"/>
+                            <constraint firstItem="YBz-Ya-Ai0" firstAttribute="top" secondItem="hXq-tS-uKf" secondAttribute="top" constant="8" id="j8X-nn-igm"/>
                             <constraint firstItem="hXq-tS-uKf" firstAttribute="trailing" secondItem="YBz-Ya-Ai0" secondAttribute="trailing" constant="12" id="uO2-cg-A5Z"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="hXq-tS-uKf"/>
@@ -238,12 +201,34 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8nu-Nq-7os" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2720" y="136"/>
+            <point key="canvasLocation" x="3628.985507246377" y="135.9375"/>
+        </scene>
+        <!--Books-->
+        <scene sceneID="tib-Wq-6c8">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="hE1-Yu-vnw" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Books" image="baseline_book_black_24pt" id="eTJ-pv-OD8">
+                        <color key="badgeColor" name="bg_light"/>
+                    </tabBarItem>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="E2k-YL-qzh">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" name="text_primary"/>
+                        <color key="barTintColor" name="bg_light"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="kuP-kA-lr1" kind="relationship" relationship="rootViewController" id="w33-yc-ODx"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0uN-gc-In2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1834.7826086956522" y="135.9375"/>
         </scene>
     </scenes>
     <resources>
         <image name="baseline_book_black_24pt" width="24" height="24"/>
-        <image name="baseline_close_black_24pt" width="24" height="24"/>
         <namedColor name="bg_light">
             <color red="0.97254901960784312" green="0.97647058823529409" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
@@ -252,9 +237,6 @@
         </namedColor>
         <namedColor name="bg_white">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="text_body">
-            <color red="0.1289999932050705" green="0.14499999582767487" blue="0.16099999845027924" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="text_body">
             <color red="0.1289999932050705" green="0.14499999582767487" blue="0.16099999845027924" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

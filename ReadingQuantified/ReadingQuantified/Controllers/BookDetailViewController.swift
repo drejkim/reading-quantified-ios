@@ -20,10 +20,6 @@ class BookDetailViewController: UIViewController {
     @IBOutlet weak var dateStartedLabel: UILabel!
     @IBOutlet weak var dateFinishedLabel: UILabel!
     
-    @IBAction func closeButtonTapped(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
-    }
-    
     // MARK: - Life Cycle
     
     override func viewDidLoad() {
