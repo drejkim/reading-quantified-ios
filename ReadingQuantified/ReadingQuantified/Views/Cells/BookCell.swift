@@ -12,7 +12,7 @@ class BookCell: UITableViewCell {
     
     // MARK: - Dependencies
     
-    var viewModel = BookCellViewModel()
+    var viewModel = BookViewModel()
     
     // MARK: - IB Outlet & Actions
     
@@ -23,7 +23,7 @@ class BookCell: UITableViewCell {
     
     func configureCell(book: Book) {
         titleLabel.text = book.title
-        subtitleLabel.text = "\(viewModel.formatDateString(from: book.date_started)) to \(viewModel.formatDateString(from: book.date_finished))"
+        subtitleLabel.text = "\(viewModel.formatDateString(from: book.date_started, to: DateFormatter.Style.medium)) to \(viewModel.formatDateString(from: book.date_finished, to: DateFormatter.Style.medium))"
     }
     
 }

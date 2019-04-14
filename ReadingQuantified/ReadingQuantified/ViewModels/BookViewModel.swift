@@ -1,16 +1,19 @@
 //
-//  BookCellViewModel.swift
+//  BookViewModel.swift
 //  ReadingQuantified
 //
-//  Created by Esther Jun Kim on 4/7/19.
+//  Created by Esther Jun Kim on 4/13/19.
 //  Copyright © 2019 Esther Jun Kim. All rights reserved.
 //
 
-import UIKit
+import RxSwift
+import RxCocoa
 
-struct BookCellViewModel {
+struct BookViewModel {
     
-    func formatDateString(from input: String) -> String {
+    var book: Book?
+    
+    func formatDateString(from input: String, to dateStyle: DateFormatter.Style) -> String {
         let inputFormatter = ISO8601DateFormatter()
         inputFormatter.formatOptions = [
             .withFullDate,
@@ -21,11 +24,10 @@ struct BookCellViewModel {
         
         let outputFormatter = DateFormatter()
         outputFormatter.locale = Locale(identifier: "en_US")
-        outputFormatter.dateStyle = .medium
+        outputFormatter.dateStyle = dateStyle
         outputFormatter.timeStyle = .none
         outputFormatter.timeZone = TimeZone(identifier: TimeZone.current.identifier)
         
         return outputFormatter.string(from: date)
     }
-    
 }
