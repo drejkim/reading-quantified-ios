@@ -11,6 +11,8 @@
 		061904D5225423BC00684100 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 061904D4225423BC00684100 /* Constants.swift */; };
 		061904D8225428C400684100 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 061904D7225428C400684100 /* Token.swift */; };
 		064F3495225079BC00E55415 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064F3494225079BC00E55415 /* LoginViewModel.swift */; };
+		0659859C22628C9C009C148C /* BookDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0659859B22628C9C009C148C /* BookDetailViewController.swift */; };
+		065985A0226299FB009C148C /* BookDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0659859F226299FB009C148C /* BookDetailViewModel.swift */; };
 		0681C0E7224FBFD6000EF660 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0681C0E6224FBFD6000EF660 /* AppDelegate.swift */; };
 		0681C0EC224FBFD6000EF660 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0681C0EA224FBFD6000EF660 /* Main.storyboard */; };
 		0681C0EF224FBFD6000EF660 /* ReadingQuantified.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0681C0ED224FBFD6000EF660 /* ReadingQuantified.xcdatamodeld */; };
@@ -62,6 +64,8 @@
 		061904D4225423BC00684100 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		061904D7225428C400684100 /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
 		064F3494225079BC00E55415 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		0659859B22628C9C009C148C /* BookDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailViewController.swift; sourceTree = "<group>"; };
+		0659859F226299FB009C148C /* BookDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailViewModel.swift; sourceTree = "<group>"; };
 		0681C0E3224FBFD5000EF660 /* ReadingQuantified.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReadingQuantified.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0681C0E6224FBFD6000EF660 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0681C0EB224FBFD6000EF660 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -153,6 +157,7 @@
 			isa = PBXGroup;
 			children = (
 				06FB52A4225A702C0035BCD0 /* BookCellViewModel.swift */,
+				0659859F226299FB009C148C /* BookDetailViewModel.swift */,
 				06FB529F2259B1C90035BCD0 /* BooksViewModel.swift */,
 				064F3494225079BC00E55415 /* LoginViewModel.swift */,
 			);
@@ -239,6 +244,7 @@
 		069A9756224FD6BB00B4E302 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				0659859B22628C9C009C148C /* BookDetailViewController.swift */,
 				069A9765224FEDFB00B4E302 /* BooksViewController.swift */,
 				069A9763224FEDF000B4E302 /* DashboardViewController.swift */,
 				069A975B224FDFAC00B4E302 /* LoginViewController.swift */,
@@ -547,6 +553,7 @@
 				068D18FE2251062800C5F9EC /* SwinjectStoryboardSetup.swift in Sources */,
 				069A975C224FDFAC00B4E302 /* LoginViewController.swift in Sources */,
 				0681C0E7224FBFD6000EF660 /* AppDelegate.swift in Sources */,
+				065985A0226299FB009C148C /* BookDetailViewModel.swift in Sources */,
 				061904D5225423BC00684100 /* Constants.swift in Sources */,
 				0681C0EF224FBFD6000EF660 /* ReadingQuantified.xcdatamodeld in Sources */,
 				06FB5298225998890035BCD0 /* SessionService.swift in Sources */,
@@ -556,6 +563,7 @@
 				061904D8225428C400684100 /* Token.swift in Sources */,
 				06AC991522590AAE009A7E9F /* AuthPlugin.swift in Sources */,
 				069A9764224FEDF000B4E302 /* DashboardViewController.swift in Sources */,
+				0659859C22628C9C009C148C /* BookDetailViewController.swift in Sources */,
 				069A9768224FEE0B00B4E302 /* SettingsViewController.swift in Sources */,
 				064F3495225079BC00E55415 /* LoginViewModel.swift in Sources */,
 				06FB52A5225A702C0035BCD0 /* BookCellViewModel.swift in Sources */,

@@ -13,5 +13,6 @@ struct Constants {
     // Segue Identifiers
     struct SegueIdentifiers {
         static let mainStoryboard = "goToMain"
+        static let bookDetailViewController = "goToBookDetail"
     }
 }

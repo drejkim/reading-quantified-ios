@@ -130,20 +130,131 @@
                         <outlet property="searchBar" destination="ySS-IE-WZq" id="K7A-ks-9wm"/>
                         <outlet property="segmentedControl" destination="pgr-7N-KWz" id="IUR-oh-IF9"/>
                         <outlet property="tableView" destination="941-nO-rdF" id="wVV-Mr-Hpa"/>
+                        <segue destination="wjG-pq-vwi" kind="show" identifier="goToBookDetail" id="Jw0-Wi-PtW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RYU-I4-Ucu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1834.7826086956522" y="135.9375"/>
         </scene>
+        <!--Book Detail View Controller-->
+        <scene sceneID="1C6-Zq-tLy">
+            <objects>
+                <viewController id="wjG-pq-vwi" customClass="BookDetailViewController" customModule="ReadingQuantified" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="v27-Gj-j1h">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U0d-kF-d6n">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <color key="barTintColor" name="bg_white"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <color key="textColor" name="text_body"/>
+                                </textAttributes>
+                                <items>
+                                    <navigationItem title="Book Information" id="mTc-Jw-X7D">
+                                        <barButtonItem key="leftBarButtonItem" title="Item" image="baseline_close_black_24pt" id="YnH-qw-pB0">
+                                            <color key="tintColor" name="bg_primary"/>
+                                            <connections>
+                                                <action selector="closeButtonTapped:" destination="wjG-pq-vwi" id="5nC-4l-sLO"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="YBz-Ya-Ai0">
+                                <rect key="frame" x="24" y="112" width="366" height="139.5"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="2vI-MW-0Ei">
+                                        <rect key="frame" x="0.0" y="0.0" width="366" height="38.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Gc-WX-SUc">
+                                                <rect key="frame" x="0.0" y="0.0" width="366" height="17"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <color key="textColor" name="text_muted"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LAc-EC-Oda">
+                                                <rect key="frame" x="0.0" y="17" width="366" height="21.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                <color key="textColor" name="text_body"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="oBa-uS-bsk">
+                                        <rect key="frame" x="0.0" y="50.5" width="366" height="38.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date Started" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TMB-OW-ZMg">
+                                                <rect key="frame" x="0.0" y="0.0" width="366" height="17"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <color key="textColor" name="text_muted"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date Started" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hRf-8H-jJB">
+                                                <rect key="frame" x="0.0" y="17" width="366" height="21.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                <color key="textColor" name="text_body"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="gyq-gZ-EI6">
+                                        <rect key="frame" x="0.0" y="101" width="366" height="38.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date Finished" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0h4-MY-pci">
+                                                <rect key="frame" x="0.0" y="0.0" width="366" height="17"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <color key="textColor" name="text_muted"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date Finished" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="57Y-LN-uV8">
+                                                <rect key="frame" x="0.0" y="17" width="366" height="21.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                <color key="textColor" name="text_body"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="U0d-kF-d6n" firstAttribute="trailing" secondItem="hXq-tS-uKf" secondAttribute="trailing" id="B1h-Te-RPk"/>
+                            <constraint firstItem="YBz-Ya-Ai0" firstAttribute="leading" secondItem="hXq-tS-uKf" secondAttribute="leading" constant="24" id="Cpg-ND-GcN"/>
+                            <constraint firstItem="U0d-kF-d6n" firstAttribute="top" secondItem="hXq-tS-uKf" secondAttribute="top" id="FMO-Q1-fop"/>
+                            <constraint firstItem="U0d-kF-d6n" firstAttribute="leading" secondItem="hXq-tS-uKf" secondAttribute="leading" id="mXX-Zp-rko"/>
+                            <constraint firstItem="YBz-Ya-Ai0" firstAttribute="top" secondItem="U0d-kF-d6n" secondAttribute="bottom" constant="24" id="ofq-Lo-Zv1"/>
+                            <constraint firstItem="hXq-tS-uKf" firstAttribute="trailing" secondItem="YBz-Ya-Ai0" secondAttribute="trailing" constant="24" id="uO2-cg-A5Z"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="hXq-tS-uKf"/>
+                    </view>
+                    <connections>
+                        <outlet property="dateFinishedLabel" destination="57Y-LN-uV8" id="tut-XV-I0K"/>
+                        <outlet property="dateStartedLabel" destination="hRf-8H-jJB" id="rhr-x8-yh7"/>
+                        <outlet property="titleLabel" destination="LAc-EC-Oda" id="MsN-eQ-fE2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8nu-Nq-7os" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2720" y="136"/>
+        </scene>
     </scenes>
     <resources>
         <image name="baseline_book_black_24pt" width="24" height="24"/>
+        <image name="baseline_close_black_24pt" width="24" height="24"/>
         <namedColor name="bg_light">
             <color red="0.97254901960784312" green="0.97647058823529409" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="bg_primary">
             <color red="0.70196078431372544" green="0.10588235294117647" blue="0.10588235294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="bg_white">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="text_body">
+            <color red="0.1289999932050705" green="0.14499999582767487" blue="0.16099999845027924" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="text_body">
             <color red="0.1289999932050705" green="0.14499999582767487" blue="0.16099999845027924" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

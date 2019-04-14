@@ -19,6 +19,7 @@ class BooksViewController: UIViewController {
     // MARK: - Private Properties
     
     private let bag = DisposeBag()
+    private var selectedBook: Book?
     
     // MARK: - IB Outlets & Actions
     
@@ -120,10 +121,31 @@ class BooksViewController: UIViewController {
                 cell.configureCell(book: book)
             }
             .disposed(by: bag)
+        
+        Observable
+            .zip(tableView.rx.itemSelected, tableView.rx.modelSelected(Book.self))
+            .bind { [weak self] indexPath, book in
+                guard let strongSelf = self else { return }
+                
+                strongSelf.selectedBook = book
+                strongSelf.tableView.deselectRow(at: indexPath, animated: true)
+                strongSelf.performSegue(withIdentifier: Constants.SegueIdentifiers.bookDetailViewController, sender: strongSelf)
+            }
+            .disposed(by: bag)
     }
     
     private func updateTableViewInsets(for bottomValue: CGFloat) {
         tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: bottomValue, right: 0)
         tableView.scrollIndicatorInsets = UIEdgeInsets(top: 0, left: 0, bottom: bottomValue, right: 0)
     }
+    
+    // MARK: - Navigation
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if(segue.identifier == Constants.SegueIdentifiers.bookDetailViewController) {
+            let vc = segue.destination as! BookDetailViewController
+            vc.viewModel.book = selectedBook
+        }
+    }
+
 }
