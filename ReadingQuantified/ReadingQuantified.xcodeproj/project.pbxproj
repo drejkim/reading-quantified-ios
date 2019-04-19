@@ -15,7 +15,6 @@
 		065985A0226299FB009C148C /* BookViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0659859F226299FB009C148C /* BookViewModel.swift */; };
 		0681C0E7224FBFD6000EF660 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0681C0E6224FBFD6000EF660 /* AppDelegate.swift */; };
 		0681C0EC224FBFD6000EF660 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0681C0EA224FBFD6000EF660 /* Main.storyboard */; };
-		0681C0EF224FBFD6000EF660 /* ReadingQuantified.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0681C0ED224FBFD6000EF660 /* ReadingQuantified.xcdatamodeld */; };
 		0681C0F1224FBFD6000EF660 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0681C0F0224FBFD6000EF660 /* Assets.xcassets */; };
 		0681C0F4224FBFD6000EF660 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0681C0F2224FBFD6000EF660 /* LaunchScreen.storyboard */; };
 		0681C0FF224FBFD6000EF660 /* ReadingQuantifiedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0681C0FE224FBFD6000EF660 /* ReadingQuantifiedTests.swift */; };
@@ -68,7 +67,6 @@
 		0681C0E3224FBFD5000EF660 /* ReadingQuantified.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReadingQuantified.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0681C0E6224FBFD6000EF660 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0681C0EB224FBFD6000EF660 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		0681C0EE224FBFD6000EF660 /* ReadingQuantified.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ReadingQuantified.xcdatamodel; sourceTree = "<group>"; };
 		0681C0F0224FBFD6000EF660 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0681C0F3224FBFD6000EF660 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0681C0F5224FBFD6000EF660 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -264,7 +262,6 @@
 			children = (
 				0681C0F5224FBFD6000EF660 /* Info.plist */,
 				0681C0F0224FBFD6000EF660 /* Assets.xcassets */,
-				0681C0ED224FBFD6000EF660 /* ReadingQuantified.xcdatamodeld */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -468,9 +465,12 @@
 				"${PODS_ROOT}/Target Support Files/Pods-ReadingQuantified/Pods-ReadingQuantified-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
 				"${BUILT_PRODUCTS_DIR}/RxAtomic/RxAtomic.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxRealm/RxRealm.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Swinject/Swinject.framework",
 				"${BUILT_PRODUCTS_DIR}/SwinjectStoryboard/SwinjectStoryboard.framework",
@@ -481,9 +481,12 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAtomic.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxRealm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Swinject.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwinjectStoryboard.framework",
@@ -552,7 +555,6 @@
 				0681C0E7224FBFD6000EF660 /* AppDelegate.swift in Sources */,
 				065985A0226299FB009C148C /* BookViewModel.swift in Sources */,
 				061904D5225423BC00684100 /* Constants.swift in Sources */,
-				0681C0EF224FBFD6000EF660 /* ReadingQuantified.xcdatamodeld in Sources */,
 				06FB5298225998890035BCD0 /* SessionService.swift in Sources */,
 				06FB52A3225A48600035BCD0 /* BookCell.swift in Sources */,
 				06FB52A02259B1C90035BCD0 /* BooksViewModel.swift in Sources */,
@@ -897,19 +899,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		0681C0ED224FBFD6000EF660 /* ReadingQuantified.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				0681C0EE224FBFD6000EF660 /* ReadingQuantified.xcdatamodel */,
-			);
-			currentVersion = 0681C0EE224FBFD6000EF660 /* ReadingQuantified.xcdatamodel */;
-			path = ReadingQuantified.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 0681C0DB224FBFD5000EF660 /* Project object */;
 }
