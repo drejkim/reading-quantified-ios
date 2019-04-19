@@ -109,7 +109,7 @@ class BooksViewController: UIViewController {
     }
     
     private func bindNumberOfBooksLabel() {
-        viewModel.books.asObservable()
+        viewModel.booksRelay.asObservable()
             .subscribe(onNext: { [weak self] items in
                 guard let strongSelf = self else { return }
                 
@@ -119,7 +119,7 @@ class BooksViewController: UIViewController {
     }
     
     private func bindTableView() {
-        viewModel.books.asObservable()
+        viewModel.booksRelay.asObservable()
             .bind(to: tableView.rx.items(cellIdentifier: "BookCell", cellType: BookCell.self)) { row, book, cell in
                 cell.configureCell(book: book)
             }

@@ -5,6 +5,9 @@ PODS:
   - Moya/Core (12.0.1):
     - Alamofire (~> 4.1)
     - Result (~> 4.0)
+  - Moya/RxSwift (12.0.1):
+    - Moya/Core
+    - RxSwift (~> 4.0)
   - Realm (3.14.0):
     - Realm/Headers (= 3.14.0)
   - Realm/Headers (3.14.0)
@@ -25,6 +28,7 @@ PODS:
 
 DEPENDENCIES:
   - Moya (~> 12.0.1)
+  - Moya/RxSwift (~> 12.0.1)
   - RealmSwift
   - RxCocoa
   - RxRealm
@@ -68,6 +72,6 @@ SPEC CHECKSUMS:
   Swinject: 48a96cda93633cf2860697b4ce76ab5db9ebaca2
   SwinjectStoryboard: 688f096033103e66ffcf6ca678211acd7d7be505
 
-PODFILE CHECKSUM: 3b42f1a1921c9869c26b6a935325b7c21c902bdd
+PODFILE CHECKSUM: aaf89b903ce873cc7595094de3b39285dbcf7010
 
 COCOAPODS: 1.6.1
