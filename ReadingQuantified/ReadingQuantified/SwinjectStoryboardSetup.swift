@@ -30,17 +30,17 @@ extension SwinjectStoryboard {
         // MARK: - View Model Injections
         
         defaultContainer.register(BooksViewModel.self) { resolver in
-            BooksViewModel(session: resolver.resolve(SessionService.self)!)
+            BooksViewModel(session: resolver.resolve(Session.self)!)
         }
         
         defaultContainer.register(LoginViewModel.self) { resolver in
-            LoginViewModel(session: resolver.resolve(SessionService.self)!)
+            LoginViewModel(session: resolver.resolve(Session.self)!)
         }
         
         // MARK: - App Component Injections
         
-        defaultContainer.register(SessionService.self) { _ in
-            SessionService()
+        defaultContainer.register(Session.self) { _ in
+            Session()
         }.inObjectScope(.container)
     }
     

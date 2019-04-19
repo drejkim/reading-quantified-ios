@@ -12,9 +12,9 @@ import RxCocoa
 
 class BooksViewModel {
     
-    private let session: SessionService
+    private let session: Session
     
-    init(session: SessionService) {
+    init(session: Session) {
         self.session = session
     }
     

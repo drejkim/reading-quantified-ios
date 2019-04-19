@@ -29,7 +29,7 @@
 		069A9766224FEDFB00B4E302 /* BooksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 069A9765224FEDFB00B4E302 /* BooksViewController.swift */; };
 		069A9768224FEE0B00B4E302 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 069A9767224FEE0B00B4E302 /* SettingsViewController.swift */; };
 		06AC991522590AAE009A7E9F /* AuthPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06AC991422590AAE009A7E9F /* AuthPlugin.swift */; };
-		06FB5298225998890035BCD0 /* SessionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06FB5297225998890035BCD0 /* SessionService.swift */; };
+		06FB5298225998890035BCD0 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06FB5297225998890035BCD0 /* Session.swift */; };
 		06FB529A2259A90D0035BCD0 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06FB52992259A90D0035BCD0 /* Book.swift */; };
 		06FB529E2259AB080035BCD0 /* BooksService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06FB529D2259AB080035BCD0 /* BooksService.swift */; };
 		06FB52A02259B1C90035BCD0 /* BooksViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06FB529F2259B1C90035BCD0 /* BooksViewModel.swift */; };
@@ -86,7 +86,7 @@
 		069A9765224FEDFB00B4E302 /* BooksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksViewController.swift; sourceTree = "<group>"; };
 		069A9767224FEE0B00B4E302 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		06AC991422590AAE009A7E9F /* AuthPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthPlugin.swift; sourceTree = "<group>"; };
-		06FB5297225998890035BCD0 /* SessionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionService.swift; sourceTree = "<group>"; };
+		06FB5297225998890035BCD0 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		06FB52992259A90D0035BCD0 /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		06FB529D2259AB080035BCD0 /* BooksService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksService.swift; sourceTree = "<group>"; };
 		06FB529F2259B1C90035BCD0 /* BooksViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksViewModel.swift; sourceTree = "<group>"; };
@@ -134,7 +134,6 @@
 			children = (
 				06AC991422590AAE009A7E9F /* AuthPlugin.swift */,
 				06FB529D2259AB080035BCD0 /* BooksService.swift */,
-				06FB5297225998890035BCD0 /* SessionService.swift */,
 				061904D22254229200684100 /* TokenService.swift */,
 			);
 			path = Services;
@@ -198,6 +197,7 @@
 			isa = PBXGroup;
 			children = (
 				061904D4225423BC00684100 /* Constants.swift */,
+				06FB5297225998890035BCD0 /* Session.swift */,
 				068D18FD2251062800C5F9EC /* SwinjectStoryboardSetup.swift */,
 				069A9755224FD6B000B4E302 /* AppDelegate */,
 				069A9756224FD6BB00B4E302 /* Controllers */,
@@ -555,7 +555,7 @@
 				0681C0E7224FBFD6000EF660 /* AppDelegate.swift in Sources */,
 				065985A0226299FB009C148C /* BookViewModel.swift in Sources */,
 				061904D5225423BC00684100 /* Constants.swift in Sources */,
-				06FB5298225998890035BCD0 /* SessionService.swift in Sources */,
+				06FB5298225998890035BCD0 /* Session.swift in Sources */,
 				06FB52A3225A48600035BCD0 /* BookCell.swift in Sources */,
 				06FB52A02259B1C90035BCD0 /* BooksViewModel.swift in Sources */,
 				06FB529E2259AB080035BCD0 /* BooksService.swift in Sources */,
