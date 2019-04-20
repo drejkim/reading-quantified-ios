@@ -31,6 +31,8 @@
 		06AC991522590AAE009A7E9F /* AuthPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06AC991422590AAE009A7E9F /* AuthPlugin.swift */; };
 		06D159F6226A3CB3002C00D8 /* BooksRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D159F5226A3CB3002C00D8 /* BooksRepository.swift */; };
 		06D159F8226A3CEE002C00D8 /* RemoteBooksRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D159F7226A3CEE002C00D8 /* RemoteBooksRepository.swift */; };
+		06EDE971226A981F008230DD /* LocalBooksRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06EDE970226A981F008230DD /* LocalBooksRepository.swift */; };
+		06EDE975226A9D06008230DD /* BooksRepositoryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06EDE974226A9D06008230DD /* BooksRepositoryManager.swift */; };
 		06FB5298225998890035BCD0 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06FB5297225998890035BCD0 /* Session.swift */; };
 		06FB529A2259A90D0035BCD0 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06FB52992259A90D0035BCD0 /* Book.swift */; };
 		06FB529E2259AB080035BCD0 /* BooksService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06FB529D2259AB080035BCD0 /* BooksService.swift */; };
@@ -90,6 +92,8 @@
 		06AC991422590AAE009A7E9F /* AuthPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthPlugin.swift; sourceTree = "<group>"; };
 		06D159F5226A3CB3002C00D8 /* BooksRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksRepository.swift; sourceTree = "<group>"; };
 		06D159F7226A3CEE002C00D8 /* RemoteBooksRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteBooksRepository.swift; sourceTree = "<group>"; };
+		06EDE970226A981F008230DD /* LocalBooksRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalBooksRepository.swift; sourceTree = "<group>"; };
+		06EDE974226A9D06008230DD /* BooksRepositoryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksRepositoryManager.swift; sourceTree = "<group>"; };
 		06FB5297225998890035BCD0 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		06FB52992259A90D0035BCD0 /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		06FB529D2259AB080035BCD0 /* BooksService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksService.swift; sourceTree = "<group>"; };
@@ -275,6 +279,8 @@
 			isa = PBXGroup;
 			children = (
 				06D159F5226A3CB3002C00D8 /* BooksRepository.swift */,
+				06EDE974226A9D06008230DD /* BooksRepositoryManager.swift */,
+				06EDE970226A981F008230DD /* LocalBooksRepository.swift */,
 				06D159F7226A3CEE002C00D8 /* RemoteBooksRepository.swift */,
 			);
 			path = Repositories;
@@ -565,6 +571,7 @@
 				069A9766224FEDFB00B4E302 /* BooksViewController.swift in Sources */,
 				06FB529A2259A90D0035BCD0 /* Book.swift in Sources */,
 				068D18FE2251062800C5F9EC /* SwinjectStoryboardSetup.swift in Sources */,
+				06EDE975226A9D06008230DD /* BooksRepositoryManager.swift in Sources */,
 				069A975C224FDFAC00B4E302 /* LoginViewController.swift in Sources */,
 				0681C0E7224FBFD6000EF660 /* AppDelegate.swift in Sources */,
 				065985A0226299FB009C148C /* BookViewModel.swift in Sources */,
@@ -581,6 +588,7 @@
 				0659859C22628C9C009C148C /* BookDetailViewController.swift in Sources */,
 				069A9768224FEE0B00B4E302 /* SettingsViewController.swift in Sources */,
 				064F3495225079BC00E55415 /* LoginViewModel.swift in Sources */,
+				06EDE971226A981F008230DD /* LocalBooksRepository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

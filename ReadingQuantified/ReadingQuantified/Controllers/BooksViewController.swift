@@ -40,12 +40,16 @@ class BooksViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(BooksViewController.keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(BooksViewController.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         
+        // Load books from local repository
         viewModel.loadBooks()
         
         bindSearchBar()
         bindSegmentedControl()
         bindNumberOfBooksLabel()
         bindTableView()
+        
+        // Fetch updates from remote repository
+        viewModel.refreshBooks()
     }
     
     // MARK: - Keyboard Functions

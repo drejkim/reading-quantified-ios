@@ -12,10 +12,12 @@ import RxCocoa
 
 class BooksViewModel {
     
-    private let session: Session
+    // MARK: - Dependencies
     
-    init(session: Session) {
-        self.session = session
+    private let booksRepositoryManager: BooksRepositoryManager
+    
+    init(booksRepositoryManager: BooksRepositoryManager) {
+        self.booksRepositoryManager = booksRepositoryManager
     }
     
     // MARK: - Properties
@@ -34,11 +36,18 @@ class BooksViewModel {
     // MARK: - Functions
     
     func loadBooks() {
-        guard let token = self.session.token else { return }
-        
-        // TODO: Determine best way to get books from remote or local repository
-        let remoteBooksRepository = RemoteBooksRepository(token: token)
-        remoteBooksRepository.getAll()
+        booksRepositoryManager.getAll(from: .local)
+            .subscribe(onNext: { [weak self] books in
+                guard let strongSelf = self else { return }
+                
+                strongSelf.books = books
+                strongSelf.booksRelay.accept(books)
+            })
+            .disposed(by: bag)
+    }
+    
+    func refreshBooks() {
+        booksRepositoryManager.getAll(from: .remote)
             .subscribe(onNext: { [weak self] books in
                 guard let strongSelf = self else { return }
                 
