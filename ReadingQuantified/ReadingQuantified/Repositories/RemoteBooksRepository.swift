@@ -18,7 +18,9 @@ class RemoteBooksRepository: BooksRepository {
         self.session = session
         
         // QUESTION: Is force unwrapping token okay?
-        self.provider = MoyaProvider<BooksService>(plugins: [AuthPlugin(accessToken: session.token!.access)])
+        self.provider = MoyaProvider<BooksService>(plugins: [
+            AuthPlugin(accessToken: session.token!.access),
+            NetworkLoggerPlugin(verbose: true)])
     }
     
     func getAll() -> Observable<[Book]> {
