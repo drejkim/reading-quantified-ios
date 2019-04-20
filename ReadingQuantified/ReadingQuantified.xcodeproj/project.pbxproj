@@ -15,7 +15,6 @@
 		065985A0226299FB009C148C /* BookViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0659859F226299FB009C148C /* BookViewModel.swift */; };
 		0681C0E7224FBFD6000EF660 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0681C0E6224FBFD6000EF660 /* AppDelegate.swift */; };
 		0681C0EC224FBFD6000EF660 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0681C0EA224FBFD6000EF660 /* Main.storyboard */; };
-		0681C0EF224FBFD6000EF660 /* ReadingQuantified.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0681C0ED224FBFD6000EF660 /* ReadingQuantified.xcdatamodeld */; };
 		0681C0F1224FBFD6000EF660 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0681C0F0224FBFD6000EF660 /* Assets.xcassets */; };
 		0681C0F4224FBFD6000EF660 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0681C0F2224FBFD6000EF660 /* LaunchScreen.storyboard */; };
 		0681C0FF224FBFD6000EF660 /* ReadingQuantifiedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0681C0FE224FBFD6000EF660 /* ReadingQuantifiedTests.swift */; };
@@ -30,7 +29,11 @@
 		069A9766224FEDFB00B4E302 /* BooksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 069A9765224FEDFB00B4E302 /* BooksViewController.swift */; };
 		069A9768224FEE0B00B4E302 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 069A9767224FEE0B00B4E302 /* SettingsViewController.swift */; };
 		06AC991522590AAE009A7E9F /* AuthPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06AC991422590AAE009A7E9F /* AuthPlugin.swift */; };
-		06FB5298225998890035BCD0 /* SessionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06FB5297225998890035BCD0 /* SessionService.swift */; };
+		06D159F6226A3CB3002C00D8 /* BooksRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D159F5226A3CB3002C00D8 /* BooksRepository.swift */; };
+		06D159F8226A3CEE002C00D8 /* RemoteBooksRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D159F7226A3CEE002C00D8 /* RemoteBooksRepository.swift */; };
+		06EDE971226A981F008230DD /* LocalBooksRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06EDE970226A981F008230DD /* LocalBooksRepository.swift */; };
+		06EDE975226A9D06008230DD /* BooksRepositoryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06EDE974226A9D06008230DD /* BooksRepositoryManager.swift */; };
+		06FB5298225998890035BCD0 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06FB5297225998890035BCD0 /* Session.swift */; };
 		06FB529A2259A90D0035BCD0 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06FB52992259A90D0035BCD0 /* Book.swift */; };
 		06FB529E2259AB080035BCD0 /* BooksService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06FB529D2259AB080035BCD0 /* BooksService.swift */; };
 		06FB52A02259B1C90035BCD0 /* BooksViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06FB529F2259B1C90035BCD0 /* BooksViewModel.swift */; };
@@ -68,7 +71,6 @@
 		0681C0E3224FBFD5000EF660 /* ReadingQuantified.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReadingQuantified.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0681C0E6224FBFD6000EF660 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0681C0EB224FBFD6000EF660 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		0681C0EE224FBFD6000EF660 /* ReadingQuantified.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ReadingQuantified.xcdatamodel; sourceTree = "<group>"; };
 		0681C0F0224FBFD6000EF660 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0681C0F3224FBFD6000EF660 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0681C0F5224FBFD6000EF660 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -88,7 +90,11 @@
 		069A9765224FEDFB00B4E302 /* BooksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksViewController.swift; sourceTree = "<group>"; };
 		069A9767224FEE0B00B4E302 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		06AC991422590AAE009A7E9F /* AuthPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthPlugin.swift; sourceTree = "<group>"; };
-		06FB5297225998890035BCD0 /* SessionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionService.swift; sourceTree = "<group>"; };
+		06D159F5226A3CB3002C00D8 /* BooksRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksRepository.swift; sourceTree = "<group>"; };
+		06D159F7226A3CEE002C00D8 /* RemoteBooksRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteBooksRepository.swift; sourceTree = "<group>"; };
+		06EDE970226A981F008230DD /* LocalBooksRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalBooksRepository.swift; sourceTree = "<group>"; };
+		06EDE974226A9D06008230DD /* BooksRepositoryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksRepositoryManager.swift; sourceTree = "<group>"; };
+		06FB5297225998890035BCD0 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		06FB52992259A90D0035BCD0 /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		06FB529D2259AB080035BCD0 /* BooksService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksService.swift; sourceTree = "<group>"; };
 		06FB529F2259B1C90035BCD0 /* BooksViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksViewModel.swift; sourceTree = "<group>"; };
@@ -136,7 +142,6 @@
 			children = (
 				06AC991422590AAE009A7E9F /* AuthPlugin.swift */,
 				06FB529D2259AB080035BCD0 /* BooksService.swift */,
-				06FB5297225998890035BCD0 /* SessionService.swift */,
 				061904D22254229200684100 /* TokenService.swift */,
 			);
 			path = Services;
@@ -200,10 +205,12 @@
 			isa = PBXGroup;
 			children = (
 				061904D4225423BC00684100 /* Constants.swift */,
+				06FB5297225998890035BCD0 /* Session.swift */,
 				068D18FD2251062800C5F9EC /* SwinjectStoryboardSetup.swift */,
 				069A9755224FD6B000B4E302 /* AppDelegate */,
 				069A9756224FD6BB00B4E302 /* Controllers */,
 				061904D6225428B700684100 /* Models */,
+				06D159F4226A3CA0002C00D8 /* Repositories */,
 				069A9758224FD6CC00B4E302 /* Resources */,
 				061904D12254227E00684100 /* Services */,
 				064F348D22506FC600E55415 /* ViewModels */,
@@ -264,9 +271,19 @@
 			children = (
 				0681C0F5224FBFD6000EF660 /* Info.plist */,
 				0681C0F0224FBFD6000EF660 /* Assets.xcassets */,
-				0681C0ED224FBFD6000EF660 /* ReadingQuantified.xcdatamodeld */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		06D159F4226A3CA0002C00D8 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				06D159F5226A3CB3002C00D8 /* BooksRepository.swift */,
+				06EDE974226A9D06008230DD /* BooksRepositoryManager.swift */,
+				06EDE970226A981F008230DD /* LocalBooksRepository.swift */,
+				06D159F7226A3CEE002C00D8 /* RemoteBooksRepository.swift */,
+			);
+			path = Repositories;
 			sourceTree = "<group>";
 		};
 		06FB52A1225A47FD0035BCD0 /* Cells */ = {
@@ -468,9 +485,12 @@
 				"${PODS_ROOT}/Target Support Files/Pods-ReadingQuantified/Pods-ReadingQuantified-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
 				"${BUILT_PRODUCTS_DIR}/RxAtomic/RxAtomic.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxRealm/RxRealm.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Swinject/Swinject.framework",
 				"${BUILT_PRODUCTS_DIR}/SwinjectStoryboard/SwinjectStoryboard.framework",
@@ -481,9 +501,12 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAtomic.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxRealm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Swinject.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwinjectStoryboard.framework",
@@ -548,21 +571,24 @@
 				069A9766224FEDFB00B4E302 /* BooksViewController.swift in Sources */,
 				06FB529A2259A90D0035BCD0 /* Book.swift in Sources */,
 				068D18FE2251062800C5F9EC /* SwinjectStoryboardSetup.swift in Sources */,
+				06EDE975226A9D06008230DD /* BooksRepositoryManager.swift in Sources */,
 				069A975C224FDFAC00B4E302 /* LoginViewController.swift in Sources */,
 				0681C0E7224FBFD6000EF660 /* AppDelegate.swift in Sources */,
 				065985A0226299FB009C148C /* BookViewModel.swift in Sources */,
 				061904D5225423BC00684100 /* Constants.swift in Sources */,
-				0681C0EF224FBFD6000EF660 /* ReadingQuantified.xcdatamodeld in Sources */,
-				06FB5298225998890035BCD0 /* SessionService.swift in Sources */,
+				06D159F8226A3CEE002C00D8 /* RemoteBooksRepository.swift in Sources */,
+				06FB5298225998890035BCD0 /* Session.swift in Sources */,
 				06FB52A3225A48600035BCD0 /* BookCell.swift in Sources */,
 				06FB52A02259B1C90035BCD0 /* BooksViewModel.swift in Sources */,
 				06FB529E2259AB080035BCD0 /* BooksService.swift in Sources */,
 				061904D8225428C400684100 /* Token.swift in Sources */,
 				06AC991522590AAE009A7E9F /* AuthPlugin.swift in Sources */,
+				06D159F6226A3CB3002C00D8 /* BooksRepository.swift in Sources */,
 				069A9764224FEDF000B4E302 /* DashboardViewController.swift in Sources */,
 				0659859C22628C9C009C148C /* BookDetailViewController.swift in Sources */,
 				069A9768224FEE0B00B4E302 /* SettingsViewController.swift in Sources */,
 				064F3495225079BC00E55415 /* LoginViewModel.swift in Sources */,
+				06EDE971226A981F008230DD /* LocalBooksRepository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -897,19 +923,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		0681C0ED224FBFD6000EF660 /* ReadingQuantified.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				0681C0EE224FBFD6000EF660 /* ReadingQuantified.xcdatamodel */,
-			);
-			currentVersion = 0681C0EE224FBFD6000EF660 /* ReadingQuantified.xcdatamodel */;
-			path = ReadingQuantified.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 0681C0DB224FBFD5000EF660 /* Project object */;
 }

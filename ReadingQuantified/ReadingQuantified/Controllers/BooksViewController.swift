@@ -19,6 +19,7 @@ class BooksViewController: UIViewController {
     // MARK: - Private Properties
     
     private let bag = DisposeBag()
+    private let refreshControl = UIRefreshControl()
     private var selectedBook: Book?
     
     // MARK: - IB Outlets & Actions
@@ -40,12 +41,18 @@ class BooksViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(BooksViewController.keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(BooksViewController.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         
+        // Load books from local repository
         viewModel.loadBooks()
+        
+        setupRefreshControl()
         
         bindSearchBar()
         bindSegmentedControl()
         bindNumberOfBooksLabel()
         bindTableView()
+        
+        // Fetch updates from remote repository
+        viewModel.refreshBooks()
     }
     
     // MARK: - Keyboard Functions
@@ -109,7 +116,7 @@ class BooksViewController: UIViewController {
     }
     
     private func bindNumberOfBooksLabel() {
-        viewModel.books.asObservable()
+        viewModel.booksRelay.asObservable()
             .subscribe(onNext: { [weak self] items in
                 guard let strongSelf = self else { return }
                 
@@ -119,7 +126,7 @@ class BooksViewController: UIViewController {
     }
     
     private func bindTableView() {
-        viewModel.books.asObservable()
+        viewModel.booksRelay.asObservable()
             .bind(to: tableView.rx.items(cellIdentifier: "BookCell", cellType: BookCell.self)) { row, book, cell in
                 cell.configureCell(book: book)
             }
@@ -140,6 +147,22 @@ class BooksViewController: UIViewController {
     private func updateTableViewInsets(for bottomValue: CGFloat) {
         tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: bottomValue, right: 0)
         tableView.scrollIndicatorInsets = UIEdgeInsets(top: 0, left: 0, bottom: bottomValue, right: 0)
+    }
+    
+    private func setupRefreshControl() {
+        tableView.refreshControl = refreshControl
+        
+        refreshControl.backgroundColor = UIColor(named: "bg_white")
+        refreshControl.tintColor = UIColor(named: "text_muted")
+        refreshControl.attributedTitle = NSAttributedString(string: "Fetching books...",
+                                                            attributes: [NSAttributedString.Key.foregroundColor: UIColor(named: "text_muted")!])
+        refreshControl.addTarget(self, action: #selector(handleRefresh(_:)), for: .valueChanged)
+    }
+    
+    @objc private func handleRefresh(_ refreshControl: UIRefreshControl) {
+        viewModel.refreshBooks()
+        tableView.reloadData()
+        refreshControl.endRefreshing()
     }
     
     // MARK: - Navigation
