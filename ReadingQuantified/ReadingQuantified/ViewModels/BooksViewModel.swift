@@ -53,6 +53,7 @@ class BooksViewModel {
                 
                 strongSelf.books = books
                 strongSelf.booksRelay.accept(books)
+                strongSelf.booksRepositoryManager.save(books)
             })
             .disposed(by: bag)
     }

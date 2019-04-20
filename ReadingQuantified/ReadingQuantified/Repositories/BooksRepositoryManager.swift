@@ -38,9 +38,9 @@ class BooksRepositoryManager {
         }
     }
     
-    func save() -> Observable<Bool> {
+    func save(_ books: [Book]) {
         
-        return local.save()
+        return local.save(books)
     }
     
 }
