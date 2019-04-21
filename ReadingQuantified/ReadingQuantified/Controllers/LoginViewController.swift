@@ -55,7 +55,7 @@ class LoginViewController: UIViewController {
                 strongSelf.loginButton.isHidden = strongSelf.viewModel.hideLoginButton(status: loginStatus)
                 
                 if loginStatus == .valid {
-                    strongSelf.performSegue(withIdentifier: Constants.SegueIdentifiers.mainStoryboard, sender: strongSelf)
+                    strongSelf.performSegue(withIdentifier: Constants.SegueIdentifiers.goToMainFromLogin, sender: strongSelf)
                 }
             })
             .disposed(by: bag)

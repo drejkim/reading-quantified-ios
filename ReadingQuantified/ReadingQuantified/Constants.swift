@@ -7,12 +7,14 @@
 //
 
 struct Constants {
-    static let baseURL = "https://reading-quantified-server.herokuapp.com"
-//    static let baseURL = "http://localhost:8000"
+//    static let baseURL = "https://reading-quantified-server.herokuapp.com"
+    static let baseURL = "http://localhost:8000"
     
     // Segue Identifiers
     struct SegueIdentifiers {
-        static let mainStoryboard = "goToMain"
         static let bookDetailViewController = "goToBookDetail"
+        static let goToMainFromLogin = "goToMainFromLogin"
+        static let goToMainFromSplashScreen = "goToMainFromSplashScreen"
+        static let goToLoginFromSplashScreen = "goToLoginFromSplashScreen"
     }
 }
