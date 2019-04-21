@@ -13,6 +13,8 @@
 		064F3495225079BC00E55415 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064F3494225079BC00E55415 /* LoginViewModel.swift */; };
 		0659859C22628C9C009C148C /* BookDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0659859B22628C9C009C148C /* BookDetailViewController.swift */; };
 		065985A0226299FB009C148C /* BookViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0659859F226299FB009C148C /* BookViewModel.swift */; };
+		066BB4BA226C252A00E86996 /* SplashScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 066BB4B9226C252A00E86996 /* SplashScreenViewController.swift */; };
+		066BB4BC226C288400E86996 /* SplashScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 066BB4BB226C288400E86996 /* SplashScreenViewModel.swift */; };
 		0681C0E7224FBFD6000EF660 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0681C0E6224FBFD6000EF660 /* AppDelegate.swift */; };
 		0681C0EC224FBFD6000EF660 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0681C0EA224FBFD6000EF660 /* Main.storyboard */; };
 		0681C0F1224FBFD6000EF660 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0681C0F0224FBFD6000EF660 /* Assets.xcassets */; };
@@ -68,6 +70,8 @@
 		064F3494225079BC00E55415 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		0659859B22628C9C009C148C /* BookDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailViewController.swift; sourceTree = "<group>"; };
 		0659859F226299FB009C148C /* BookViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookViewModel.swift; sourceTree = "<group>"; };
+		066BB4B9226C252A00E86996 /* SplashScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenViewController.swift; sourceTree = "<group>"; };
+		066BB4BB226C288400E86996 /* SplashScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenViewModel.swift; sourceTree = "<group>"; };
 		0681C0E3224FBFD5000EF660 /* ReadingQuantified.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReadingQuantified.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0681C0E6224FBFD6000EF660 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0681C0EB224FBFD6000EF660 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -159,9 +163,10 @@
 		064F348D22506FC600E55415 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				0659859F226299FB009C148C /* BookViewModel.swift */,
 				06FB529F2259B1C90035BCD0 /* BooksViewModel.swift */,
+				0659859F226299FB009C148C /* BookViewModel.swift */,
 				064F3494225079BC00E55415 /* LoginViewModel.swift */,
+				066BB4BB226C288400E86996 /* SplashScreenViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -253,6 +258,7 @@
 				069A9763224FEDF000B4E302 /* DashboardViewController.swift */,
 				069A975B224FDFAC00B4E302 /* LoginViewController.swift */,
 				069A9767224FEE0B00B4E302 /* SettingsViewController.swift */,
+				066BB4B9226C252A00E86996 /* SplashScreenViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -570,7 +576,9 @@
 				061904D32254229200684100 /* TokenService.swift in Sources */,
 				069A9766224FEDFB00B4E302 /* BooksViewController.swift in Sources */,
 				06FB529A2259A90D0035BCD0 /* Book.swift in Sources */,
+				066BB4BA226C252A00E86996 /* SplashScreenViewController.swift in Sources */,
 				068D18FE2251062800C5F9EC /* SwinjectStoryboardSetup.swift in Sources */,
+				066BB4BC226C288400E86996 /* SplashScreenViewModel.swift in Sources */,
 				06EDE975226A9D06008230DD /* BooksRepositoryManager.swift in Sources */,
 				069A975C224FDFAC00B4E302 /* LoginViewController.swift in Sources */,
 				0681C0E7224FBFD6000EF660 /* AppDelegate.swift in Sources */,

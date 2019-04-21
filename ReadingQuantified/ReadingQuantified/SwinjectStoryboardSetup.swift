@@ -27,6 +27,10 @@ extension SwinjectStoryboard {
             controller.viewModel = resolver.resolve(LoginViewModel.self)
         }
         
+        defaultContainer.storyboardInitCompleted(SplashScreenViewController.self) { resolver, controller in
+            controller.viewModel = resolver.resolve(SplashScreenViewModel.self)
+        }
+        
         // MARK: - View Model Injections
         
         defaultContainer.register(BooksViewModel.self) { resolver in
@@ -35,6 +39,10 @@ extension SwinjectStoryboard {
         
         defaultContainer.register(LoginViewModel.self) { resolver in
             LoginViewModel(session: resolver.resolve(Session.self)!)
+        }
+        
+        defaultContainer.register(SplashScreenViewModel.self) { resolver in
+            SplashScreenViewModel(session: resolver.resolve(Session.self)!)
         }
         
         // MARK: - App Component Injections
