@@ -12,6 +12,7 @@ target 'ReadingQuantified' do
   pod 'RxCocoa'
   pod 'RxRealm'
   pod 'RxSwift'
+  pod 'SwiftKeychainWrapper'
   pod 'Swinject'
 
   # Use master branch due to Xcode 10.2 / Swift 5 issues
