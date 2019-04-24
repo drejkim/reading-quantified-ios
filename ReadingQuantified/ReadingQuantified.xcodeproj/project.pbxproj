@@ -284,12 +284,20 @@
 		06D159F4226A3CA0002C00D8 /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
+				06D4F8FE22712980006D6E96 /* Books */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		06D4F8FE22712980006D6E96 /* Books */ = {
+			isa = PBXGroup;
+			children = (
 				06D159F5226A3CB3002C00D8 /* BooksRepository.swift */,
 				06EDE974226A9D06008230DD /* BooksRepositoryManager.swift */,
 				06EDE970226A981F008230DD /* LocalBooksRepository.swift */,
 				06D159F7226A3CEE002C00D8 /* RemoteBooksRepository.swift */,
 			);
-			path = Repositories;
+			path = Books;
 			sourceTree = "<group>";
 		};
 		06FB52A1225A47FD0035BCD0 /* Cells */ = {
