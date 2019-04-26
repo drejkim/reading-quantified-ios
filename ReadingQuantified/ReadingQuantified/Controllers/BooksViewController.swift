@@ -50,9 +50,6 @@ class BooksViewController: UIViewController {
         bindSegmentedControl()
         bindNumberOfBooksLabel()
         bindTableView()
-        
-        // Fetch updates from remote repository
-        viewModel.refreshBooks()
     }
     
     // MARK: - Keyboard Functions
