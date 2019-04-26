@@ -42,6 +42,7 @@ class SplashScreenViewController: UIViewController {
                 guard let strongSelf = self else { return }
                 
                 if value {
+                    strongSelf.viewModel.fetchBooks()
                     strongSelf.performSegue(withIdentifier: Constants.SegueIdentifiers.goToMainFromSplashScreen, sender: strongSelf)
                 }
                 else {
