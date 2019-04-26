@@ -31,6 +31,7 @@
 		069A9766224FEDFB00B4E302 /* BooksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 069A9765224FEDFB00B4E302 /* BooksViewController.swift */; };
 		069A9768224FEE0B00B4E302 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 069A9767224FEE0B00B4E302 /* SettingsViewController.swift */; };
 		06AC991522590AAE009A7E9F /* AuthPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06AC991422590AAE009A7E9F /* AuthPlugin.swift */; };
+		06BE7B0F2273C45400245EB5 /* PostLoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06BE7B0E2273C45400245EB5 /* PostLoginViewModel.swift */; };
 		06D159F6226A3CB3002C00D8 /* BooksRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D159F5226A3CB3002C00D8 /* BooksRepository.swift */; };
 		06D159F8226A3CEE002C00D8 /* RemoteBooksRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D159F7226A3CEE002C00D8 /* RemoteBooksRepository.swift */; };
 		06D4F904227145AD006D6E96 /* KeychainTokenRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D4F903227145AD006D6E96 /* KeychainTokenRepository.swift */; };
@@ -96,6 +97,7 @@
 		069A9765224FEDFB00B4E302 /* BooksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksViewController.swift; sourceTree = "<group>"; };
 		069A9767224FEE0B00B4E302 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		06AC991422590AAE009A7E9F /* AuthPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthPlugin.swift; sourceTree = "<group>"; };
+		06BE7B0E2273C45400245EB5 /* PostLoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostLoginViewModel.swift; sourceTree = "<group>"; };
 		06D159F5226A3CB3002C00D8 /* BooksRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksRepository.swift; sourceTree = "<group>"; };
 		06D159F7226A3CEE002C00D8 /* RemoteBooksRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteBooksRepository.swift; sourceTree = "<group>"; };
 		06D4F903227145AD006D6E96 /* KeychainTokenRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainTokenRepository.swift; sourceTree = "<group>"; };
@@ -170,6 +172,7 @@
 				06FB529F2259B1C90035BCD0 /* BooksViewModel.swift */,
 				0659859F226299FB009C148C /* BookViewModel.swift */,
 				064F3494225079BC00E55415 /* LoginViewModel.swift */,
+				06BE7B0E2273C45400245EB5 /* PostLoginViewModel.swift */,
 				06D4F9072273676F006D6E96 /* SettingsViewModel.swift */,
 				066BB4BB226C288400E86996 /* SplashScreenViewModel.swift */,
 			);
@@ -601,6 +604,7 @@
 				069A9766224FEDFB00B4E302 /* BooksViewController.swift in Sources */,
 				06FB529A2259A90D0035BCD0 /* Book.swift in Sources */,
 				066BB4BA226C252A00E86996 /* SplashScreenViewController.swift in Sources */,
+				06BE7B0F2273C45400245EB5 /* PostLoginViewModel.swift in Sources */,
 				068D18FE2251062800C5F9EC /* SwinjectStoryboardSetup.swift in Sources */,
 				066BB4BC226C288400E86996 /* SplashScreenViewModel.swift in Sources */,
 				06EDE975226A9D06008230DD /* BooksRepositoryManager.swift in Sources */,

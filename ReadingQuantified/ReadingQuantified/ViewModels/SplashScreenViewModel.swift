@@ -49,18 +49,4 @@ class SplashScreenViewModel {
         }
     }
     
-    func fetchBooks() {
-        // Create repositories here to ensure there is a valid token to fetch books
-        let localBooksRepository = LocalBooksRepository()
-        let remoteBooksRepository = RemoteBooksRepository(keychainTokenRepository: self.keychainTokenRepository)
-        let booksRepositoryManager = BooksRepositoryManager(local: localBooksRepository, remote: remoteBooksRepository)
-        
-        booksRepositoryManager.getAll(from: .remote)
-            .subscribe(onNext: { books in
-                
-                booksRepositoryManager.save(books)
-            })
-            .disposed(by: bag)
-    }
-    
 }

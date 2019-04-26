@@ -47,6 +47,8 @@ class LoginViewController: UIViewController {
     }
     
     private func bindUI() {
+        let postLoginViewModel = PostLoginViewModel()
+        
         viewModel.status.asObservable()
             .subscribe(onNext: { [weak self] loginStatus in
                 guard let strongSelf = self else { return }
@@ -55,6 +57,7 @@ class LoginViewController: UIViewController {
                 strongSelf.loginButton.isHidden = strongSelf.viewModel.hideLoginButton(status: loginStatus)
                 
                 if loginStatus == .valid {
+                    postLoginViewModel.fetchBooks()
                     strongSelf.performSegue(withIdentifier: Constants.SegueIdentifiers.goToMainFromLogin, sender: strongSelf)
                 }
             })
