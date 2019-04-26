@@ -26,6 +26,7 @@
                                     <color key="titleColor" name="text_primary"/>
                                 </state>
                                 <connections>
+                                    <action selector="logoutButtonPressed:" destination="60s-AM-Fgf" eventType="touchUpInside" id="WtC-vZ-JMy"/>
                                     <segue destination="0Xq-XF-ykX" kind="showDetail" id="W47-kM-sKd"/>
                                 </connections>
                             </button>

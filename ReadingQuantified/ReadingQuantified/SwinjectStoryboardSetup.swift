@@ -27,6 +27,10 @@ extension SwinjectStoryboard {
             controller.viewModel = resolver.resolve(LoginViewModel.self)
         }
         
+        defaultContainer.storyboardInitCompleted(SettingsViewController.self) { resolver, controller in
+            controller.viewModel = resolver.resolve(SettingsViewModel.self)
+        }
+        
         defaultContainer.storyboardInitCompleted(SplashScreenViewController.self) { resolver, controller in
             controller.viewModel = resolver.resolve(SplashScreenViewModel.self)
         }
@@ -40,6 +44,10 @@ extension SwinjectStoryboard {
         defaultContainer.register(LoginViewModel.self) { resolver in
             LoginViewModel(keychainTokenRepository: resolver.resolve(KeychainTokenRepository.self)!,
                            remoteTokenRepository: resolver.resolve(RemoteTokenRepository.self)!)
+        }
+        
+        defaultContainer.register(SettingsViewModel.self) { resolver in
+            SettingsViewModel(keychainTokenRepository: resolver.resolve(KeychainTokenRepository.self)!)
         }
         
         defaultContainer.register(SplashScreenViewModel.self) { resolver in
