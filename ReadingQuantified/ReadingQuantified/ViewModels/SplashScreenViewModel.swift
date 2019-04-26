@@ -37,8 +37,10 @@ class SplashScreenViewModel {
         if let token = tokenOptional {
             // Verify just the access token for now
             self.remoteTokenRepository.verifyToken(token: token.access)
-                .subscribe(onNext: { result in
-                    self.isLoggedIn.onNext(result)
+                .subscribe(onNext: { [weak self] result in
+                    guard let strongSelf = self else { return }
+                    
+                    strongSelf.isLoggedIn.onNext(result)
                 })
                 .disposed(by: bag)
         }
