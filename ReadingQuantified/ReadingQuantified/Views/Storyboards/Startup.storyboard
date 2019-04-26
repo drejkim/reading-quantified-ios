@@ -18,7 +18,16 @@
                     <view key="view" contentMode="scaleToFill" id="YWx-2j-UAi">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_border" translatesAutoresizingMaskIntoConstraints="NO" id="gwq-93-caf">
+                                <rect key="frame" x="159" y="400" width="96" height="96"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" name="bg_primary"/>
+                        <constraints>
+                            <constraint firstItem="gwq-93-caf" firstAttribute="centerX" secondItem="YWx-2j-UAi" secondAttribute="centerX" id="Ck1-Gm-dCc"/>
+                            <constraint firstItem="gwq-93-caf" firstAttribute="centerY" secondItem="YWx-2j-UAi" secondAttribute="centerY" id="FSs-yM-Or4"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="LBw-iK-QKQ"/>
                     </view>
                     <connections>
@@ -158,6 +167,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="logo_border" width="96" height="96"/>
         <namedColor name="bg_dark">
             <color red="0.20399999618530273" green="0.22699999809265137" blue="0.25099998712539673" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
