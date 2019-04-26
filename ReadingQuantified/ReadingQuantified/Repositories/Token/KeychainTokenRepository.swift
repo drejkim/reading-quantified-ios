@@ -30,4 +30,11 @@ class KeychainTokenRepository {
         return accessTokenSaveSuccessful && refreshTokenSaveSuccessful
     }
     
+    func remove() -> Bool {
+        let accessTokenRemoveSuccessful = KeychainWrapper.standard.removeObject(forKey: Keys.accessToken)
+        let refreshTokenRemoveSuccessful = KeychainWrapper.standard.removeObject(forKey: Keys.refreshToken)
+        
+        return accessTokenRemoveSuccessful && refreshTokenRemoveSuccessful
+    }
+    
 }
