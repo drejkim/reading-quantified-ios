@@ -13,17 +13,38 @@ class SplashScreenViewModel {
     
     // MARK: - Dependencies
     
-    private let session: Session
+    private let keychainTokenRepository: KeychainTokenRepository
+    private let remoteTokenRepository: RemoteTokenRepository
     
-    init(session: Session) {
-        self.session = session
-        
-        // TEMPORARY: For testing only
-        self.session.token = Token(refresh: "abcd", access: "efgh")
+    init(keychainTokenRepository: KeychainTokenRepository, remoteTokenRepository: RemoteTokenRepository) {
+        self.keychainTokenRepository = keychainTokenRepository
+        self.remoteTokenRepository = remoteTokenRepository
     }
     
     // MARK: - Properties
     
-    let isLoggedIn = BehaviorRelay<Bool>(value: true)
+    let isLoggedIn = PublishSubject<Bool>()
+    
+    // MARK: - Private Properties
+    
+    private let bag = DisposeBag()
+    
+    // MARK: - Functions
+    
+    func checkIfLoggedIn() {
+        let tokenOptional = self.keychainTokenRepository.get()
+
+        if let token = tokenOptional {
+            // Verify just the access token for now
+            self.remoteTokenRepository.verifyToken(token: token.access)
+                .subscribe(onNext: { result in
+                    self.isLoggedIn.onNext(result)
+                })
+                .disposed(by: bag)
+        }
+        else {
+            self.isLoggedIn.onNext(false)
+        }
+    }
     
 }

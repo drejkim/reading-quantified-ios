@@ -11,15 +11,17 @@ import RxSwift
 
 class RemoteBooksRepository: BooksRepository {
     
-    private let session: Session
+    private let keychainTokenRepository: KeychainTokenRepository
     private let provider: MoyaProvider<BooksService>
     
-    init(session: Session) {
-        self.session = session
+    init(keychainTokenRepository: KeychainTokenRepository) {
+        self.keychainTokenRepository = keychainTokenRepository
         
-        // QUESTION: Is force unwrapping token okay?
+        // Force unwrap token...
+        let token = self.keychainTokenRepository.get()!
+        
         self.provider = MoyaProvider<BooksService>(plugins: [
-            AuthPlugin(accessToken: session.token!.access),
+            AuthPlugin(accessToken: token.access),
             NetworkLoggerPlugin(verbose: true)])
     }
     

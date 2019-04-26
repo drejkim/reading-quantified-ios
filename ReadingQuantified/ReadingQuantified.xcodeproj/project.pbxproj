@@ -33,9 +33,10 @@
 		06AC991522590AAE009A7E9F /* AuthPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06AC991422590AAE009A7E9F /* AuthPlugin.swift */; };
 		06D159F6226A3CB3002C00D8 /* BooksRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D159F5226A3CB3002C00D8 /* BooksRepository.swift */; };
 		06D159F8226A3CEE002C00D8 /* RemoteBooksRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D159F7226A3CEE002C00D8 /* RemoteBooksRepository.swift */; };
+		06D4F904227145AD006D6E96 /* KeychainTokenRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D4F903227145AD006D6E96 /* KeychainTokenRepository.swift */; };
+		06D4F90622728A74006D6E96 /* RemoteTokenRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D4F90522728A74006D6E96 /* RemoteTokenRepository.swift */; };
 		06EDE971226A981F008230DD /* LocalBooksRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06EDE970226A981F008230DD /* LocalBooksRepository.swift */; };
 		06EDE975226A9D06008230DD /* BooksRepositoryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06EDE974226A9D06008230DD /* BooksRepositoryManager.swift */; };
-		06FB5298225998890035BCD0 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06FB5297225998890035BCD0 /* Session.swift */; };
 		06FB529A2259A90D0035BCD0 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06FB52992259A90D0035BCD0 /* Book.swift */; };
 		06FB529E2259AB080035BCD0 /* BooksService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06FB529D2259AB080035BCD0 /* BooksService.swift */; };
 		06FB52A02259B1C90035BCD0 /* BooksViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06FB529F2259B1C90035BCD0 /* BooksViewModel.swift */; };
@@ -96,9 +97,10 @@
 		06AC991422590AAE009A7E9F /* AuthPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthPlugin.swift; sourceTree = "<group>"; };
 		06D159F5226A3CB3002C00D8 /* BooksRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksRepository.swift; sourceTree = "<group>"; };
 		06D159F7226A3CEE002C00D8 /* RemoteBooksRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteBooksRepository.swift; sourceTree = "<group>"; };
+		06D4F903227145AD006D6E96 /* KeychainTokenRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainTokenRepository.swift; sourceTree = "<group>"; };
+		06D4F90522728A74006D6E96 /* RemoteTokenRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteTokenRepository.swift; sourceTree = "<group>"; };
 		06EDE970226A981F008230DD /* LocalBooksRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalBooksRepository.swift; sourceTree = "<group>"; };
 		06EDE974226A9D06008230DD /* BooksRepositoryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksRepositoryManager.swift; sourceTree = "<group>"; };
-		06FB5297225998890035BCD0 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		06FB52992259A90D0035BCD0 /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		06FB529D2259AB080035BCD0 /* BooksService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksService.swift; sourceTree = "<group>"; };
 		06FB529F2259B1C90035BCD0 /* BooksViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksViewModel.swift; sourceTree = "<group>"; };
@@ -210,7 +212,6 @@
 			isa = PBXGroup;
 			children = (
 				061904D4225423BC00684100 /* Constants.swift */,
-				06FB5297225998890035BCD0 /* Session.swift */,
 				068D18FD2251062800C5F9EC /* SwinjectStoryboardSetup.swift */,
 				069A9755224FD6B000B4E302 /* AppDelegate */,
 				069A9756224FD6BB00B4E302 /* Controllers */,
@@ -285,6 +286,7 @@
 			isa = PBXGroup;
 			children = (
 				06D4F8FE22712980006D6E96 /* Books */,
+				06D4F90222714593006D6E96 /* Token */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -298,6 +300,15 @@
 				06D159F7226A3CEE002C00D8 /* RemoteBooksRepository.swift */,
 			);
 			path = Books;
+			sourceTree = "<group>";
+		};
+		06D4F90222714593006D6E96 /* Token */ = {
+			isa = PBXGroup;
+			children = (
+				06D4F903227145AD006D6E96 /* KeychainTokenRepository.swift */,
+				06D4F90522728A74006D6E96 /* RemoteTokenRepository.swift */,
+			);
+			path = Token;
 			sourceTree = "<group>";
 		};
 		06FB52A1225A47FD0035BCD0 /* Cells */ = {
@@ -595,13 +606,14 @@
 				065985A0226299FB009C148C /* BookViewModel.swift in Sources */,
 				061904D5225423BC00684100 /* Constants.swift in Sources */,
 				06D159F8226A3CEE002C00D8 /* RemoteBooksRepository.swift in Sources */,
-				06FB5298225998890035BCD0 /* Session.swift in Sources */,
 				06FB52A3225A48600035BCD0 /* BookCell.swift in Sources */,
 				06FB52A02259B1C90035BCD0 /* BooksViewModel.swift in Sources */,
+				06D4F90622728A74006D6E96 /* RemoteTokenRepository.swift in Sources */,
 				06FB529E2259AB080035BCD0 /* BooksService.swift in Sources */,
 				061904D8225428C400684100 /* Token.swift in Sources */,
 				06AC991522590AAE009A7E9F /* AuthPlugin.swift in Sources */,
 				06D159F6226A3CB3002C00D8 /* BooksRepository.swift in Sources */,
+				06D4F904227145AD006D6E96 /* KeychainTokenRepository.swift in Sources */,
 				069A9764224FEDF000B4E302 /* DashboardViewController.swift in Sources */,
 				0659859C22628C9C009C148C /* BookDetailViewController.swift in Sources */,
 				069A9768224FEE0B00B4E302 /* SettingsViewController.swift in Sources */,
