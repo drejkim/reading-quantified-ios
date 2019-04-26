@@ -12,10 +12,14 @@ import RxCocoa
 
 class LoginViewModel {
     
-    private let session: Session
+    // MARK: - Dependencies
     
-    init(session: Session) {
-        self.session = session
+    private let keychainTokenRepository: KeychainTokenRepository
+    private let remoteTokenRepository: RemoteTokenRepository
+    
+    init(keychainTokenRepository: KeychainTokenRepository, remoteTokenRepository: RemoteTokenRepository) {
+        self.keychainTokenRepository = keychainTokenRepository
+        self.remoteTokenRepository = remoteTokenRepository
     }
     
     // MARK: - Properties
@@ -26,6 +30,10 @@ class LoginViewModel {
     
     let status = BehaviorRelay<LoginStatus>(value: .notProcessed)
     
+    // MARK: - Private Properties
+    
+    private let bag = DisposeBag()
+    
     // MARK: - Functions
     
     func validateCredentials(inputUsername: String?, inputPassword: String?) {
@@ -35,23 +43,27 @@ class LoginViewModel {
         
         self.status.accept(.processing)
         
-        let provider = MoyaProvider<TokenService>()
-        provider.request(.obtainTokenPair(username: username, password: password)) { result in
-            switch result {
-            case let .success(response):
-                do {
-                    self.session.token = try response.map(Token.self)
-                    self.status.accept(.valid)
-                } catch let error {
-                    self.status.accept(.invalid)
-                    print(error)
+        self.remoteTokenRepository.obtainTokenPair(username: username, password: password)
+            .subscribe(
+                onNext: { [weak self] token in
+                    guard let strongSelf = self else { return }
+                    
+                    let tokenSaveSuccessful = strongSelf.keychainTokenRepository.save(token)
+                    
+                    if tokenSaveSuccessful {
+                        strongSelf.status.accept(.valid)
+                    }
+                    else {
+                        strongSelf.status.accept(.invalid)
+                    }
+                },
+                onError: { [weak self] _ in
+                    guard let strongSelf = self else { return }
+                    
+                    strongSelf.status.accept(.invalid)
                 }
-                
-            case let .failure(error):
-                self.status.accept(.invalid)
-                print(error)
-            }
-        }
+            )
+            .disposed(by: bag)
     }
     
     func getStatusMessage(status: LoginStatus) -> String {

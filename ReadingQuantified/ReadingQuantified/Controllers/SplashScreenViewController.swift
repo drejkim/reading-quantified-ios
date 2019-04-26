@@ -27,7 +27,6 @@ class SplashScreenViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    // TEMPORARY: For testing only
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
@@ -37,7 +36,8 @@ class SplashScreenViewController: UIViewController {
     // MARK: - Private Functions
     
     private func bindUI() {
-        viewModel.isLoggedIn.asObservable()
+        // Make sure to subscribe first...
+        viewModel.isLoggedIn
             .subscribe(onNext: { [weak self] value in
                 guard let strongSelf = self else { return }
                 
@@ -49,6 +49,9 @@ class SplashScreenViewController: UIViewController {
                 }
             })
             .disposed(by: bag)
+        
+        // Then check...
+        viewModel.checkIfLoggedIn()
     }
     
 }

@@ -11,6 +11,7 @@ import Moya
 enum TokenService {
     case obtainTokenPair(username: String, password: String)
     case refreshToken(token: String)
+    case verifyToken(token: String)
 }
 
 extension TokenService: TargetType {
@@ -24,6 +25,8 @@ extension TokenService: TargetType {
             return "/api/token/"
         case .refreshToken(_):
             return "/api/token/refresh/"
+        case .verifyToken(_):
+            return "/api/token/verify/"
         }
     }
     
@@ -32,6 +35,8 @@ extension TokenService: TargetType {
         case .obtainTokenPair:
             return .post
         case .refreshToken:
+            return .post
+        case .verifyToken:
             return .post
         }
     }
@@ -51,6 +56,10 @@ extension TokenService: TargetType {
         case .refreshToken(let token):
             return .requestParameters(parameters: [
                 "refresh": token
+            ], encoding: JSONEncoding.default)
+        case .verifyToken(let token):
+            return .requestParameters(parameters: [
+                "token": token
             ], encoding: JSONEncoding.default)
         }
     }

@@ -38,25 +38,31 @@ extension SwinjectStoryboard {
         }
         
         defaultContainer.register(LoginViewModel.self) { resolver in
-            LoginViewModel(session: resolver.resolve(Session.self)!)
+            LoginViewModel(keychainTokenRepository: resolver.resolve(KeychainTokenRepository.self)!,
+                           remoteTokenRepository: resolver.resolve(RemoteTokenRepository.self)!)
         }
         
         defaultContainer.register(SplashScreenViewModel.self) { resolver in
-            SplashScreenViewModel(session: resolver.resolve(Session.self)!)
+            SplashScreenViewModel(keychainTokenRepository: resolver.resolve(KeychainTokenRepository.self)!,
+                                  remoteTokenRepository: resolver.resolve(RemoteTokenRepository.self)!)
         }
         
         // MARK: - App Component Injections
         
-        defaultContainer.register(Session.self) { _ in
-            Session()
+        defaultContainer.register(KeychainTokenRepository.self) { _ in
+            KeychainTokenRepository()
         }.inObjectScope(.container)
+        
+        defaultContainer.register(RemoteTokenRepository.self) { _ in
+            RemoteTokenRepository()
+            }.inObjectScope(.container)
         
         defaultContainer.register(LocalBooksRepository.self) { _ in
             LocalBooksRepository()
         }.inObjectScope(.container)
         
         defaultContainer.register(RemoteBooksRepository.self) { resolver in
-            RemoteBooksRepository(session: resolver.resolve(Session.self)!)
+            RemoteBooksRepository(keychainTokenRepository: resolver.resolve(KeychainTokenRepository.self)!)
         }.inObjectScope(.container)
         
         defaultContainer.register(BooksRepositoryManager.self) { resolver in
