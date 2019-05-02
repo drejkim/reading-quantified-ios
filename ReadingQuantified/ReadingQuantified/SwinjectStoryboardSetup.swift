@@ -23,6 +23,10 @@ extension SwinjectStoryboard {
             controller.viewModel = resolver.resolve(BooksViewModel.self)
         }
         
+        defaultContainer.storyboardInitCompleted(DashboardViewController.self) { resolver, controller in
+            controller.viewModel = resolver.resolve(DashboardViewModel.self)
+        }
+        
         defaultContainer.storyboardInitCompleted(LoginViewController.self) { resolver, controller in
             controller.viewModel = resolver.resolve(LoginViewModel.self)
         }
@@ -39,6 +43,10 @@ extension SwinjectStoryboard {
         
         defaultContainer.register(BooksViewModel.self) { resolver in
             BooksViewModel(booksRepositoryManager: resolver.resolve(BooksRepositoryManager.self)!)
+        }
+        
+        defaultContainer.register(DashboardViewModel.self) { resolver in
+            DashboardViewModel()
         }
         
         defaultContainer.register(LoginViewModel.self) { resolver in
