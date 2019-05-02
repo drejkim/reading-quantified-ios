@@ -20,6 +20,9 @@ class DashboardViewController: UIViewController {
     
     private let bag = DisposeBag()
     
+    private let collectionViewWidthPadding: CGFloat = 24.0
+    private let collectionViewCellHeight: CGFloat = 72.0
+    
     // MARK: - IB Outlets & Actions
     
     @IBOutlet weak var collectionView: UICollectionView!
@@ -29,10 +32,27 @@ class DashboardViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Hide the collection view until the view has appeared
+        collectionView.isHidden = true
+        
         bindCollectionView()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        setupCollectionViewUI()
+    }
+    
     // MARK: - Private Functions
+    
+    private func setupCollectionViewUI() {
+        collectionView.isHidden = false
+        
+        let frame = self.view.safeAreaLayoutGuide.layoutFrame
+        let layout = collectionView?.collectionViewLayout as! UICollectionViewFlowLayout
+        layout.itemSize = CGSize.init(width: frame.width - collectionViewWidthPadding, height: collectionViewCellHeight)
+    }
     
     private func bindCollectionView() {
         viewModel.loadMetrics()
