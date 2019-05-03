@@ -11,6 +11,10 @@ import RealmSwift
 
 class Book: Object, Decodable {
     
+    // MARK: - Variables
+    
+    // Decoded variables
+    
     @objc dynamic var url = ""
     let genres = List<String>()
     @objc dynamic var created_at = ""
@@ -19,6 +23,10 @@ class Book: Object, Decodable {
     @objc dynamic var trello_id = ""
     @objc dynamic var date_started = ""
     @objc dynamic var date_finished = ""
+    
+    // Computed variables
+    
+    @objc dynamic var days_to_finish = 0
     
     override static func primaryKey() -> String? {
         return "trello_id"
@@ -52,6 +60,8 @@ class Book: Object, Decodable {
         genres.append(objectsIn: genresArray)
         
         super.init()
+        
+        days_to_finish = calculateDaysToFinish()
     }
     
     // MARK: - Object initializers
@@ -66,5 +76,26 @@ class Book: Object, Decodable {
     
     required init(value: Any, schema: RLMSchema) {
         super.init(value: value, schema: schema)
+    }
+    
+    // MARK: - Private Functions
+    
+    private func calculateDaysToFinish() -> Int {
+        let startDate = getDate(from: date_started)
+        let finishedDate = getDate(from: date_finished)
+        let components = Calendar.current.dateComponents([.day], from: startDate, to: finishedDate)
+        
+        return components.day!
+    }
+    
+    private func getDate(from string: String) -> Date {
+        let inputFormatter = ISO8601DateFormatter()
+        inputFormatter.formatOptions = [
+            .withFullDate,
+            .withFullTime,
+            .withFractionalSeconds
+        ]
+        
+        return inputFormatter.date(from: string)!
     }
 }

@@ -39,6 +39,10 @@ extension SwinjectStoryboard {
             controller.viewModel = resolver.resolve(SplashScreenViewModel.self)
         }
         
+        defaultContainer.storyboardInitCompleted(YearSelectionViewController.self) { resolver, controller in
+            controller.viewModel = resolver.resolve(YearSelectionViewModel.self)
+        }
+        
         // MARK: - View Model Injections
         
         defaultContainer.register(BooksViewModel.self) { resolver in
@@ -46,7 +50,11 @@ extension SwinjectStoryboard {
         }
         
         defaultContainer.register(DashboardViewModel.self) { resolver in
-            DashboardViewModel()
+            DashboardViewModel(dashboardCoordinator: resolver.resolve(DashboardCoordinator.self)!)
+        }
+        
+        defaultContainer.register(YearSelectionViewModel.self) { resolver in
+            YearSelectionViewModel(dashboardCoordinator: resolver.resolve(DashboardCoordinator.self)!)
         }
         
         defaultContainer.register(LoginViewModel.self) { resolver in
@@ -64,6 +72,10 @@ extension SwinjectStoryboard {
         }
         
         // MARK: - App Component Injections
+        
+        defaultContainer.register(DashboardCoordinator.self) { _ in
+            DashboardCoordinator()
+        }.inObjectScope(.container)
         
         defaultContainer.register(KeychainTokenRepository.self) { _ in
             KeychainTokenRepository()

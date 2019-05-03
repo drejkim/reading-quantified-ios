@@ -26,6 +26,7 @@ class DashboardViewController: UIViewController {
     // MARK: - IB Outlets & Actions
     
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var yearSelectionButton: UIButton!
     
     // MARK: - Life Cycle
     
@@ -35,6 +36,9 @@ class DashboardViewController: UIViewController {
         // Hide the collection view until the view has appeared
         collectionView.isHidden = true
         
+        updateOnYearSelected()
+        
+        // TODO: Fix bug on first time installs
         bindCollectionView()
     }
     
@@ -46,6 +50,18 @@ class DashboardViewController: UIViewController {
     
     // MARK: - Private Functions
     
+    private func updateOnYearSelected() {
+        viewModel.loadYearSelected()
+        viewModel.yearSelectedRelay.asObservable()
+            .subscribe(onNext: { [weak self] year in
+                guard let strongSelf = self else { return }
+                
+                strongSelf.yearSelectionButton.setTitle(year, for: .normal)
+                strongSelf.viewModel.loadMetrics(by: year)
+            })
+            .disposed(by: bag)
+    }
+    
     private func setupCollectionViewUI() {
         collectionView.isHidden = false
         
@@ -55,11 +71,8 @@ class DashboardViewController: UIViewController {
     }
     
     private func bindCollectionView() {
-        viewModel.loadMetrics()
-        
         viewModel.metricsRelay.asObservable()
             .bind(to: collectionView.rx.items(cellIdentifier: "MetricCell", cellType: MetricCell.self)) { row, metric, cell in
-                print(metric)
                 cell.configureCell(metric: metric)
             }
             .disposed(by: bag)

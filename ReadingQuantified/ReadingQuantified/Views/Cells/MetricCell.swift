@@ -26,6 +26,7 @@ class MetricCell: UICollectionViewCell {
             captionLabel.isHidden = true
         }
         else {
+            captionLabel.isHidden = false
             captionLabel.text = metric.caption
         }
     }
