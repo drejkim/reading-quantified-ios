@@ -29,4 +29,41 @@ class LocalBooksRepository: BooksRepository {
         }
     }
     
+    func filter(by year: String) -> Observable<[Book]> {
+        let realm = try! Realm()
+        let books = realm.objects(Book.self).filter("date_finished BEGINSWITH '\(year)'")
+        
+        return Observable.array(from: books)
+    }
+    
+    func filter(by year: String, sortedBy key: String) -> Observable<[Book]> {
+        let realm = try! Realm()
+        let books = realm.objects(Book.self).filter("date_finished BEGINSWITH '\(year)'").sorted(byKeyPath: key)
+        
+        return Observable.array(from: books)
+    }
+    
+    // Return the value rather than an Observable for the following...
+    
+    func getShortestRead(filteredBy year: String) -> Book? {
+        let realm = try! Realm()
+        let books = realm.objects(Book.self).filter("date_finished BEGINSWITH '\(year)'")
+        
+        return books.min(by: { $0.days_to_finish < $1.days_to_finish })
+    }
+    
+    func getLongestRead(filteredBy year: String) -> Book? {
+        let realm = try! Realm()
+        let books = realm.objects(Book.self).filter("date_finished BEGINSWITH '\(year)'")
+        
+        return books.max(by: { $0.days_to_finish < $1.days_to_finish })
+    }
+    
+    func getAvgDaysToFinish(filteredBy year: String) -> Float? {
+        let realm = try! Realm()
+        let books = realm.objects(Book.self).filter("date_finished BEGINSWITH '\(year)'")
+        
+        return books.average(ofProperty: "days_to_finish")
+    }
+    
 }
