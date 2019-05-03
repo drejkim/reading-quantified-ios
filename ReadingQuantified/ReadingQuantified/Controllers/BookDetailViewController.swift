@@ -19,6 +19,7 @@ class BookDetailViewController: UIViewController {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var dateStartedLabel: UILabel!
     @IBOutlet weak var dateFinishedLabel: UILabel!
+    @IBOutlet weak var daysToFinishLabel: UILabel!
     
     // MARK: - Life Cycle
     
@@ -39,6 +40,8 @@ class BookDetailViewController: UIViewController {
         
         dateStartedLabel.text = viewModel.formatDateString(from: book.date_started, to: DateFormatter.Style.long)
         dateFinishedLabel.text = viewModel.formatDateString(from: book.date_finished, to: DateFormatter.Style.long)
+        
+        daysToFinishLabel.text = String(book.days_to_finish)
     }
     
 }
