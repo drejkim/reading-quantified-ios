@@ -38,8 +38,13 @@ class BookDetailViewController: UIViewController {
         titleLabel.text = book.title
         titleLabel.numberOfLines = 0
         
-        dateStartedLabel.text = viewModel.formatDateString(from: book.date_started, to: DateFormatter.Style.long)
-        dateFinishedLabel.text = viewModel.formatDateString(from: book.date_finished, to: DateFormatter.Style.long)
+        dateStartedLabel.text = viewModel.formatDateString(from: book.date_started,
+                                                           to: DateFormatter.Style.long,
+                                                           timeStyle: DateFormatter.Style.long)
+        
+        dateFinishedLabel.text = viewModel.formatDateString(from: book.date_finished,
+                                                            to: DateFormatter.Style.long,
+                                                            timeStyle: DateFormatter.Style.long)
         
         daysToFinishLabel.text = String(book.days_to_finish)
     }

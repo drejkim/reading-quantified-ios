@@ -23,7 +23,7 @@ class BookCell: UITableViewCell {
     
     func configureCell(book: Book) {
         titleLabel.text = book.title
-        subtitleLabel.text = "\(viewModel.formatDateString(from: book.date_started, to: DateFormatter.Style.medium)) to \(viewModel.formatDateString(from: book.date_finished, to: DateFormatter.Style.medium))"
+        subtitleLabel.text = "\(viewModel.formatDateString(from: book.date_started, to: DateFormatter.Style.medium, timeStyle: DateFormatter.Style.none)) to \(viewModel.formatDateString(from: book.date_finished, to: DateFormatter.Style.medium, timeStyle: DateFormatter.Style.none))"
     }
     
 }

@@ -13,7 +13,7 @@ struct BookViewModel {
     
     var book: Book?
     
-    func formatDateString(from input: String, to dateStyle: DateFormatter.Style) -> String {
+    func formatDateString(from input: String, to dateStyle: DateFormatter.Style, timeStyle: DateFormatter.Style) -> String {
         let inputFormatter = ISO8601DateFormatter()
         inputFormatter.formatOptions = [
             .withFullDate,
@@ -25,7 +25,7 @@ struct BookViewModel {
         let outputFormatter = DateFormatter()
         outputFormatter.locale = Locale(identifier: "en_US")
         outputFormatter.dateStyle = dateStyle
-        outputFormatter.timeStyle = .none
+        outputFormatter.timeStyle = timeStyle
         outputFormatter.timeZone = TimeZone(identifier: TimeZone.current.identifier)
         
         return outputFormatter.string(from: date)
