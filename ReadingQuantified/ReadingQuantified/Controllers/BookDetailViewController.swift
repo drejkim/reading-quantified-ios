@@ -41,12 +41,15 @@ class BookDetailViewController: UIViewController {
         dateStartedLabel.text = viewModel.formatDateString(from: book.date_started,
                                                            to: DateFormatter.Style.long,
                                                            timeStyle: DateFormatter.Style.long)
+        dateStartedLabel.numberOfLines = 0
         
         dateFinishedLabel.text = viewModel.formatDateString(from: book.date_finished,
                                                             to: DateFormatter.Style.long,
                                                             timeStyle: DateFormatter.Style.long)
+        dateFinishedLabel.numberOfLines = 0
         
         daysToFinishLabel.text = String(book.days_to_finish)
+        daysToFinishLabel.numberOfLines = 0
     }
     
 }
