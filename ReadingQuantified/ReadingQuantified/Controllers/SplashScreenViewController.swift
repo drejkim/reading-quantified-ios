@@ -36,16 +36,12 @@ class SplashScreenViewController: UIViewController {
     // MARK: - Private Functions
     
     private func bindUI() {
-        let postLoginViewModel = PostLoginViewModel()
-        
         // Make sure to subscribe first...
         viewModel.isLoggedIn
             .subscribe(onNext: { [weak self] value in
                 guard let strongSelf = self else { return }
                 
                 if value {
-                    postLoginViewModel.fetchBooks()
-                    
                     strongSelf.performSegue(withIdentifier: Constants.SegueIdentifiers.goToMainFromSplashScreen, sender: strongSelf)
                 }
                 else {

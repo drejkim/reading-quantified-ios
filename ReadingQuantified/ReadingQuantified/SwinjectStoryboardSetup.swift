@@ -50,7 +50,8 @@ extension SwinjectStoryboard {
         }
         
         defaultContainer.register(DashboardViewModel.self) { resolver in
-            DashboardViewModel(dashboardCoordinator: resolver.resolve(DashboardCoordinator.self)!)
+            DashboardViewModel(booksRepositoryManager: resolver.resolve(BooksRepositoryManager.self)!,
+                               dashboardCoordinator: resolver.resolve(DashboardCoordinator.self)!)
         }
         
         defaultContainer.register(YearSelectionViewModel.self) { resolver in

@@ -36,10 +36,14 @@ class DashboardViewController: UIViewController {
         // Hide the collection view until the view has appeared
         collectionView.isHidden = true
         
-        updateOnYearSelected()
+        // Clear button text until books have been fetched
+        yearSelectionButton.setTitle("", for: .normal)
         
-        // TODO: Fix bug on first time installs
+        viewModel.refreshBooks()
+        
         bindCollectionView()
+        updateCollectionViewUI()
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -50,14 +54,17 @@ class DashboardViewController: UIViewController {
     
     // MARK: - Private Functions
     
-    private func updateOnYearSelected() {
+    private func updateCollectionViewUI() {
         viewModel.loadYearSelected()
-        viewModel.yearSelectedRelay.asObservable()
-            .subscribe(onNext: { [weak self] year in
+        
+        Observable.combineLatest(viewModel.booksAreRefreshedRelay, viewModel.yearSelectedRelay)
+            .subscribe(onNext: { [weak self] areBooksRefreshed, year in
                 guard let strongSelf = self else { return }
                 
-                strongSelf.yearSelectionButton.setTitle(year, for: .normal)
-                strongSelf.viewModel.loadMetrics(by: year)
+                if areBooksRefreshed {
+                    strongSelf.yearSelectionButton.setTitle(year, for: .normal)
+                    strongSelf.viewModel.loadMetrics(by: year)
+                }
             })
             .disposed(by: bag)
     }

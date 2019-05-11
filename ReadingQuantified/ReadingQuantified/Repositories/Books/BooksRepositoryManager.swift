@@ -39,8 +39,7 @@ class BooksRepositoryManager {
     }
     
     func save(_ books: [Book]) {
-        
-        return local.save(books)
+        local.save(books)
     }
     
 }
