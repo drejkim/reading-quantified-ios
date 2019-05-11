@@ -27,6 +27,12 @@ class DashboardViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var yearSelectionButton: UIButton!
+    @IBOutlet weak var refreshButton: UIBarButtonItem!
+    
+    @IBAction func refreshButtonTapped(_ sender: Any) {
+        viewModel.refreshBooks()
+        updateCollectionViewUI()
+    }
     
     // MARK: - Life Cycle
     
@@ -38,6 +44,9 @@ class DashboardViewController: UIViewController {
         
         // Clear button text until books have been fetched
         yearSelectionButton.setTitle("", for: .normal)
+        
+        // Disable refresh button until books have been fetched
+        refreshButton.isEnabled = false
         
         viewModel.refreshBooks()
         
@@ -63,6 +72,7 @@ class DashboardViewController: UIViewController {
                 
                 if areBooksRefreshed {
                     strongSelf.yearSelectionButton.setTitle(year, for: .normal)
+                    strongSelf.refreshButton.isEnabled = true
                     strongSelf.viewModel.loadMetrics(by: year)
                 }
             })
