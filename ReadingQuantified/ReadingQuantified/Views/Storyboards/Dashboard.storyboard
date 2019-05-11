@@ -114,10 +114,16 @@
                                 <segue destination="ftA-FJ-lKn" kind="show" id="4wd-ty-q7y"/>
                             </connections>
                         </button>
+                        <barButtonItem key="rightBarButtonItem" image="baseline_refresh_black_24pt" id="r9U-zX-705">
+                            <connections>
+                                <action selector="refreshButtonTapped:" destination="YHe-80-DHS" id="iXb-Vh-665"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="collectionView" destination="r8R-d9-7pR" id="pL4-rR-kjj"/>
+                        <outlet property="refreshButton" destination="r9U-zX-705" id="KtR-Tp-Dkt"/>
                         <outlet property="yearSelectionButton" destination="O2W-TZ-CCa" id="SaA-Nw-DKB"/>
                     </connections>
                 </viewController>
@@ -208,6 +214,7 @@
     </scenes>
     <resources>
         <image name="baseline_insert_chart_black_24pt" width="24" height="24"/>
+        <image name="baseline_refresh_black_24pt" width="24" height="24"/>
         <namedColor name="bg_light">
             <color red="0.97254901960784312" green="0.97647058823529409" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
