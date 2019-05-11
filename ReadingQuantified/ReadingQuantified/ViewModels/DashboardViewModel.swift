@@ -13,14 +13,17 @@ class DashboardViewModel {
     
     // MARK: - Dependencies
     
+    private let booksRepositoryManager: BooksRepositoryManager
     private let dashboardCoordinator: DashboardCoordinator
     
-    init(dashboardCoordinator: DashboardCoordinator) {
+    init(booksRepositoryManager: BooksRepositoryManager, dashboardCoordinator: DashboardCoordinator) {
+        self.booksRepositoryManager = booksRepositoryManager
         self.dashboardCoordinator = dashboardCoordinator
     }
     
     // MARK: - Properties
     
+    var booksAreRefreshedRelay = BehaviorRelay<Bool>(value: false)
     var metricsRelay = BehaviorRelay<[Metric]>(value: [])
     var yearSelectedRelay = BehaviorRelay<String>(value: "")
     
@@ -32,6 +35,18 @@ class DashboardViewModel {
     private var books: [Book] = []
     
     // MARK: - Functions
+    
+    func refreshBooks() {
+        booksRepositoryManager.getAll(from: .remote)
+            .subscribe(onNext: { [weak self] books in
+                guard let strongSelf = self else { return }
+                
+                strongSelf.books = books
+                strongSelf.booksRepositoryManager.save(books)
+                strongSelf.booksAreRefreshedRelay.accept(true)
+            })
+            .disposed(by: bag)
+    }
     
     func loadMetrics(by year: String) {
         filterBooks(by: year, sortedBy: "days_to_finish")
