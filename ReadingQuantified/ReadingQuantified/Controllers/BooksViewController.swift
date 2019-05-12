@@ -43,6 +43,7 @@ class BooksViewController: UIViewController {
         // Load books from local repository
         viewModel.loadBooks()
         
+        setupSearchBar()
         setupRefreshControl()
         
         bindSearchBar()
@@ -87,12 +88,12 @@ class BooksViewController: UIViewController {
             })
             .disposed(by: bag)
         
-        searchBar.rx.text
-            .orEmpty
-            .subscribe(onNext: { [weak self] query in
+        // Use scope bar in conjunction with search
+        Observable.combineLatest(searchBar.rx.selectedScopeButtonIndex, searchBar.rx.text.orEmpty)
+            .subscribe(onNext: { [weak self] selectedScopeButtonIndex, query in
                 guard let strongSelf = self else { return }
                 
-                strongSelf.viewModel.filterBooks(by: query)
+                strongSelf.viewModel.filterBooks(by: query, selectedScopeButtonIndex: selectedScopeButtonIndex)
             })
             .disposed(by: bag)
     }
@@ -129,6 +130,10 @@ class BooksViewController: UIViewController {
     private func updateTableViewInsets(for bottomValue: CGFloat) {
         tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: bottomValue, right: 0)
         tableView.scrollIndicatorInsets = UIEdgeInsets(top: 0, left: 0, bottom: bottomValue, right: 0)
+    }
+    
+    private func setupSearchBar() {
+        searchBar.scopeButtonTitles = viewModel.scopeButtonTitles
     }
     
     private func setupRefreshControl() {

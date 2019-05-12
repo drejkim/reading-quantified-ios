@@ -30,4 +30,21 @@ struct BookViewModel {
         
         return outputFormatter.string(from: date)
     }
+    
+    func formatDateString(from input: String, to dateFormat: String) -> String {
+        let inputFormatter = ISO8601DateFormatter()
+        inputFormatter.formatOptions = [
+            .withFullDate,
+            .withFullTime,
+            .withFractionalSeconds
+        ]
+        let date = inputFormatter.date(from: input)!
+        
+        let outputFormatter = DateFormatter()
+        outputFormatter.locale = Locale(identifier: "en_US")
+        outputFormatter.dateFormat = dateFormat
+        outputFormatter.timeZone = TimeZone(identifier: TimeZone.current.identifier)
+        
+        return outputFormatter.string(from: date)
+    }
 }
