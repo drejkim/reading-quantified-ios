@@ -25,7 +25,6 @@ class BooksViewController: UIViewController {
     // MARK: - IB Outlets & Actions
     
     @IBOutlet weak var searchBar: UISearchBar!
-    @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var numberOfBooksLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
@@ -47,7 +46,6 @@ class BooksViewController: UIViewController {
         setupRefreshControl()
         
         bindSearchBar()
-        bindSegmentedControl()
         bindNumberOfBooksLabel()
         bindTableView()
     }
@@ -95,19 +93,6 @@ class BooksViewController: UIViewController {
                 guard let strongSelf = self else { return }
                 
                 strongSelf.viewModel.filterBooks(by: query)
-                
-                // Update sorting based on the active segmented control
-                strongSelf.viewModel.sortBooks(by: strongSelf.segmentedControl.selectedSegmentIndex)
-            })
-            .disposed(by: bag)
-    }
-    
-    private func bindSegmentedControl() {
-        segmentedControl.rx.selectedSegmentIndex
-            .subscribe(onNext: { [weak self] index in
-                guard let strongSelf = self else { return }
-                
-                strongSelf.viewModel.sortBooks(by: index)
             })
             .disposed(by: bag)
     }
