@@ -88,6 +88,16 @@ class BooksViewController: UIViewController {
             })
             .disposed(by: bag)
         
+        searchBar.rx.selectedScopeButtonIndex
+            .subscribe(onNext: { [weak self] index in
+                guard
+                    let strongSelf = self,
+                    let selectedScopeButton = BooksViewModel.ScopeButton(rawValue: index) else { return }
+                
+                strongSelf.searchBar.placeholder = strongSelf.viewModel.getSearchPlaceholderText(scopeButton: selectedScopeButton)
+            })
+            .disposed(by: bag)
+        
         // Use scope bar in conjunction with search
         Observable.combineLatest(searchBar.rx.selectedScopeButtonIndex, searchBar.rx.text.orEmpty)
             .subscribe(onNext: { [weak self] selectedScopeButtonIndex, query in

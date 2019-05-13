@@ -24,10 +24,27 @@ class BooksViewModel {
     
     var booksRelay = BehaviorRelay<[Book]>(value: [])
     
+    enum ScopeButton: Int {
+        case Title, DateStarted, DateFinished
+        
+        var title: String {
+            switch self {
+            case .Title:
+                return "Title"
+                
+            case .DateStarted:
+                return "Date Started"
+                
+            case .DateFinished:
+                return "Date Finished"
+            }
+        }
+    }
+    
     let scopeButtonTitles = [
-        "Title",
-        "Date Started",
-        "Date Finished"
+        ScopeButton.Title.title,
+        ScopeButton.DateStarted.title,
+        ScopeButton.DateFinished.title
     ]
     
     // MARK: - Private Properties
@@ -64,31 +81,34 @@ class BooksViewModel {
             .disposed(by: bag)
     }
     
+    func getSearchPlaceholderText(scopeButton: ScopeButton) -> String {
+        switch scopeButton {
+        case .Title:
+            return "Ex: Harry Potter"
+        case .DateStarted, .DateFinished:
+            return "Ex: 2019, April 2019, Apr 2019"
+        }
+    }
+    
     func filterBooks(by query: String, selectedScopeButtonIndex: Int) {
-        let bookViewModel = BookViewModel()
-        
         // Show the entire list of available books if there is no search term
         if(query.isEmpty) {
             booksRelay.accept(self.books)
         }
         // Filtering should be done on the original list of book results
-        else if selectedScopeButtonIndex == 0 {
+        else if selectedScopeButtonIndex == ScopeButton.Title.rawValue {
             booksRelay.accept(self.books.filter({ (item) -> Bool in
                 return item.title.lowercased().contains(query.lowercased())
             }))
         }
-        else if selectedScopeButtonIndex == 1 {
+        else if selectedScopeButtonIndex == ScopeButton.DateStarted.rawValue {
             booksRelay.accept(self.books.filter({ (item) -> Bool in
-                let formattedDate = bookViewModel.formatDateString(from: item.date_started, to: "MMM yyyy")
-                
-                return formattedDate.lowercased().contains(query.lowercased())
+                return filterBooks(for: item.date_started, with: query)
             }))
         }
-        else if selectedScopeButtonIndex == 2 {
+        else if selectedScopeButtonIndex == ScopeButton.DateFinished.rawValue {
             booksRelay.accept(self.books.filter({ (item) -> Bool in
-                let formattedDate = bookViewModel.formatDateString(from: item.date_finished, to: "MMM yyyy")
-                
-                return formattedDate.lowercased().contains(query.lowercased())
+                return filterBooks(for: item.date_finished, with: query)
             }))
         }
     }
@@ -113,6 +133,21 @@ class BooksViewModel {
                 item1.date_finished > item2.date_finished
             }))
         }
+    }
+    
+    // MARK: - Private Functions
+    
+    private func filterBooks(for dateString: String, with query: String) -> Bool {
+        let bookViewModel = BookViewModel()
+        let formattedDate = bookViewModel.formatDateString(from: dateString, to: "MMMM yyyy").lowercased()
+        
+        let queryElements = query.components(separatedBy: " ")
+        var result = true
+        for element in queryElements {
+            result = result && formattedDate.contains(element.lowercased())
+        }
+        
+        return result
     }
     
 }
