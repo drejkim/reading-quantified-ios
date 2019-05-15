@@ -16,6 +16,10 @@ class BooksViewController: UIViewController {
     
     var viewModel: BooksViewModel!
     
+    // MARK: - Properties
+    
+    var searchBar = UISearchBar()
+    
     // MARK: - Private Properties
     
     private let bag = DisposeBag()
@@ -24,7 +28,6 @@ class BooksViewController: UIViewController {
     
     // MARK: - IB Outlets & Actions
     
-    @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var numberOfBooksLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
@@ -32,9 +35,6 @@ class BooksViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Move search bar into navigation bar
-        self.navigationItem.titleView = searchBar
         
         // Keyboard notifications
         NotificationCenter.default.addObserver(self, selector: #selector(BooksViewController.keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
@@ -143,6 +143,11 @@ class BooksViewController: UIViewController {
     }
     
     private func setupSearchBar() {
+        // Move search bar into navigation bar
+        self.navigationItem.titleView = searchBar
+        
+        searchBar.barTintColor = UIColor(named: "bg_light")
+        searchBar.showsScopeBar = true
         searchBar.scopeButtonTitles = viewModel.scopeButtonTitles
     }
     

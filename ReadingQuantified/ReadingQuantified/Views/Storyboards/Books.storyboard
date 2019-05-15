@@ -19,17 +19,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" fixedFrame="YES" placeholder="Search" translucent="NO" showsScopeBar="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ySS-IE-WZq">
-                                <rect key="frame" x="0.0" y="376" width="414" height="100"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="tintColor" name="text_primary"/>
-                                <color key="barTintColor" name="bg_light"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <scopeButtonTitles>
-                                    <string>Title</string>
-                                    <string>Title</string>
-                                </scopeButtonTitles>
-                            </searchBar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Number of Books" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8EK-p8-IIp">
                                 <rect key="frame" x="154.5" y="96" width="105.5" height="16"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
@@ -116,7 +105,6 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="numberOfBooksLabel" destination="8EK-p8-IIp" id="sse-uI-Kum"/>
-                        <outlet property="searchBar" destination="ySS-IE-WZq" id="K7A-ks-9wm"/>
                         <outlet property="tableView" destination="941-nO-rdF" id="wVV-Mr-Hpa"/>
                         <segue destination="wjG-pq-vwi" kind="show" identifier="goToBookDetail" id="Jw0-Wi-PtW"/>
                     </connections>
