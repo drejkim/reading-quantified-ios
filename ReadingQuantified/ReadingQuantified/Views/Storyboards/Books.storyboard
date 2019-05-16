@@ -11,7 +11,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Books View Controller-->
+        <!--Books-->
         <scene sceneID="PSF-GM-H0p">
             <objects>
                 <viewController id="kuP-kA-lr1" customClass="BooksViewController" customModule="ReadingQuantified" customModuleProvider="target" sceneMemberID="viewController">
@@ -101,7 +101,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="3U8-Z4-PL6"/>
                     </view>
-                    <navigationItem key="navigationItem" id="LDC-bi-VKH"/>
+                    <navigationItem key="navigationItem" title="Books" id="LDC-bi-VKH"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="numberOfBooksLabel" destination="8EK-p8-IIp" id="sse-uI-Kum"/>

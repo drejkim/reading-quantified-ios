@@ -18,7 +18,7 @@ class BooksViewController: UIViewController {
     
     // MARK: - Properties
     
-    var searchBar = UISearchBar()
+    var searchController = UISearchController(searchResultsController: nil)
     
     // MARK: - Private Properties
     
@@ -70,36 +70,37 @@ class BooksViewController: UIViewController {
     // MARK: - Private Functions
     
     private func bindSearchBar() {
-        searchBar.rx.textDidBeginEditing
+        searchController.searchBar.rx.textDidBeginEditing
             .subscribe(onNext: { [weak self] event in
                 guard let strongSelf = self else { return }
                 
-                strongSelf.searchBar.setShowsCancelButton(true, animated: true)
+                strongSelf.searchController.searchBar.setShowsCancelButton(true, animated: true)
             })
             .disposed(by: bag)
         
-        searchBar.rx.cancelButtonClicked
+        searchController.searchBar.rx.cancelButtonClicked
             .subscribe(onNext: { [weak self] event in
                 guard let strongSelf = self else { return }
                 
-                strongSelf.searchBar.setShowsCancelButton(false, animated: true)
-                strongSelf.searchBar.text = ""
-                strongSelf.searchBar.endEditing(true)
+                strongSelf.searchController.searchBar.setShowsCancelButton(false, animated: true)
+                strongSelf.searchController.searchBar.text = ""
+                strongSelf.searchController.searchBar.endEditing(true)
             })
             .disposed(by: bag)
         
-        searchBar.rx.selectedScopeButtonIndex
+        searchController.searchBar.rx.selectedScopeButtonIndex
             .subscribe(onNext: { [weak self] index in
                 guard
                     let strongSelf = self,
                     let selectedScopeButton = BooksViewModel.ScopeButton(rawValue: index) else { return }
                 
-                strongSelf.searchBar.placeholder = strongSelf.viewModel.getSearchPlaceholderText(scopeButton: selectedScopeButton)
+                strongSelf.searchController.searchBar.placeholder = strongSelf.viewModel.getSearchPlaceholderText(scopeButton: selectedScopeButton)
             })
             .disposed(by: bag)
         
         // Use scope bar in conjunction with search
-        Observable.combineLatest(searchBar.rx.selectedScopeButtonIndex, searchBar.rx.text.orEmpty)
+        Observable.combineLatest(searchController.searchBar.rx.selectedScopeButtonIndex,
+                                 searchController.searchBar.rx.text.orEmpty)
             .subscribe(onNext: { [weak self] selectedScopeButtonIndex, query in
                 guard let strongSelf = self else { return }
                 
@@ -144,11 +145,20 @@ class BooksViewController: UIViewController {
     
     private func setupSearchBar() {
         // Move search bar into navigation bar
-        self.navigationItem.titleView = searchBar
+        self.navigationItem.searchController = searchController
         
-        searchBar.barTintColor = UIColor(named: "bg_light")
-        searchBar.showsScopeBar = true
-        searchBar.scopeButtonTitles = viewModel.scopeButtonTitles
+        // Specify that this view controller determines how the search controller is presented.
+        // The search controller should be presented modally and match the physical size of this view controller.
+        // See https://developer.apple.com/documentation/uikit/view_controllers/displaying_searchable_content_by_using_a_search_controller
+        self.definesPresentationContext = true
+        
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.hidesNavigationBarDuringPresentation = false
+        
+        searchController.searchBar.barTintColor = UIColor(named: "bg_light")
+        searchController.searchBar.tintColor = UIColor(named: "text_primary")
+        searchController.searchBar.showsScopeBar = true
+        searchController.searchBar.scopeButtonTitles = viewModel.scopeButtonTitles
     }
     
     private func setupRefreshControl() {
