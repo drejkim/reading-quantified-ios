@@ -157,7 +157,6 @@ class BooksViewController: UIViewController {
         
         searchController.searchBar.barTintColor = UIColor(named: "bg_light")
         searchController.searchBar.tintColor = UIColor(named: "text_primary")
-        searchController.searchBar.showsScopeBar = true
         searchController.searchBar.scopeButtonTitles = viewModel.scopeButtonTitles
     }
     
