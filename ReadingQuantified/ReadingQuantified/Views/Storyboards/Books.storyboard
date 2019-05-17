@@ -11,7 +11,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Books View Controller-->
+        <!--Books-->
         <scene sceneID="PSF-GM-H0p">
             <objects>
                 <viewController id="kuP-kA-lr1" customClass="BooksViewController" customModule="ReadingQuantified" customModuleProvider="target" sceneMemberID="viewController">
@@ -19,36 +19,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" fixedFrame="YES" searchBarStyle="minimal" placeholder="Search" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ySS-IE-WZq">
-                                <rect key="frame" x="0.0" y="420" width="414" height="56"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="tintColor" name="text_primary"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <scopeButtonTitles>
-                                    <string>Title</string>
-                                    <string>Title</string>
-                                </scopeButtonTitles>
-                            </searchBar>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="pgr-7N-KWz">
-                                <rect key="frame" x="16" y="96" width="382" height="37"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="36" id="6kJ-5J-qxR"/>
-                                </constraints>
-                                <segments>
-                                    <segment title="Title"/>
-                                    <segment title="Date Started"/>
-                                    <segment title="Date Finished"/>
-                                </segments>
-                                <color key="tintColor" name="bg_primary"/>
-                            </segmentedControl>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Number of Books" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8EK-p8-IIp">
-                                <rect key="frame" x="12" y="140" width="390" height="16"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
-                                <color key="textColor" name="text_body"/>
+                                <rect key="frame" x="154.5" y="96" width="105.5" height="16"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" name="text_muted"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="941-nO-rdF">
-                                <rect key="frame" x="0.0" y="164" width="414" height="649"/>
+                                <rect key="frame" x="0.0" y="120" width="414" height="693"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BookCell" rowHeight="70" id="0aP-ra-irN" customClass="BookCell" customModule="ReadingQuantified" customModuleProvider="target">
@@ -90,28 +68,43 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yr4-yP-PW2" userLabel="Sort By">
+                                <rect key="frame" x="12" y="97.5" width="102.5" height="13"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date Finished" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PpW-Ah-rlE">
+                                        <rect key="frame" x="0.0" y="0.0" width="86.5" height="13"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
+                                        <color key="textColor" name="text_muted"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="baseline_arrow_downward_black_24pt" translatesAutoresizingMaskIntoConstraints="NO" id="nBO-7b-dMt">
+                                        <rect key="frame" x="86.5" y="0.0" width="16" height="13"/>
+                                        <color key="tintColor" name="text_muted"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="16" id="BWV-Sn-M8f"/>
+                                            <constraint firstAttribute="height" constant="13" id="iSe-9I-6Fq"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="8EK-p8-IIp" firstAttribute="leading" secondItem="3U8-Z4-PL6" secondAttribute="leading" constant="12" id="0vS-cr-Dxb"/>
-                            <constraint firstItem="pgr-7N-KWz" firstAttribute="leading" secondItem="3U8-Z4-PL6" secondAttribute="leading" constant="16" id="JIZ-zO-hEZ"/>
-                            <constraint firstItem="pgr-7N-KWz" firstAttribute="top" secondItem="3U8-Z4-PL6" secondAttribute="top" constant="8" id="O8e-87-083"/>
-                            <constraint firstItem="8EK-p8-IIp" firstAttribute="top" secondItem="pgr-7N-KWz" secondAttribute="bottom" constant="8" id="R6v-IZ-uFW"/>
-                            <constraint firstItem="3U8-Z4-PL6" firstAttribute="trailing" secondItem="8EK-p8-IIp" secondAttribute="trailing" constant="12" id="Tb3-Vb-Ge5"/>
-                            <constraint firstItem="3U8-Z4-PL6" firstAttribute="trailing" secondItem="pgr-7N-KWz" secondAttribute="trailing" constant="16" id="VtX-Gt-UvX"/>
+                            <constraint firstItem="PpW-Ah-rlE" firstAttribute="centerY" secondItem="8EK-p8-IIp" secondAttribute="centerY" id="YQq-AV-Ele"/>
                             <constraint firstItem="941-nO-rdF" firstAttribute="bottom" secondItem="3U8-Z4-PL6" secondAttribute="bottom" id="YX0-y5-xqJ"/>
+                            <constraint firstItem="yr4-yP-PW2" firstAttribute="leading" secondItem="y3q-T7-bgm" secondAttribute="leading" constant="12" id="YXE-vM-1GJ"/>
+                            <constraint firstItem="8EK-p8-IIp" firstAttribute="centerX" secondItem="y3q-T7-bgm" secondAttribute="centerX" id="e8J-m2-qDZ"/>
+                            <constraint firstItem="8EK-p8-IIp" firstAttribute="top" secondItem="3U8-Z4-PL6" secondAttribute="top" constant="8" id="rwD-H5-2hX"/>
                             <constraint firstItem="941-nO-rdF" firstAttribute="top" secondItem="8EK-p8-IIp" secondAttribute="bottom" constant="8" id="xgD-eL-gtb"/>
                             <constraint firstItem="941-nO-rdF" firstAttribute="trailing" secondItem="3U8-Z4-PL6" secondAttribute="trailing" id="y2X-Fi-WIO"/>
                             <constraint firstItem="941-nO-rdF" firstAttribute="leading" secondItem="3U8-Z4-PL6" secondAttribute="leading" id="yL0-Ar-g62"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="3U8-Z4-PL6"/>
                     </view>
-                    <navigationItem key="navigationItem" id="LDC-bi-VKH"/>
+                    <navigationItem key="navigationItem" title="Books" id="LDC-bi-VKH"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="numberOfBooksLabel" destination="8EK-p8-IIp" id="sse-uI-Kum"/>
-                        <outlet property="searchBar" destination="ySS-IE-WZq" id="K7A-ks-9wm"/>
-                        <outlet property="segmentedControl" destination="pgr-7N-KWz" id="IUR-oh-IF9"/>
                         <outlet property="tableView" destination="941-nO-rdF" id="wVV-Mr-Hpa"/>
                         <segue destination="wjG-pq-vwi" kind="show" identifier="goToBookDetail" id="Jw0-Wi-PtW"/>
                     </connections>
@@ -246,12 +239,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="baseline_arrow_downward_black_24pt" width="24" height="24"/>
         <image name="baseline_book_black_24pt" width="24" height="24"/>
         <namedColor name="bg_light">
             <color red="0.97254901960784312" green="0.97647058823529409" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="bg_primary">
-            <color red="0.70196078431372544" green="0.10588235294117647" blue="0.10588235294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="bg_white">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
