@@ -9,6 +9,7 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import RxGesture
 
 class BooksViewController: UIViewController {
     
@@ -30,6 +31,7 @@ class BooksViewController: UIViewController {
     
     @IBOutlet weak var numberOfBooksLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var sortByView: UIStackView!
     
     // MARK: - Life Cycle
     
@@ -44,6 +46,7 @@ class BooksViewController: UIViewController {
         viewModel.loadBooks()
         
         setupSearchBar()
+        setupSortByView()
         setupRefreshControl()
         
         bindSearchBar()
@@ -158,6 +161,18 @@ class BooksViewController: UIViewController {
         searchController.searchBar.barTintColor = UIColor(named: "bg_light")
         searchController.searchBar.tintColor = UIColor(named: "text_primary")
         searchController.searchBar.scopeButtonTitles = viewModel.scopeButtonTitles
+    }
+    
+    private func setupSortByView() {
+        sortByView.rx
+            .tapGesture()
+            .when(.recognized)
+            .subscribe(onNext: { [weak self] _ in
+                guard let strongSelf = self else { return }
+                
+                strongSelf.performSegue(withIdentifier: Constants.SegueIdentifiers.goToSortBy, sender: strongSelf)
+            })
+            .disposed(by: bag)
     }
     
     private func setupRefreshControl() {

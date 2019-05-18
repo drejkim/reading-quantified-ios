@@ -12,6 +12,7 @@ target 'ReadingQuantified' do
   pod 'RxCocoa'
   pod 'RxRealm'
   pod 'RxSwift'
+  pod "RxGesture"
   pod 'SwiftKeychainWrapper'
   pod 'Swinject'
 

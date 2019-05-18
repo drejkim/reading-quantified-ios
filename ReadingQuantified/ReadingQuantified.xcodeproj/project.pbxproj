@@ -21,6 +21,7 @@
 		0681C0F4224FBFD6000EF660 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0681C0F2224FBFD6000EF660 /* LaunchScreen.storyboard */; };
 		0681C0FF224FBFD6000EF660 /* ReadingQuantifiedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0681C0FE224FBFD6000EF660 /* ReadingQuantifiedTests.swift */; };
 		0681C10A224FBFD6000EF660 /* ReadingQuantifiedUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0681C109224FBFD6000EF660 /* ReadingQuantifiedUITests.swift */; };
+		068245F7228F849700302368 /* SortByViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068245F6228F849700302368 /* SortByViewController.swift */; };
 		068D18FE2251062800C5F9EC /* SwinjectStoryboardSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068D18FD2251062800C5F9EC /* SwinjectStoryboardSetup.swift */; };
 		069A975A224FDF1D00B4E302 /* Startup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 069A9759224FDF1D00B4E302 /* Startup.storyboard */; };
 		069A975C224FDFAC00B4E302 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 069A975B224FDFAC00B4E302 /* LoginViewController.swift */; };
@@ -93,6 +94,7 @@
 		0681C105224FBFD6000EF660 /* ReadingQuantifiedUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ReadingQuantifiedUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0681C109224FBFD6000EF660 /* ReadingQuantifiedUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingQuantifiedUITests.swift; sourceTree = "<group>"; };
 		0681C10B224FBFD6000EF660 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		068245F6228F849700302368 /* SortByViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortByViewController.swift; sourceTree = "<group>"; };
 		068D18FD2251062800C5F9EC /* SwinjectStoryboardSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwinjectStoryboardSetup.swift; sourceTree = "<group>"; };
 		069A9759224FDF1D00B4E302 /* Startup.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Startup.storyboard; sourceTree = "<group>"; };
 		069A975B224FDFAC00B4E302 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -280,6 +282,7 @@
 				069A9763224FEDF000B4E302 /* DashboardViewController.swift */,
 				069A975B224FDFAC00B4E302 /* LoginViewController.swift */,
 				069A9767224FEE0B00B4E302 /* SettingsViewController.swift */,
+				068245F6228F849700302368 /* SortByViewController.swift */,
 				066BB4B9226C252A00E86996 /* SplashScreenViewController.swift */,
 				06C0F6E9227BE11F00BE9EB8 /* YearSelectionViewController.swift */,
 			);
@@ -547,6 +550,7 @@
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
 				"${BUILT_PRODUCTS_DIR}/RxAtomic/RxAtomic.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxGesture/RxGesture.framework",
 				"${BUILT_PRODUCTS_DIR}/RxRealm/RxRealm.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftKeychainWrapper/SwiftKeychainWrapper.framework",
@@ -564,6 +568,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAtomic.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxGesture.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxRealm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftKeychainWrapper.framework",
@@ -653,6 +658,7 @@
 				069A9764224FEDF000B4E302 /* DashboardViewController.swift in Sources */,
 				06D4F9082273676F006D6E96 /* SettingsViewModel.swift in Sources */,
 				0659859C22628C9C009C148C /* BookDetailViewController.swift in Sources */,
+				068245F7228F849700302368 /* SortByViewController.swift in Sources */,
 				06C0F6EC227BE1FB00BE9EB8 /* YearSelectionViewModel.swift in Sources */,
 				06C0F6E8227A7D7400BE9EB8 /* MetricCell.swift in Sources */,
 				069A9768224FEE0B00B4E302 /* SettingsViewController.swift in Sources */,

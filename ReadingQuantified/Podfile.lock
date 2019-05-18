@@ -17,6 +17,9 @@ PODS:
   - RxAtomic (4.4.2)
   - RxCocoa (4.4.2):
     - RxSwift (>= 4.4.2, ~> 4.4)
+  - RxGesture (2.1.0):
+    - RxCocoa (~> 4.4.0)
+    - RxSwift (~> 4.4.0)
   - RxRealm (0.7.6):
     - RealmSwift (~> 3.0)
     - RxSwift (~> 4.0)
@@ -32,6 +35,7 @@ DEPENDENCIES:
   - Moya/RxSwift (~> 12.0.1)
   - RealmSwift
   - RxCocoa
+  - RxGesture
   - RxRealm
   - RxSwift
   - SwiftKeychainWrapper
@@ -47,6 +51,7 @@ SPEC REPOS:
     - Result
     - RxAtomic
     - RxCocoa
+    - RxGesture
     - RxRealm
     - RxSwift
     - SwiftKeychainWrapper
@@ -70,12 +75,13 @@ SPEC CHECKSUMS:
   Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
   RxAtomic: d00e97c10db88c6f08540e0bf2752fc5a2404167
   RxCocoa: 477990dc3b4c3ff55fb0ac77e1cc06244e0aaec8
+  RxGesture: 7f6dfb45dbde06e618c24442d38493e3144f2c95
   RxRealm: 5379eddd74f8d617ca7681d1f8d144af25b432b0
   RxSwift: 74c29b693c8e42b0f64400e8b06564575742d649
   SwiftKeychainWrapper: 82c4c02cdc36f9a24f7edfcaab3e336401caa1a1
   Swinject: 48a96cda93633cf2860697b4ce76ab5db9ebaca2
   SwinjectStoryboard: 688f096033103e66ffcf6ca678211acd7d7be505
 
-PODFILE CHECKSUM: 2d465b32fbf4142d762c2e762586bf84bf663ce0
+PODFILE CHECKSUM: cb3f6960aca211b97796f0eee52e54449dee13b1
 
 COCOAPODS: 1.6.1

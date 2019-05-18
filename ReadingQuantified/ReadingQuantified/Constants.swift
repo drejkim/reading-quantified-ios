@@ -16,5 +16,6 @@ struct Constants {
         static let goToMainFromLogin = "goToMainFromLogin"
         static let goToMainFromSplashScreen = "goToMainFromSplashScreen"
         static let goToLoginFromSplashScreen = "goToLoginFromSplashScreen"
+        static let goToSortBy = "goToSortBy"
     }
 }
