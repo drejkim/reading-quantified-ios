@@ -15,14 +15,17 @@ class BooksViewModel {
     // MARK: - Dependencies
     
     private let booksRepositoryManager: BooksRepositoryManager
+    private let coordinator: SortByCoordinator
     
-    init(booksRepositoryManager: BooksRepositoryManager) {
+    init(booksRepositoryManager: BooksRepositoryManager, coordinator: SortByCoordinator) {
         self.booksRepositoryManager = booksRepositoryManager
+        self.coordinator = coordinator
     }
     
     // MARK: - Properties
     
     var booksRelay = BehaviorRelay<[Book]>(value: [])
+    var activeSortItemRelay = PublishSubject<SortItem>()
     
     enum ScopeButton: Int {
         case Title, DateStarted, DateFinished
@@ -111,6 +114,18 @@ class BooksViewModel {
                 return filterBooks(for: item.date_finished, with: query)
             }))
         }
+    }
+    
+    func loadActiveSortItem() {
+        coordinator.sortItemsRelay.asObservable()
+            .subscribe(onNext: { [weak self] items in
+                guard
+                    let strongSelf = self,
+                    let activeItem = items.filter({ $0.isActive }).first else { return }
+                
+                strongSelf.activeSortItemRelay.onNext(activeItem)
+            })
+            .disposed(by: bag)
     }
     
     func sortBooks(by segmentedControlIndex: Int) {

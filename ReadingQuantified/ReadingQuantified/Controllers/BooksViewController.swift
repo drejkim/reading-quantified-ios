@@ -32,6 +32,8 @@ class BooksViewController: UIViewController {
     @IBOutlet weak var numberOfBooksLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var sortByView: UIStackView!
+    @IBOutlet weak var sortByLabel: UILabel!
+    @IBOutlet weak var sortByImageView: UIImageView!
     
     // MARK: - Life Cycle
     
@@ -44,6 +46,8 @@ class BooksViewController: UIViewController {
         
         // Load books from local repository
         viewModel.loadBooks()
+        
+        viewModel.loadActiveSortItem()
         
         setupSearchBar()
         setupSortByView()
@@ -171,6 +175,21 @@ class BooksViewController: UIViewController {
                 guard let strongSelf = self else { return }
                 
                 strongSelf.performSegue(withIdentifier: Constants.SegueIdentifiers.goToSortBy, sender: strongSelf)
+            })
+            .disposed(by: bag)
+        
+        viewModel.activeSortItemRelay.asObservable()
+            .subscribe(onNext: { [weak self] activeItem in
+                guard let strongSelf = self else { return }
+                
+                strongSelf.sortByLabel.text = activeItem.label
+                
+                if activeItem.direction == .ascending {
+                    strongSelf.sortByImageView.image = UIImage(named: "baseline_arrow_upward_black_24pt")
+                }
+                else {
+                    strongSelf.sortByImageView.image = UIImage(named: "baseline_arrow_downward_black_24pt")
+                }
             })
             .disposed(by: bag)
     }

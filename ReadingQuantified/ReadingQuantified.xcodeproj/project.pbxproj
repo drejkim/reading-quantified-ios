@@ -22,6 +22,10 @@
 		0681C0FF224FBFD6000EF660 /* ReadingQuantifiedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0681C0FE224FBFD6000EF660 /* ReadingQuantifiedTests.swift */; };
 		0681C10A224FBFD6000EF660 /* ReadingQuantifiedUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0681C109224FBFD6000EF660 /* ReadingQuantifiedUITests.swift */; };
 		068245F7228F849700302368 /* SortByViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068245F6228F849700302368 /* SortByViewController.swift */; };
+		068245F9229067A800302368 /* SortByViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068245F8229067A800302368 /* SortByViewModel.swift */; };
+		068245FB2290688E00302368 /* SortItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068245FA2290688E00302368 /* SortItemCell.swift */; };
+		068245FD229069FC00302368 /* SortItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068245FC229069FC00302368 /* SortItem.swift */; };
+		068245FF2290F12B00302368 /* SortByCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068245FE2290F12B00302368 /* SortByCoordinator.swift */; };
 		068D18FE2251062800C5F9EC /* SwinjectStoryboardSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068D18FD2251062800C5F9EC /* SwinjectStoryboardSetup.swift */; };
 		069A975A224FDF1D00B4E302 /* Startup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 069A9759224FDF1D00B4E302 /* Startup.storyboard */; };
 		069A975C224FDFAC00B4E302 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 069A975B224FDFAC00B4E302 /* LoginViewController.swift */; };
@@ -95,6 +99,10 @@
 		0681C109224FBFD6000EF660 /* ReadingQuantifiedUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingQuantifiedUITests.swift; sourceTree = "<group>"; };
 		0681C10B224FBFD6000EF660 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		068245F6228F849700302368 /* SortByViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortByViewController.swift; sourceTree = "<group>"; };
+		068245F8229067A800302368 /* SortByViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortByViewModel.swift; sourceTree = "<group>"; };
+		068245FA2290688E00302368 /* SortItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortItemCell.swift; sourceTree = "<group>"; };
+		068245FC229069FC00302368 /* SortItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortItem.swift; sourceTree = "<group>"; };
+		068245FE2290F12B00302368 /* SortByCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortByCoordinator.swift; sourceTree = "<group>"; };
 		068D18FD2251062800C5F9EC /* SwinjectStoryboardSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwinjectStoryboardSetup.swift; sourceTree = "<group>"; };
 		069A9759224FDF1D00B4E302 /* Startup.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Startup.storyboard; sourceTree = "<group>"; };
 		069A975B224FDFAC00B4E302 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -176,6 +184,7 @@
 			children = (
 				06FB52992259A90D0035BCD0 /* Book.swift */,
 				06C0F6E5227A768A00BE9EB8 /* Metric.swift */,
+				068245FC229069FC00302368 /* SortItem.swift */,
 				061904D7225428C400684100 /* Token.swift */,
 			);
 			path = Models;
@@ -189,6 +198,7 @@
 				06C0F6E3227A74F900BE9EB8 /* DashboardViewModel.swift */,
 				064F3494225079BC00E55415 /* LoginViewModel.swift */,
 				06D4F9072273676F006D6E96 /* SettingsViewModel.swift */,
+				068245F8229067A800302368 /* SortByViewModel.swift */,
 				066BB4BB226C288400E86996 /* SplashScreenViewModel.swift */,
 				06C0F6EB227BE1FB00BE9EB8 /* YearSelectionViewModel.swift */,
 			);
@@ -310,6 +320,7 @@
 		06C0F6EF227CE20E00BE9EB8 /* Coordinators */ = {
 			isa = PBXGroup;
 			children = (
+				068245FE2290F12B00302368 /* SortByCoordinator.swift */,
 				06C0F6F0227CE22000BE9EB8 /* DashboardCoordinator.swift */,
 			);
 			path = Coordinators;
@@ -349,6 +360,7 @@
 			children = (
 				06FB52A2225A48600035BCD0 /* BookCell.swift */,
 				06C0F6E7227A7D7400BE9EB8 /* MetricCell.swift */,
+				068245FA2290688E00302368 /* SortItemCell.swift */,
 				06C0F6ED227BE2B600BE9EB8 /* YearCell.swift */,
 			);
 			path = Cells;
@@ -643,12 +655,15 @@
 				069A975C224FDFAC00B4E302 /* LoginViewController.swift in Sources */,
 				06C0F6E6227A768A00BE9EB8 /* Metric.swift in Sources */,
 				0681C0E7224FBFD6000EF660 /* AppDelegate.swift in Sources */,
+				068245FB2290688E00302368 /* SortItemCell.swift in Sources */,
 				065985A0226299FB009C148C /* BookViewModel.swift in Sources */,
 				061904D5225423BC00684100 /* Constants.swift in Sources */,
+				068245FD229069FC00302368 /* SortItem.swift in Sources */,
 				06D159F8226A3CEE002C00D8 /* RemoteBooksRepository.swift in Sources */,
 				06FB52A3225A48600035BCD0 /* BookCell.swift in Sources */,
 				06FB52A02259B1C90035BCD0 /* BooksViewModel.swift in Sources */,
 				06D4F90622728A74006D6E96 /* RemoteTokenRepository.swift in Sources */,
+				068245FF2290F12B00302368 /* SortByCoordinator.swift in Sources */,
 				06FB529E2259AB080035BCD0 /* BooksService.swift in Sources */,
 				061904D8225428C400684100 /* Token.swift in Sources */,
 				06AC991522590AAE009A7E9F /* AuthPlugin.swift in Sources */,
@@ -665,6 +680,7 @@
 				064F3495225079BC00E55415 /* LoginViewModel.swift in Sources */,
 				06EDE971226A981F008230DD /* LocalBooksRepository.swift in Sources */,
 				06C0F6E4227A74F900BE9EB8 /* DashboardViewModel.swift in Sources */,
+				068245F9229067A800302368 /* SortByViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
