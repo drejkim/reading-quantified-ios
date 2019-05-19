@@ -20,19 +20,23 @@ class SortItemCell: UITableViewCell {
     func configureCell(sortItem: SortItem) {
         sortItemLabel.text = sortItem.label
         
-        updateBackgroundColor(for: sortItem)
+        updateColor(for: sortItem)
         updateSortDirectionView(for: sortItem)
         
     }
     
     // MARK: - Private Functions
     
-    private func updateBackgroundColor(for sortItem: SortItem) {
+    private func updateColor(for sortItem: SortItem) {
         if sortItem.isActive {
-            self.backgroundColor = UIColor(named: "bg_active")
+            self.backgroundColor = UIColor(named: "bg_primary")
+            sortItemLabel.textColor = UIColor(named: "text_white")
+            sortDirectionView.tintColor = UIColor(named: "text_white")
         }
         else {
             self.backgroundColor = nil
+            sortItemLabel.textColor = UIColor(named: "text_muted")
+            sortDirectionView.tintColor = UIColor(named: "text_muted")
         }
     }
     

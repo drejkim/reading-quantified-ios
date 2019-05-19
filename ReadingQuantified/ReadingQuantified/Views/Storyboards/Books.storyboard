@@ -138,26 +138,30 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="RPl-2w-HZh">
-                                                    <rect key="frame" x="12" y="8" width="390" height="27.5"/>
+                                                    <rect key="frame" x="12" y="13.5" width="390" height="17"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="baseline_arrow_upward_black_24pt" translatesAutoresizingMaskIntoConstraints="NO" id="u9b-hX-rxC">
-                                                            <rect key="frame" x="0.0" y="0.0" width="24" height="27.5"/>
-                                                            <color key="tintColor" name="text_muted"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="17" height="17"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="17" id="2Wv-M9-fd9"/>
+                                                            </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Sort Item" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qbr-i4-dDW">
-                                                            <rect key="frame" x="32" y="0.0" width="358" height="27.5"/>
+                                                            <rect key="frame" x="25" y="0.0" width="365" height="17"/>
                                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                                            <color key="textColor" name="text_muted"/>
+                                                            <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="17" id="h3n-r0-L13"/>
+                                                    </constraints>
                                                 </stackView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="RPl-2w-HZh" secondAttribute="trailing" constant="12" id="5b4-oX-8Kb"/>
                                                 <constraint firstItem="RPl-2w-HZh" firstAttribute="leading" secondItem="hOM-UT-KVq" secondAttribute="leading" constant="12" id="Cvz-iG-R7M"/>
-                                                <constraint firstAttribute="bottom" secondItem="RPl-2w-HZh" secondAttribute="bottom" constant="8" id="eZn-is-oNb"/>
-                                                <constraint firstItem="RPl-2w-HZh" firstAttribute="top" secondItem="hOM-UT-KVq" secondAttribute="top" constant="8" id="sLK-sN-Ppp"/>
+                                                <constraint firstItem="RPl-2w-HZh" firstAttribute="centerY" secondItem="hOM-UT-KVq" secondAttribute="centerY" id="V40-BY-TnH"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
