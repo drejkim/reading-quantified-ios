@@ -18,7 +18,7 @@ class SortItemCell: UITableViewCell {
     // MARK: - Functions
     
     func configureCell(sortItem: SortItem) {
-        sortItemLabel.text = sortItem.label
+        sortItemLabel.text = sortItem.label.rawValue
         
         updateColor(for: sortItem)
         updateSortDirectionView(for: sortItem)

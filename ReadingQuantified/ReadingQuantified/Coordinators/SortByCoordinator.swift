@@ -12,9 +12,9 @@ import RxCocoa
 class SortByCoordinator {
     
     var sortItemsRelay = BehaviorRelay<[SortItem]>(value: [
-        SortItem(label: "Title", direction: .ascending, isActive: false),
-        SortItem(label: "Date Started", direction: .descending, isActive: false),
-        SortItem(label: "Date Finished", direction: .descending, isActive: true)
+        SortItem(label: .Title, direction: .ascending, isActive: false),
+        SortItem(label: .DateStarted, direction: .descending, isActive: false),
+        SortItem(label: .DateFinished, direction: .descending, isActive: true)
     ])
     
 }

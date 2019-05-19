@@ -55,10 +55,6 @@ class BooksViewModel {
     private let bag = DisposeBag()
     private var books: [Book] = []
     
-    private enum Segment: Int {
-        case Title, DateStarted, DateFinished
-    }
-    
     // MARK: - Functions
     
     func loadBooks() {
@@ -68,6 +64,9 @@ class BooksViewModel {
                 
                 strongSelf.books = books
                 strongSelf.booksRelay.accept(books)
+                
+                // Make sure the books are sorted
+                strongSelf.activeSortItemRelay.onNext(SortItem(label: .DateFinished, direction: .descending, isActive: true))
             })
             .disposed(by: bag)
     }
@@ -128,24 +127,19 @@ class BooksViewModel {
             .disposed(by: bag)
     }
     
-    func sortBooks(by segmentedControlIndex: Int) {
-        guard let selectedSegment = Segment(rawValue: segmentedControlIndex) else { return }
-        
-        switch selectedSegment {
+    func sortBooks(using item: SortItem) {
+        switch item.label {
         case .Title:
-            // Sort alphabetically
             booksRelay.accept(booksRelay.value.sorted(by: { (item1, item2) -> Bool in
-                item1.title < item2.title
+                item.direction == .ascending ? item1.title < item2.title : item1.title > item2.title
             }))
         case .DateStarted:
-            // Sort date in descending order
             booksRelay.accept(booksRelay.value.sorted(by: { (item1, item2) -> Bool in
-                item1.date_started > item2.date_started
+                item.direction == .ascending ? item1.date_started < item2.date_started : item1.date_started > item2.date_started
             }))
         case .DateFinished:
-            // Sort date in descending order
             booksRelay.accept(booksRelay.value.sorted(by: { (item1, item2) -> Bool in
-                item1.date_finished > item2.date_finished
+                item.direction == .ascending ? item1.date_finished < item2.date_finished : item1.date_finished > item2.date_finished
             }))
         }
     }

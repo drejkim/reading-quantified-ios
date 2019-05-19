@@ -8,11 +8,17 @@
 
 struct SortItem {
     
+    enum Label: String {
+        case Title = "Title"
+        case DateStarted = "Date Started"
+        case DateFinished = "Date Finished"
+    }
+    
     enum SortDirection {
         case ascending, descending
     }
     
-    let label: String
+    let label: Label
     var direction: SortDirection
     var isActive: Bool
 }

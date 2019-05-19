@@ -182,7 +182,7 @@ class BooksViewController: UIViewController {
             .subscribe(onNext: { [weak self] activeItem in
                 guard let strongSelf = self else { return }
                 
-                strongSelf.sortByLabel.text = activeItem.label
+                strongSelf.sortByLabel.text = activeItem.label.rawValue
                 
                 if activeItem.direction == .ascending {
                     strongSelf.sortByImageView.image = UIImage(named: "baseline_arrow_upward_black_24pt")
@@ -190,6 +190,8 @@ class BooksViewController: UIViewController {
                 else {
                     strongSelf.sortByImageView.image = UIImage(named: "baseline_arrow_downward_black_24pt")
                 }
+                
+                strongSelf.viewModel.sortBooks(using: activeItem)
             })
             .disposed(by: bag)
     }
