@@ -110,7 +110,7 @@
                         <outlet property="sortByView" destination="yr4-yP-PW2" id="Wyb-q4-L1h"/>
                         <outlet property="tableView" destination="941-nO-rdF" id="wVV-Mr-Hpa"/>
                         <segue destination="wjG-pq-vwi" kind="show" identifier="goToBookDetail" id="Jw0-Wi-PtW"/>
-                        <segue destination="6ee-Og-eGp" kind="presentation" identifier="goToSortBy" id="Gbi-cy-xvR"/>
+                        <segue destination="6ee-Og-eGp" kind="presentation" identifier="goToSortBy" modalPresentationStyle="formSheet" id="Gbi-cy-xvR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RYU-I4-Ucu" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -120,8 +120,7 @@
         <!--Sort By-->
         <scene sceneID="dr3-hk-1wg">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="fC0-g1-iky" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController id="Anp-8f-U1M" customClass="SortByViewController" customModule="ReadingQuantified" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="formSheet" id="Anp-8f-U1M" customClass="SortByViewController" customModule="ReadingQuantified" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lE9-lO-nA6">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -188,10 +187,12 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <value key="contentSizeForViewInPopover" type="size" width="300" height="200"/>
                     <connections>
                         <outlet property="tableView" destination="DNh-TL-Zqv" id="ZLO-ub-ikJ"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fC0-g1-iky" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4626.0869565217399" y="636.83035714285711"/>
         </scene>
