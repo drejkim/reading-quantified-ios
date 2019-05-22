@@ -65,8 +65,8 @@ class BooksViewModel {
                 strongSelf.books = books
                 strongSelf.booksRelay.accept(books)
                 
-                // Make sure the books are sorted
-                strongSelf.activeSortItemRelay.onNext(SortItem(label: .DateFinished, direction: .descending, isActive: true))
+                // Make sure the books are sorted after books are loaded
+                strongSelf.activeSortItemRelay.onNext(strongSelf.coordinator.initialActiveSortItem)
             })
             .disposed(by: bag)
     }

@@ -17,4 +17,6 @@ class SortByCoordinator {
         SortItem(label: .DateFinished, direction: .descending, isActive: true)
     ])
     
+    let initialActiveSortItem = SortItem(label: .DateFinished, direction: .descending, isActive: true)
+    
 }
