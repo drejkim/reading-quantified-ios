@@ -15,14 +15,17 @@ class BooksViewModel {
     // MARK: - Dependencies
     
     private let booksRepositoryManager: BooksRepositoryManager
+    private let coordinator: SortByCoordinator
     
-    init(booksRepositoryManager: BooksRepositoryManager) {
+    init(booksRepositoryManager: BooksRepositoryManager, coordinator: SortByCoordinator) {
         self.booksRepositoryManager = booksRepositoryManager
+        self.coordinator = coordinator
     }
     
     // MARK: - Properties
     
     var booksRelay = BehaviorRelay<[Book]>(value: [])
+    var activeSortItemRelay = PublishSubject<SortItem>()
     
     enum ScopeButton: Int {
         case Title, DateStarted, DateFinished
@@ -52,10 +55,6 @@ class BooksViewModel {
     private let bag = DisposeBag()
     private var books: [Book] = []
     
-    private enum Segment: Int {
-        case Title, DateStarted, DateFinished
-    }
-    
     // MARK: - Functions
     
     func loadBooks() {
@@ -65,6 +64,9 @@ class BooksViewModel {
                 
                 strongSelf.books = books
                 strongSelf.booksRelay.accept(books)
+                
+                // Make sure the books are sorted after books are loaded
+                strongSelf.activeSortItemRelay.onNext(strongSelf.coordinator.initialActiveSortItem)
             })
             .disposed(by: bag)
     }
@@ -113,24 +115,31 @@ class BooksViewModel {
         }
     }
     
-    func sortBooks(by segmentedControlIndex: Int) {
-        guard let selectedSegment = Segment(rawValue: segmentedControlIndex) else { return }
-        
-        switch selectedSegment {
+    func loadActiveSortItem() {
+        coordinator.sortItemsRelay.asObservable()
+            .subscribe(onNext: { [weak self] items in
+                guard
+                    let strongSelf = self,
+                    let activeItem = items.filter({ $0.isActive }).first else { return }
+                
+                strongSelf.activeSortItemRelay.onNext(activeItem)
+            })
+            .disposed(by: bag)
+    }
+    
+    func sortBooks(using item: SortItem) {
+        switch item.label {
         case .Title:
-            // Sort alphabetically
             booksRelay.accept(booksRelay.value.sorted(by: { (item1, item2) -> Bool in
-                item1.title < item2.title
+                item.direction == .ascending ? item1.title < item2.title : item1.title > item2.title
             }))
         case .DateStarted:
-            // Sort date in descending order
             booksRelay.accept(booksRelay.value.sorted(by: { (item1, item2) -> Bool in
-                item1.date_started > item2.date_started
+                item.direction == .ascending ? item1.date_started < item2.date_started : item1.date_started > item2.date_started
             }))
         case .DateFinished:
-            // Sort date in descending order
             booksRelay.accept(booksRelay.value.sorted(by: { (item1, item2) -> Bool in
-                item1.date_finished > item2.date_finished
+                item.direction == .ascending ? item1.date_finished < item2.date_finished : item1.date_finished > item2.date_finished
             }))
         }
     }

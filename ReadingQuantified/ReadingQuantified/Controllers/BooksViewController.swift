@@ -9,6 +9,7 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import RxGesture
 
 class BooksViewController: UIViewController {
     
@@ -30,6 +31,9 @@ class BooksViewController: UIViewController {
     
     @IBOutlet weak var numberOfBooksLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var sortByView: UIStackView!
+    @IBOutlet weak var sortByLabel: UILabel!
+    @IBOutlet weak var sortByImageView: UIImageView!
     
     // MARK: - Life Cycle
     
@@ -43,7 +47,10 @@ class BooksViewController: UIViewController {
         // Load books from local repository
         viewModel.loadBooks()
         
+        viewModel.loadActiveSortItem()
+        
         setupSearchBar()
+        setupSortByView()
         setupRefreshControl()
         
         bindSearchBar()
@@ -158,6 +165,35 @@ class BooksViewController: UIViewController {
         searchController.searchBar.barTintColor = UIColor(named: "bg_light")
         searchController.searchBar.tintColor = UIColor(named: "text_primary")
         searchController.searchBar.scopeButtonTitles = viewModel.scopeButtonTitles
+    }
+    
+    private func setupSortByView() {
+        sortByView.rx
+            .tapGesture()
+            .when(.recognized)
+            .subscribe(onNext: { [weak self] _ in
+                guard let strongSelf = self else { return }
+                
+                strongSelf.performSegue(withIdentifier: Constants.SegueIdentifiers.goToSortBy, sender: strongSelf)
+            })
+            .disposed(by: bag)
+        
+        viewModel.activeSortItemRelay.asObservable()
+            .subscribe(onNext: { [weak self] activeItem in
+                guard let strongSelf = self else { return }
+                
+                strongSelf.sortByLabel.text = activeItem.label.rawValue
+                
+                if activeItem.direction == .ascending {
+                    strongSelf.sortByImageView.image = UIImage(named: "baseline_arrow_upward_black_24pt")
+                }
+                else {
+                    strongSelf.sortByImageView.image = UIImage(named: "baseline_arrow_downward_black_24pt")
+                }
+                
+                strongSelf.viewModel.sortBooks(using: activeItem)
+            })
+            .disposed(by: bag)
     }
     
     private func setupRefreshControl() {

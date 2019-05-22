@@ -31,6 +31,10 @@ extension SwinjectStoryboard {
             controller.viewModel = resolver.resolve(LoginViewModel.self)
         }
         
+        defaultContainer.storyboardInitCompleted(SortByViewController.self) { resolver, controller in
+            controller.viewModel = resolver.resolve(SortByViewModel.self)
+        }
+        
         defaultContainer.storyboardInitCompleted(SettingsViewController.self) { resolver, controller in
             controller.viewModel = resolver.resolve(SettingsViewModel.self)
         }
@@ -46,7 +50,12 @@ extension SwinjectStoryboard {
         // MARK: - View Model Injections
         
         defaultContainer.register(BooksViewModel.self) { resolver in
-            BooksViewModel(booksRepositoryManager: resolver.resolve(BooksRepositoryManager.self)!)
+            BooksViewModel(booksRepositoryManager: resolver.resolve(BooksRepositoryManager.self)!,
+                           coordinator: resolver.resolve(SortByCoordinator.self)!)
+        }
+        
+        defaultContainer.register(SortByViewModel.self) { resolver in
+            SortByViewModel(coordinator: resolver.resolve(SortByCoordinator.self)!)
         }
         
         defaultContainer.register(DashboardViewModel.self) { resolver in
@@ -73,6 +82,10 @@ extension SwinjectStoryboard {
         }
         
         // MARK: - App Component Injections
+        
+        defaultContainer.register(SortByCoordinator.self) { _ in
+            SortByCoordinator()
+            }.inObjectScope(.container)
         
         defaultContainer.register(DashboardCoordinator.self) { _ in
             DashboardCoordinator()
