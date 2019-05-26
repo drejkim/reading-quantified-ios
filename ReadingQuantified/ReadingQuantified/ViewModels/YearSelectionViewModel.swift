@@ -21,7 +21,8 @@ class YearSelectionViewModel {
     
     // MARK: - Properties
     
-    var yearsRelay = BehaviorRelay<[String]>(value: [])
+    var yearsRelay = BehaviorRelay<[Year]>(value: [])
+    var years: [Year] = []
     
     // MARK: - Private Properties
     
@@ -30,19 +31,33 @@ class YearSelectionViewModel {
     // MARK: - Functions
     
     func loadYears() {
-        // TODO: Get this from the local repository
-        let years = [
-            "2019",
-            "2018",
-            "2017",
-            "2016",
-            "2015",
-        ]
+        dashboardCoordinator.yearsRelay.asObservable()
+            .subscribe(onNext: { [weak self] years in
+                guard let strongSelf = self else { return }
+                
+                strongSelf.yearsRelay.accept(years)
+                strongSelf.years = years
+            })
+            .disposed(by: bag)
         
         yearsRelay.accept(years)
     }
     
-    func updateYearSelected(_ year: String) {
-        dashboardCoordinator.yearSelectedRelay.accept(year)
+    func updateYearSelected(_ selectedYear: Year) {
+        years = years.map { item in
+            var newItem = item
+            
+            if item.value == selectedYear.value {
+                newItem.isActive = true
+            }
+            else {
+                newItem.isActive = false
+            }
+            
+            return newItem
+        }
+        
+        dashboardCoordinator.yearsRelay.accept(years)
+        dashboardCoordinator.yearSelectedRelay.accept(selectedYear)
     }
 }

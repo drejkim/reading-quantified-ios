@@ -46,7 +46,7 @@ class YearSelectionViewController: UIViewController {
             .disposed(by: bag)
         
         Observable
-            .zip(tableView.rx.itemSelected, tableView.rx.modelSelected(String.self))
+            .zip(tableView.rx.itemSelected, tableView.rx.modelSelected(Year.self))
             .bind { [weak self] indexPath, year in
                 guard let strongSelf = self else { return }
                 

@@ -11,7 +11,16 @@ import RxCocoa
 
 class DashboardCoordinator {
     
+    // TODO: Get this from the local repository
+    var yearsRelay = BehaviorRelay<[Year]>(value:[
+        Year(value: "2019", isActive: true),
+        Year(value: "2018", isActive: false),
+        Year(value: "2017", isActive: false),
+        Year(value: "2016", isActive: false),
+        Year(value: "2015", isActive: false)
+    ])
+    
     // Start with the current year
-    var yearSelectedRelay = BehaviorRelay<String>(value: "2019")
+    var yearSelectedRelay = BehaviorRelay<Year>(value: Year(value: "2019", isActive: true))
     
 }
