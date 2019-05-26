@@ -24,6 +24,11 @@ class YearSelectionViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
+    @IBAction func closeButtonTapped(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    
     // MARK: - Life Cycle
     
     override func viewDidLoad() {
@@ -47,7 +52,7 @@ class YearSelectionViewController: UIViewController {
                 
                 strongSelf.viewModel.updateYearSelected(year)
                 strongSelf.tableView.deselectRow(at: indexPath, animated: true)
-                strongSelf.navigationController?.popViewController(animated: true)
+                strongSelf.dismiss(animated: true, completion: nil)
             }
             .disposed(by: bag)
     }

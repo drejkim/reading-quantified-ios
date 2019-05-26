@@ -111,7 +111,7 @@
                                 <color key="titleColor" name="text_primary"/>
                             </state>
                             <connections>
-                                <segue destination="ftA-FJ-lKn" kind="show" id="4wd-ty-q7y"/>
+                                <segue destination="41T-Tt-BFx" kind="modal" modalPresentationStyle="formSheet" id="4wd-ty-q7y"/>
                             </connections>
                         </button>
                         <barButtonItem key="rightBarButtonItem" image="baseline_refresh_black_24pt" id="r9U-zX-705">
@@ -131,16 +131,16 @@
             </objects>
             <point key="canvasLocation" x="2744.9275362318845" y="-572.54464285714278"/>
         </scene>
-        <!--Year Selection View Controller-->
+        <!--Select Year-->
         <scene sceneID="qca-2i-nh1">
             <objects>
-                <viewController id="ftA-FJ-lKn" customClass="YearSelectionViewController" customModule="ReadingQuantified" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="formSheet" id="ftA-FJ-lKn" customClass="YearSelectionViewController" customModule="ReadingQuantified" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="DFr-G3-Ddl">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="uwh-sW-b6d">
-                                <rect key="frame" x="0.0" y="88" width="375" height="641"/>
+                                <rect key="frame" x="0.0" y="88" width="375" height="690"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="YearCell" id="8iw-AD-G9m" customClass="YearCell" customModule="ReadingQuantified" customModuleProvider="target">
@@ -152,7 +152,7 @@
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Year" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CQ0-cg-A29">
                                                     <rect key="frame" x="15" y="11.333333333333336" width="345" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                     <color key="textColor" name="text_body"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -179,13 +179,21 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="wnd-VA-s90"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Select Year" id="NN1-l3-Ags">
+                        <barButtonItem key="leftBarButtonItem" image="baseline_close_black_24pt" id="bwe-qf-3r9">
+                            <connections>
+                                <action selector="closeButtonTapped:" destination="ftA-FJ-lKn" id="hii-du-0OG"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <value key="contentSizeForViewInPopover" type="size" width="300" height="242"/>
                     <connections>
                         <outlet property="tableView" destination="uwh-sW-b6d" id="QWM-a3-j18"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="geG-6t-TVb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3730" y="-573"/>
+            <point key="canvasLocation" x="4671.1999999999998" y="-573.39901477832518"/>
         </scene>
         <!--Dashboard-->
         <scene sceneID="Cw9-fu-h8d">
@@ -211,8 +219,29 @@
             </objects>
             <point key="canvasLocation" x="1834.7826086956522" y="-572.54464285714278"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="dCp-oA-pWP">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="41T-Tt-BFx" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Jgh-YK-2zn">
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" name="text_primary"/>
+                        <color key="barTintColor" name="bg_light"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="ftA-FJ-lKn" kind="relationship" relationship="rootViewController" id="fnN-Vd-BUv"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="icE-X9-0tO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3728.8000000000002" y="-573.39901477832518"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="baseline_close_black_24pt" width="24" height="24"/>
         <image name="baseline_insert_chart_black_24pt" width="24" height="24"/>
         <image name="baseline_refresh_black_24pt" width="24" height="24"/>
         <namedColor name="bg_light">
