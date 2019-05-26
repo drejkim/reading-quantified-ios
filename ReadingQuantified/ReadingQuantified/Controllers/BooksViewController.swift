@@ -107,11 +107,13 @@ class BooksViewController: UIViewController {
         
         // Use scope bar in conjunction with search
         Observable.combineLatest(searchController.searchBar.rx.selectedScopeButtonIndex,
-                                 searchController.searchBar.rx.text.orEmpty)
-            .subscribe(onNext: { [weak self] selectedScopeButtonIndex, query in
+                                 searchController.searchBar.rx.text.orEmpty,
+                                 viewModel.activeSortItemRelay)
+            .subscribe(onNext: { [weak self] selectedScopeButtonIndex, query, activeItem in
                 guard let strongSelf = self else { return }
                 
                 strongSelf.viewModel.filterBooks(by: query, selectedScopeButtonIndex: selectedScopeButtonIndex)
+                strongSelf.viewModel.sortBooks(using: activeItem)
             })
             .disposed(by: bag)
     }
