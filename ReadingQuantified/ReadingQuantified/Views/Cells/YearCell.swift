@@ -16,7 +16,22 @@ class YearCell: UITableViewCell {
     
     // MARK: - Functions
     
-    func configureCell(year: String) {
-        yearLabel.text = year
+    func configureCell(year: Year) {
+        yearLabel.text = year.value
+        
+        updateColor(for: year)
+    }
+    
+    // MARK: - Private Functions
+    
+    private func updateColor(for year: Year) {
+        if year.isActive {
+            self.backgroundColor = UIColor(named: "bg_primary")
+            yearLabel.textColor = UIColor(named: "text_white")
+        }
+        else {
+            self.backgroundColor = nil
+            yearLabel.textColor = UIColor(named: "text_muted")
+        }
     }
 }

@@ -71,7 +71,7 @@ class DashboardViewModel {
             .subscribe(onNext: { [weak self] year in
                 guard let strongSelf = self else { return }
                 
-                strongSelf.yearSelectedRelay.accept(year)
+                strongSelf.yearSelectedRelay.accept(year.value)
             })
             .disposed(by: bag)
     }
