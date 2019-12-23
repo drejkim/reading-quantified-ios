@@ -8,6 +8,21 @@ An iOS app for [Reading Quantified](https://esthermakes.tech/projects/reading-qu
 * [reading-quantified-server](https://github.com/drejkim/reading-quantified-server): A Django REST API server
 * [reading-quantified-trello](https://github.com/drejkim/reading-quantified-trello): A client that interfaces w/ the Trello & Reading Quantified APIs
 
+## Usage
+
+Install gems:
+
+```bash
+bundle install --path=.gems
+```
+
+Install pods:
+
+```bash
+cd ReadingQuantified
+bundle exec pod install
+```
+
 ## Implementation Overview
 
 This project is primarily a learning exercise in leveraging the latest frameworks & design patterns for creating iOS apps.
