@@ -8,7 +8,7 @@ target 'ReadingQuantified' do
   # Pods for ReadingQuantified
   pod 'Moya', '~> 12.0.1'
   pod 'Moya/RxSwift', '~> 12.0.1'
-  pod 'RealmSwift'
+  pod 'RealmSwift', '~> 3.20.0'
   pod 'RxCocoa'
   pod 'RxRealm'
   pod 'RxSwift'
