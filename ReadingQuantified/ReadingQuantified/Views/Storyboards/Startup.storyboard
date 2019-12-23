@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Ckb-iL-NWh">
-    <device id="ipad11_0rounded" orientation="landscape">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Ckb-iL-NWh">
+    <device id="ipad11_0rounded" orientation="landscape" layout="fullscreen" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -14,13 +12,13 @@
         <!--Splash Screen View Controller-->
         <scene sceneID="R44-f3-h6V">
             <objects>
-                <viewController id="Ckb-iL-NWh" customClass="SplashScreenViewController" customModule="ReadingQuantified" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="Ckb-iL-NWh" customClass="SplashScreenViewController" customModule="ReadingQuantified" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YWx-2j-UAi">
                         <rect key="frame" x="0.0" y="0.0" width="1194" height="834"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_border" translatesAutoresizingMaskIntoConstraints="NO" id="gwq-93-caf">
-                                <rect key="frame" x="549" y="369" width="96" height="96"/>
+                                <rect key="frame" x="501" y="321" width="192" height="192"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" name="bg_primary"/>
@@ -42,13 +40,13 @@
         <!--Login View Controller-->
         <scene sceneID="Gr5-f7-uj4">
             <objects>
-                <viewController id="TQh-Zh-6rT" customClass="LoginViewController" customModule="ReadingQuantified" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="TQh-Zh-6rT" customClass="LoginViewController" customModule="ReadingQuantified" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Le9-9m-u3T">
                         <rect key="frame" x="0.0" y="0.0" width="1194" height="834"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="dBV-Ni-7qu">
-                                <rect key="frame" x="12" y="60" width="1170" height="60"/>
+                                <rect key="frame" x="12" y="36" width="1170" height="60"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reading Quantified" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Ty-p7-uLJ">
                                         <rect key="frame" x="0.0" y="0.0" width="1170" height="60"/>
@@ -62,7 +60,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="BId-x9-8HX">
-                                <rect key="frame" x="240" y="156" width="714" height="240"/>
+                                <rect key="frame" x="240" y="132" width="714" height="240"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="LNY-uD-DJa">
                                         <rect key="frame" x="0.0" y="0.0" width="714" height="52"/>
