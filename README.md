@@ -1,5 +1,7 @@
 # reading-quantified-ios
 
+> NOTE: This project has been archived. A new, revamped app is in the works! See [esthers-books-ios](https://github.com/estherjk/esthers-books-ios).
+
 An iOS app for [Reading Quantified](https://esthermakes.tech/projects/reading-quantified/).
 
 ## Related Projects
